@@ -1,8 +1,8 @@
-<img src="docs/camya_TitleAndSlugField_github-header.jpg" />
+<img src="./docs/camya_TitleAndSlugField_github-header.jpg" />
 
 # TitleWithSlug - A Permalink Field for the Filament Form Builder
 
-This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs. 
+This [FilamentPHP](https://filamentphp.com/./docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs. 
 
 **Features**
 
@@ -22,7 +22,7 @@ TitleWithSlugInput::make(
 ),
 ```
 
-<img src="docs/camya_TitleAndSlugField_v1.0.0_demo.gif" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_demo.gif" width="600" />
 
 ## Support us
 
@@ -66,9 +66,9 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-01.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-02.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-03.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case01-01.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case01-02.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case01-03.png" width="600" />
 
 ### Example: Base path and title placeholder
 
@@ -88,9 +88,9 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-01.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-02.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-03.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case02-01.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case02-02.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case02-03.png" width="600" />
 
 
 ### Example: Title above text field & custom slug label
@@ -109,7 +109,7 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case03-01.png" width="600" />
+<img src="./docs/camya_TitleAndSlugField_v1.0.0_usage_case03-01.png" width="600" />
 
 ### Example: Generate route for View link
 
@@ -235,7 +235,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [camya - Andreas Scheibel](https://github.com/camya)
 
-This package was inspired by a filament pacakge by [awcodes](https://github.com/awcodes/filament-addons).
+This package was inspired by a filament-addons package by [awcodes](https://github.com/awcodes/filament-addons).
 
 ## License
 
