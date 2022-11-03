@@ -1,5 +1,12 @@
 <img src="./docs/camya_TitleAndSlugField_github-header.jpg" />
 
+1
+![Some Name](docs/camya_TitleAndSlugField_github-header.jpg)
+2
+![Some Name](./docs/camya_TitleAndSlugField_github-header.jpg)
+3
+![Some Name](/docs/camya_TitleAndSlugField_github-header.jpg)
+
 # TitleWithSlug - A Permalink Field for the Filament Form Builder
 
 This [FilamentPHP](https://filamentphp.com/./docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs. 
@@ -235,7 +242,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [camya - Andreas Scheibel](https://github.com/camya)
 
-This package was inspired by a filament-addons package by [awcodes](https://github.com/awcodes/filament-addons).
+This package was inspired by the filament-addons package by [awcodes](https://github.com/awcodes/filament-addons).
 
 ## License
 
