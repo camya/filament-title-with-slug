@@ -61,6 +61,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [**All available parameters**](#all-available-parameters)
 
 
+
 - [Change model fields names](#change-model-fields-names)
 - [Base path and title placeholder](#base-path-and-title-placeholder)
 - [Title above text field & custom slug label](#title-above-text-field--custom-slug-label)
@@ -69,6 +70,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [Custom slugifier](#custom-slugifier)
 - [Add additional validation rules](#add-additional-validation-rules)
 - [Custom error messages](#custom-error-messages)
+- [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title--and-slug-)
   
 
 
@@ -193,7 +195,35 @@ TitleWithSlugInput::make(
 ),
 ```
 
-> HINT: Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and the slug counterpart in order to set the "ignorable" correctly.
+### Custom unique validation rules for title (and slug)
+
+Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and the `slugRuleUniqueParameters` counterpart.
+
+This is needed in order to set  Filament's "ignorable" parameter correctly.
+
+```php
+TitleWithSlugInput::make(
+    titleRuleUniqueParameters: [
+        'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
+        'ignorable' => fn(?Model $record) => $record,
+    ],
+),
+```
+
+This array is inserted into the input field's `->unique(...[$slugRuleUniqueParameters])` method.
+
+Read Filament's documentation for the [Unique](https://filamentphp.com/docs/2.x/forms/validation#unique) method.
+
+Available array keys:
+
+```php 
+'ignorable' (Model | Closure)
+'callback' (?Closure)
+'ignoreRecord' (bool)
+'table' (string | Closure | null)  
+'column' (string | Closure | null) 
+```
+
 
 ### Custom error messages
 
@@ -201,8 +231,21 @@ You can customize the error messages in your EditModel and CreateModel filament 
 
 ```php
 protected $messages = [
-  'data.slug.regex' => 'Invalid Slug. Use chars (a-z), numbers (0-9), underscore (_), and the dash (-).',
+  'data.slug.regex' => 'Invalid Slug. Use only chars (a-z), numbers (0-9), and the dash (-).',
 ];
+```
+
+If you 
+
+```php
+TitleWithSlugInput::make(
+    titleRules: [
+        'required',
+        'string',
+        'min:3',
+        'max:12',
+    ],
+)
 ```
 
 
