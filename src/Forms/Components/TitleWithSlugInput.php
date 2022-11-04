@@ -21,7 +21,8 @@ class TitleWithSlugInput
         string|Closure $basePath = '/',
         string|Closure|null $baseHost = null,
         bool $showHost = true,
-        null|Closure $previewRoute = null,
+        null|Closure $visitLinkRoute = null,
+        null|Closure|string $visitLinkLabel = null,
 
         // Title
         string|Closure|null $titleLabel = null,
@@ -46,6 +47,7 @@ class TitleWithSlugInput
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
 
     ): Group {
+
         $titleField = $titleField ?? config('filament-title-with-slug.title_field');
         $slugField = $slugField ?? config('filament-title-with-slug.slug_field');
 
@@ -57,7 +59,7 @@ class TitleWithSlugInput
             ->disableAutocomplete()
             ->rules($titleRules)
             ->extraInputAttributes(['class' => $titleClass ?: 'text-xl font-semibold'])
-            ->beforeStateDehydrated(fn (TextInput $component, $state) => $component->state(trim($state)))
+            ->beforeStateDehydrated(fn(TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
 
                 function ($state, Closure $set, Closure $get, string $context) use ($slugSlugifier, $slugField) {
@@ -75,7 +77,7 @@ class TitleWithSlugInput
             );
 
         if ($titlePlaceholder !== '') {
-            $textInput->placeholder($titlePlaceholder ?: fn () => Str::of($titleField)->title());
+            $textInput->placeholder($titlePlaceholder ?: fn() => Str::of($titleField)->title());
         }
 
         if (! $titleLabel) {
@@ -91,13 +93,14 @@ class TitleWithSlugInput
         }
 
         $slugInput = SlugInput::make($slugField)
-            ->previewLinkRoute($previewRoute)
+            ->visitLinkRoute($visitLinkRoute)
+            ->visitLinkLabel($visitLinkLabel)
             ->readonly($slugReadonly)
             ->required()
             ->reactive()
             ->disableAutocomplete()
-            ->mode(fn ($context) => $context === 'create' ? 'create' : 'edit')
-            ->recordSlug(fn (?Model $record) => $record?->$slugField)
+            ->mode(fn($context) => $context === 'create' ? 'create' : 'edit')
+            ->recordSlug(fn(?Model $record) => $record?->$slugField)
             ->disableLabel()
             ->labelPrefix($slugLabel)
             ->titleField($titleField)
@@ -106,7 +109,7 @@ class TitleWithSlugInput
             ->showUrl($showHost)
             ->regex($slugRuleRegex)
             ->rules($slugRules)
-            ->unique(ignorable: fn (?Model $record) => $record)
+            ->unique(ignorable: fn(?Model $record) => $record)
             ->afterStateUpdated(
 
                 function ($state, Closure $set, Closure $get) use ($slugSlugifier, $titleField, $slugField) {
@@ -123,7 +126,7 @@ class TitleWithSlugInput
 
         $slugRuleUniqueParameters
             ? $slugInput->unique(...$slugRuleUniqueParameters)
-            : $slugInput->unique(ignorable: fn (?Model $record) => $record);
+            : $slugInput->unique(ignorable: fn(?Model $record) => $record);
 
         $hiddenInputSlugAutoUpdateDisabled = Hidden::make('slug_auto_update_disabled')
             ->dehydrated(false);

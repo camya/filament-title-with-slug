@@ -28,18 +28,33 @@ class SlugInput extends TextInput
 
     protected string $labelPrefix;
 
-    protected Closure|null $previewLinkRoute = null;
+    protected Closure|null $visitLinkRoute = null;
 
-    public function previewLinkRoute(Closure|null $previewLinkRoute): static
+    protected string|Closure|null $visitLinkLabel = null;
+
+
+    public function visitLinkRoute(Closure|null $visitLinkRoute): static
     {
-        $this->previewLinkRoute = $previewLinkRoute;
+        $this->visitLinkRoute = $visitLinkRoute;
 
         return $this;
     }
 
-    public function getPreviewLinkRoute(): string|null
+    public function getVisitLinkRoute(): string|null
     {
-        return $this->evaluate($this->previewLinkRoute);
+        return $this->evaluate($this->visitLinkRoute);
+    }
+
+    public function visitLinkLabel(string|Closure|null $visitLinkLabel): static
+    {
+        $this->visitLinkLabel = $visitLinkLabel ?? trans('filament-title-with-slug::package.permalink_label_link_visit');
+
+        return $this;
+    }
+
+    public function getVisitLinkLabel(): string
+    {
+        return $this->evaluate($this->visitLinkLabel);
     }
 
     public function labelPrefix(string|null $labelPrefix): static
@@ -103,10 +118,10 @@ class SlugInput extends TextInput
             return null;
         }
 
-        $previewLinkRoute = $this->getPreviewLinkRoute();
+        $visitLinkRoute = $this->getVisitLinkRoute();
 
-        return $previewLinkRoute
-            ? $this->getPreviewLinkRoute()
+        return $visitLinkRoute
+            ? $this->getVisitLinkRoute()
             : $this->getBaseUrl().$this->getBasePath().$this->evaluate($this->recordSlug);
     }
 

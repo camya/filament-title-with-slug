@@ -90,7 +90,7 @@
                     "
                 >
 
-                    <span>{{ trans('filament-title-with-slug::package.permalink_link_visit') }}</span>
+                    <span>{{ $getVisitLinkLabel() }}</span>
 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +133,7 @@
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
                         "
+                        :class="modified ? 'bg-yellow-100' : ''"
                     >
                         <span>&shy;{{ $getState() }}</span>
 
@@ -179,25 +180,29 @@
 
                     <input
                         type="hidden"
-                        {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
+                    {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
                     />
 
                 </div>
 
                 <div
                     x-show="editing"
-                    class="flex space-x-4"
+                    class="flex space-x-2"
                     style="display: none;"
                 >
 
-                    <x-filament::button
-                        x-ref="updateButton"
-                        color="gray"
-                        x-on:click="submitModification()"
-                        title="{{ trans('filament-title-with-slug::package.permalink_action_update') }}"
+                    <button
+                        x-on:click.prevent="submitModification()"
+                        class="
+                            filament-link
+                            p-2 cursor-pointer text-sm text-primary-600
+                            hover:underline hover:text-primary-500
+                            focus:outline-none focus:underline
+                            dark:text-primary-500 dark:hover:text-primary-400
+                        "
                     >
                         {{ trans('filament-title-with-slug::package.permalink_action_update') }}
-                    </x-filament::button>
+                    </button>
 
                     <x-filament::link
                         x-show="mode === 'edit' && state !== statePersisted"
@@ -229,11 +234,6 @@
                     class="flex items-center space-x-2"
                 >
 
-                <span
-                    x-show="!editing && modified"
-                    class="text-sm text-success-600"
-                >{{ trans('filament-title-with-slug::package.permalink_status_edited') }}</span>
-
                 <template x-if="!editing">
 
                     <a
@@ -246,8 +246,8 @@
                         <span
                             x-text="
                             modified
-                                ? '{{ trans('filament-title-with-slug::package.permalink_link_visit_current') }}'
-                                : '{{ trans('filament-title-with-slug::package.permalink_link_visit') }}'
+                                ? '{{ $getVisitLinkLabel() }} {{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'
+                                : '{{ $getVisitLinkLabel() }}'
                             "
                         ></span>
 

@@ -4,15 +4,6 @@
 
 This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs. 
 
-**Features**
-
-- Add the Field and all features are available.
-- Slug automatically generates from title (if not manually updated).
-- Empty slug regenerates from current title.
-- Shows view link to visit persisted url. 
-- Undo slug modification.
-- Read only mode.
-
 This plugin is inspired by the classic WordPress title & slug implementation.
 
 ```php
@@ -22,11 +13,21 @@ TitleWithSlugInput::make(
 ),
 ```
 
+**Features**
+
+- Slug is auto generated from title, if not manually updated already.
+- Update empty slug to re-generated from title.
+- "View" link to visit the generated Url.
+- Undo edited slug.
+- Fully configurable, see "All available parameters".
+
 <img src="docs/camya_TitleAndSlugField_v1.0.0_demo.gif" width="600" />
 
 ## Support us
 
 You can support our work by [donations](https://www.camya.com).
+
+<img src="docs/camya_TitleAndSlugField_v1.0.0_teaser.png" width="600" />
 
 ## Installation
 
