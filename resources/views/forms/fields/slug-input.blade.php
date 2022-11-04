@@ -183,10 +183,7 @@
                         {{ $getExtraInputAttributeBag()->class(['block w-full transition duration-75 rounded-lg shadow-sm focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600 disabled:opacity-70', 'dark:bg-gray-700 dark:text-white' => config('forms.dark_mode'), 'border-gray-300' => !$errors->has($getStatePath()), 'dark:border-gray-600' => !$errors->has($getStatePath()) && config('forms.dark_mode'), 'border-danger-600 ring-danger-600' => $errors->has($getStatePath())]) }}
                     />
 
-                    <input
-                        type="hidden"
-                    {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
-                    />
+                    <input type="hidden" {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}" />
 
                 </div>
 
@@ -196,7 +193,8 @@
                     style="display: none;"
                 >
 
-                    <button
+                    <a
+                        href="#"
                         x-on:click.prevent="submitModification()"
                         class="
                             filament-link
@@ -207,7 +205,7 @@
                         "
                     >
                         {{ trans('filament-title-with-slug::package.permalink_action_update') }}
-                    </button>
+                    </a>
 
                     <x-filament::link
                         x-show="context === 'edit' && state !== statePersisted"
@@ -252,12 +250,12 @@
 
 
 {{--                        <span--}}
-{{--                            x-text="--}}
-{{--                            modified--}}
-{{--                                ? '{{ $getVisitLinkLabel() }}@if($getVisitLinkLabel()) - @endif{{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'--}}
-{{--                                : '{{ $getVisitLinkLabel() }}'--}}
-{{--                            "--}}
-{{--                        ></span>--}}
+                        {{--                            x-text="--}}
+                        {{--                            modified--}}
+                        {{--                                ? '{{ $getVisitLinkLabel() }}@if($getVisitLinkLabel()) - @endif{{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'--}}
+                        {{--                                : '{{ $getVisitLinkLabel() }}'--}}
+                        {{--                            "--}}
+                        {{--                        ></span>--}}
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
