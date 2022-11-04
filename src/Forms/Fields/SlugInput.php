@@ -45,7 +45,7 @@ class SlugInput extends TextInput
         return $this->evaluate($this->slugInputModelName);
     }
 
-    public function visitLinkRoute(Closure|null $visitLinkRoute): static
+    public function slugInputVisitLinkRoute(Closure|null $visitLinkRoute): static
     {
         $this->visitLinkRoute = $visitLinkRoute;
 
@@ -57,7 +57,7 @@ class SlugInput extends TextInput
         return $this->evaluate($this->visitLinkRoute);
     }
 
-    public function visitLinkLabel(string|Closure|null $visitLinkLabel): static
+    public function slugInputVisitLinkLabel(string|Closure|null $visitLinkLabel): static
     {
 //        $this->visitLinkLabel = $visitLinkLabel ?? trans('filament-title-with-slug::package.permalink_label_link_visit');
         $this->visitLinkLabel = $visitLinkLabel;
@@ -78,7 +78,7 @@ class SlugInput extends TextInput
 //        return $this->evaluate($this->visitLinkLabel) . ' ' . $this->getSlugInputModelName();
     }
 
-    public function labelPrefix(string|null $labelPrefix): static
+    public function slugInputLabelPrefix(string|null $labelPrefix): static
     {
         $this->labelPrefix = $labelPrefix ?? trans('filament-title-with-slug::package.permalink_label');
 
@@ -102,14 +102,14 @@ class SlugInput extends TextInput
         return $this->evaluate($this->readonly);
     }
 
-    public function mode(string|Closure|null $mode): static
+    public function slugInputMode(string|Closure|null $mode): static
     {
         $this->mode = $mode;
 
         return $this;
     }
 
-    public function recordSlug(Closure $recordSlug)
+    public function slugInputRecordSlug(Closure $recordSlug)
     {
         $this->recordSlug = $recordSlug;
 
@@ -121,7 +121,7 @@ class SlugInput extends TextInput
         return $this->evaluate($this->recordSlug);
     }
 
-    public function titleField(string $titleField): static
+    public function slugInputTitleField(string $titleField): static
     {
         $this->titleField = $titleField;
 
@@ -146,14 +146,14 @@ class SlugInput extends TextInput
             : $this->getBaseUrl().$this->getBasePath().$this->evaluate($this->recordSlug);
     }
 
-    public function basePath(string|Closure $path): static
+    public function slugInputBasePath(string|Closure $path): static
     {
         $this->basePath = $path ?: $this->basePath;
 
         return $this;
     }
 
-    public function baseUrl(string|Closure|null $url): static
+    public function slugInputBaseUrl(string|Closure|null $url): static
     {
         $this->baseUrl = $url ?: config('app.url');
 
@@ -165,7 +165,7 @@ class SlugInput extends TextInput
         return Str::of($this->evaluate($this->baseUrl))->rtrim('/');
     }
 
-    public function showUrl(bool $showUrl): static
+    public function slugInputShowUrl(bool $showUrl): static
     {
         $this->showUrl = $showUrl;
 

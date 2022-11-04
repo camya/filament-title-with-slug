@@ -68,7 +68,6 @@
         }"
         x-on:submit.document="modified = false"
     >
-{{--        {{ $getSlugInputModelName() }}--}}
 
         <div
             {{ $attributes->merge($getExtraAttributes())->class(['flex mx-1 items-center justify-between group text-sm filament-forms-text-input-component']) }}

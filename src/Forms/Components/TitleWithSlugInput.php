@@ -51,6 +51,8 @@ class TitleWithSlugInput
         $titleField = $titleField ?? config('filament-title-with-slug.title_field');
         $slugField = $slugField ?? config('filament-title-with-slug.slug_field');
 
+        /** Input: "Title" */
+
         $textInput = TextInput::make($titleField)
             ->disabled($titleReadonly)
             ->autofocus()
@@ -92,22 +94,28 @@ class TitleWithSlugInput
             $textInput->unique(...$titleRuleUniqueParameters);
         }
 
+        /** Input: "Slug" (+ view) */
+
         $slugInput = SlugInput::make($slugField)
-            ->visitLinkRoute($visitLinkRoute)
-            ->visitLinkLabel($visitLinkLabel)
+
+            // Custom SlugInput methods
+            ->slugInputVisitLinkRoute($visitLinkRoute)
+            ->slugInputVisitLinkLabel($visitLinkLabel)
+            ->slugInputMode(fn($context) => $context === 'create' ? 'create' : 'edit')
+            ->slugInputRecordSlug(fn(?Model $record) => $record?->$slugField)
+            ->slugInputModelName(fn(?Model $record) => Str::of(class_basename($record))->title())
+            ->slugInputLabelPrefix($slugLabel)
+            ->slugInputTitleField($titleField)
+            ->slugInputBasePath($basePath)
+            ->slugInputBaseUrl($baseHost)
+            ->slugInputShowUrl($showHost)
+
+            // Default TextInput methods
             ->readonly($slugReadonly)
             ->required()
             ->reactive()
             ->disableAutocomplete()
-            ->mode(fn($context) => $context === 'create' ? 'create' : 'edit')
-            ->recordSlug(fn(?Model $record) => $record?->$slugField)
-            ->slugInputModelName(fn(?Model $record) => Str::of(class_basename($record))->title())
             ->disableLabel()
-            ->labelPrefix($slugLabel)
-            ->titleField($titleField)
-            ->basePath($basePath)
-            ->baseUrl($baseHost)
-            ->showUrl($showHost)
             ->regex($slugRuleRegex)
             ->rules($slugRules)
             ->unique(ignorable: fn(?Model $record) => $record)
@@ -129,8 +137,12 @@ class TitleWithSlugInput
             ? $slugInput->unique(...$slugRuleUniqueParameters)
             : $slugInput->unique(ignorable: fn(?Model $record) => $record);
 
+        /** Input: "Slug Auto Update Disabled" (Hidden) */
+
         $hiddenInputSlugAutoUpdateDisabled = Hidden::make('slug_auto_update_disabled')
             ->dehydrated(false);
+
+        /** Group */
 
         return Group::make()
             ->schema([
@@ -140,7 +152,7 @@ class TitleWithSlugInput
             ]);
     }
 
-    /** TitleWithSlug::make(slugifier: fn($string) => Str::slug($string.' - category')) */
+    /** Fallback slugifier, over-writable with slugSlugifier parameter. */
     protected static function slugify(Closure|null $slugifier, string|null $text): string
     {
         if (! trim($text)) {
