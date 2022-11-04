@@ -205,8 +205,13 @@ protected $messages = [
 
 You can call TitleWithSlugInput without parameters and it will work and use its default values.
 
+In order to set parameters, you use [PHP8's Named Arguments](https://laravel-news.com/modern-php-features-explained) syntax.
+
 ```php
-TitleWithSlugInput::make();
+TitleWithSlugInput::make(
+    titleField: 'title',
+    slugField: 'slug',
+);
 ```
 
 Below is an example with some defaults overridden.
