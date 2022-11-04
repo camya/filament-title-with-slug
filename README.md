@@ -111,6 +111,23 @@ The output looks like this:
 
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case03-01.png" width="600" />
 
+### Example: Add extra validation rules for title or slug
+
+You can add additional validation rules by passing in the variables `titleRules` or `slugRules`. 
+
+```php
+TitleWithSlugInput::make(
+    titleRules: [
+        'required',
+        'string',
+        'min:3',
+        'max:12',
+    ],
+)
+```
+
+You can also [customize the error messages](#custom-error-messages).
+
 ### Example: Generate route for View link
 
 This package displays a "view" link for persisted slugs. By default it simply concatenates the strings host + path + slug.
