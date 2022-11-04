@@ -27,6 +27,8 @@
 
                 this.editing = true;
 
+                $nextTick(() => $refs.slugInput.focus());
+
             },
             submitModification: function() {
 
@@ -66,6 +68,7 @@
         }"
         x-on:submit.document="modified = false"
     >
+{{--        {{ $getSlugInputModelName() }}--}}
 
         <div
             {{ $attributes->merge($getExtraAttributes())->class(['flex mx-1 items-center justify-between group text-sm filament-forms-text-input-component']) }}
@@ -121,6 +124,7 @@
                     ></span>
 
                     <a
+
                         href="#"
                         type="button"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_edit') }}"
@@ -133,7 +137,7 @@
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
                         "
-                        :class="modified && mode !== 'create' ? 'text-gray-600 bg-yellow-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
+                        :class="modified && mode !== 'create' ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
                         <span class="mr-1">&shy;{{ $getState() }}</span>
 
@@ -167,6 +171,7 @@
 
                     <input
                         type="text"
+                        x-ref="slugInput"
                         x-model="stateInitial"
                         x-bind:disabled="!editing"
                         x-on:keydown.enter="submitModification()"
@@ -246,7 +251,7 @@
                         <span
                             x-text="
                             modified
-                                ? '{{ $getVisitLinkLabel() }} {{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'
+                                ? '{{ $getVisitLinkLabel() }}@if($getVisitLinkLabel()) - @endif{{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'
                                 : '{{ $getVisitLinkLabel() }}'
                             "
                         ></span>

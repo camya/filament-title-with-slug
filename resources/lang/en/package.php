@@ -7,5 +7,5 @@ return [
     'permalink_action_reset' => 'Reset',
     'permalink_action_cancel' => 'Cancel',
     'permalink_label_link_visit' => 'Visit',
-    'permalink_label_link_visit_current' => '- stored',
+    'permalink_label_link_visit_current' => 'stored',
 ];

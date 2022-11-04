@@ -32,6 +32,18 @@ class SlugInput extends TextInput
 
     protected string|Closure|null $visitLinkLabel = null;
 
+    protected Closure|null $slugInputModelName = null;
+
+    public function slugInputModelName(Closure|null $slugInputModelName): static
+    {
+        $this->slugInputModelName = $slugInputModelName;
+        return $this;
+    }
+
+    public function getSlugInputModelName(): string|null
+    {
+        return $this->evaluate($this->slugInputModelName);
+    }
 
     public function visitLinkRoute(Closure|null $visitLinkRoute): static
     {
@@ -47,14 +59,23 @@ class SlugInput extends TextInput
 
     public function visitLinkLabel(string|Closure|null $visitLinkLabel): static
     {
-        $this->visitLinkLabel = $visitLinkLabel ?? trans('filament-title-with-slug::package.permalink_label_link_visit');
+//        $this->visitLinkLabel = $visitLinkLabel ?? trans('filament-title-with-slug::package.permalink_label_link_visit');
+        $this->visitLinkLabel = $visitLinkLabel;
 
         return $this;
     }
 
     public function getVisitLinkLabel(): string
     {
-        return $this->evaluate($this->visitLinkLabel);
+        $label = $this->evaluate($this->visitLinkLabel);
+
+        if($label === '') {
+            return '';
+        }
+
+        return $label ?: trans('filament-title-with-slug::package.permalink_label_link_visit').' '.$this->getSlugInputModelName();
+
+//        return $this->evaluate($this->visitLinkLabel) . ' ' . $this->getSlugInputModelName();
     }
 
     public function labelPrefix(string|null $labelPrefix): static

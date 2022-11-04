@@ -101,6 +101,7 @@ class TitleWithSlugInput
             ->disableAutocomplete()
             ->mode(fn($context) => $context === 'create' ? 'create' : 'edit')
             ->recordSlug(fn(?Model $record) => $record?->$slugField)
+            ->slugInputModelName(fn(?Model $record) => Str::of(class_basename($record))->title())
             ->disableLabel()
             ->labelPrefix($slugLabel)
             ->titleField($titleField)
