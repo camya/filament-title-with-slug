@@ -1,6 +1,6 @@
 <img src="docs/camya_TitleAndSlugField_github-header.jpg" />
 
-# TitleWithSlugInput - Permalinks for the Filament Form Builder
+# TitleWithSlugInput - Easy Permalink Slugs for the Filament Form Builder
 
 This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs.
 
@@ -20,6 +20,8 @@ TitleWithSlugInput::make(
 - "View" link to visit the generated url.
 - Undo the edited slug.
 - Fully configurable, see "All available parameters".
+
+TallStack: FilamentPHP is based on Laravel, Livewire, AlpineJS, and TailwindCSS.
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
