@@ -23,7 +23,7 @@ TitleWithSlugInput::make(
 
 **Demo Video**
 
-[![Video](docs/camya_TitleAndSlugField_v1.0.0_video_placeholder.png)](docs/camya_TitleAndSlugField_v1.0.0_video.mp4)
+[![Video](docs/camya_TitleAndSlugField_v1.0.0_video_placeholder.png)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
 
 ## Support us
 
