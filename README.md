@@ -21,7 +21,9 @@ TitleWithSlugInput::make(
 - Undo edited slug.
 - Fully configurable, see "All available parameters".
 
-<video src="docs/camya_TitleAndSlugField_v1.0.0_demo.mp4"></video>
+**Demo Video**
+
+[![Video](docs/camya_TitleAndSlugField_v1.0.0_video_placeholder.png)](docs/camya_TitleAndSlugField_v1.0.0_video.mp4)
 
 ## Support us
 
