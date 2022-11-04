@@ -133,14 +133,14 @@
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
                         "
-                        :class="modified ? 'bg-yellow-100' : ''"
+                        :class="modified && mode !== 'create' ? 'text-gray-500 bg-yellow-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
-                        <span>&shy;{{ $getState() }}</span>
+                        <span class="mr-1">&shy;{{ $getState() }}</span>
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="
-                                ml-1 h-4 w-4
+                                h-4 w-4
                                 text-primary-600 dark:text-primary-500
                             "
                             fill="none"
