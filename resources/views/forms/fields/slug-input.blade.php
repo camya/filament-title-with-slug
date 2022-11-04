@@ -133,7 +133,7 @@
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
                         "
-                        :class="modified && mode !== 'create' ? 'text-gray-500 bg-yellow-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
+                        :class="modified && mode !== 'create' ? 'text-gray-600 bg-yellow-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
                         <span class="mr-1">&shy;{{ $getState() }}</span>
 
