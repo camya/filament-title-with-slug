@@ -11,7 +11,7 @@
 >
     <div
         x-data="{
-            mode: '{{ $getMode() }}', // edit or create
+            context: '{{ $getContext() }}', // edit or create
             state: $wire.entangle('{{ $getStatePath() }}'), // current slug value
             statePersisted: '', // slug value received from db
             stateInitial: '', // slug value before modification
@@ -27,7 +27,8 @@
 
                 this.editing = true;
 
-                $nextTick(() => $refs.slugInput.focus());
+                setTimeout(() => $refs.slugInput.focus(), 75);
+                {{--$nextTick(() => $refs.slugInput.focus());--}}
 
             },
             submitModification: function() {
@@ -123,7 +124,6 @@
                     ></span>
 
                     <a
-
                         href="#"
                         type="button"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_edit') }}"
@@ -136,7 +136,7 @@
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
                         "
-                        :class="modified && mode !== 'create' ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
+                        :class="modified && context !== 'create' ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
                         <span class="mr-1">&shy;{{ $getState() }}</span>
 
@@ -157,8 +157,9 @@
                               d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                           />
                         </svg>
-
                     </a>
+
+                    <span x-show="context !== 'create' && modified"> [{{ trans('filament-title-with-slug::package.permalink_status_changed') }}]</span>
 
                 </span>
 
@@ -209,7 +210,7 @@
                     </button>
 
                     <x-filament::link
-                        x-show="mode === 'edit' && state !== statePersisted"
+                        x-show="context === 'edit' && state !== statePersisted"
                         x-on:click="resetModification()"
                         class="cursor-pointer ml-4"
                         icon="heroicon-o-refresh"
@@ -234,7 +235,7 @@
                 </div>
 
                 <span
-                    x-show="mode === 'edit'"
+                    x-show="context === 'edit'"
                     class="flex items-center space-x-2"
                 >
 
@@ -247,13 +248,16 @@
                         class="filament-link inline-flex items-center justify-center space-x-1 hover:underline focus:outline-none focus:underline text-sm text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 cursor-pointer"
                     >
 
-                        <span
-                            x-text="
-                            modified
-                                ? '{{ $getVisitLinkLabel() }}@if($getVisitLinkLabel()) - @endif{{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'
-                                : '{{ $getVisitLinkLabel() }}'
-                            "
-                        ></span>
+                        <span>{{ $getVisitLinkLabel() }}</span>
+
+
+{{--                        <span--}}
+{{--                            x-text="--}}
+{{--                            modified--}}
+{{--                                ? '{{ $getVisitLinkLabel() }}@if($getVisitLinkLabel()) - @endif{{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'--}}
+{{--                                : '{{ $getVisitLinkLabel() }}'--}}
+{{--                            "--}}
+{{--                        ></span>--}}
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

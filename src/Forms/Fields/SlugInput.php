@@ -10,7 +10,7 @@ class SlugInput extends TextInput
 {
     protected string $view = 'filament-title-with-slug::forms.fields.slug-input';
 
-    protected string|Closure|null $mode = null;
+    protected string|Closure|null $context = null;
 
     protected string|Closure $basePath = '/';
 
@@ -102,11 +102,16 @@ class SlugInput extends TextInput
         return $this->evaluate($this->readonly);
     }
 
-    public function slugInputMode(string|Closure|null $mode): static
+    public function slugInputContext(string|Closure|null $context): static
     {
-        $this->mode = $mode;
+        $this->context = $context;
 
         return $this;
+    }
+
+    public function getContext(): ?string
+    {
+        return $this->evaluate($this->context);
     }
 
     public function slugInputRecordSlug(Closure $recordSlug)
@@ -175,11 +180,6 @@ class SlugInput extends TextInput
     public function getShowUrl(): ?bool
     {
         return $this->showUrl;
-    }
-
-    public function getMode(): ?string
-    {
-        return $this->evaluate($this->mode);
     }
 
     public function getFullBaseUrl(): ?string

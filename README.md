@@ -2,23 +2,23 @@
 
 # TitleWithSlug - Permalink Input for Filament Form Builder
 
-This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs. 
+This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs.
 
 This plugin is inspired by the classic WordPress title & slug implementation.
 
 ```php
 TitleWithSlugInput::make(
-    titleField: 'title', // Your model's field name which stores the title
-    slugField: 'slug', // Your model's field name which stores the slug
+    titleField: 'title', // The name of the field in your model that stores the title.
+    slugField: 'slug', // The name of the field in your model that will store the slug
 ),
 ```
 
 **Features**
 
-- Slug is auto generated from title, if not manually updated already.
-- Update empty slug to re-generated from title.
-- "View" link to visit the generated Url.
-- Undo edited slug.
+- The slug is automatically generated from the title if it has not already been manually updated.
+- Update empty slug to regenerate it from the title.
+- "View" link to visit the generated url.
+- Undo the edited slug.
 - Fully configurable, see "All available parameters".
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
@@ -27,7 +27,7 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs
 
 ## Support us
 
-You can support our work by [donations](https://www.camya.com).
+You can support my work with [donations](https://www.camya.com).
 
 ## Installation
 
@@ -55,8 +55,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 
 The package assumes, that you model fields are named `title` and `slug`.
 
-You can easily change them with the following parameters.
-
+You can easily change them according to your needs.
 
 ```php
 TitleWithSlugInput::make(
@@ -75,7 +74,7 @@ The output looks like this:
 
 Here we hide the hostname and add the base path `/blog/`.
 
-Additionally, we change the placeholder text. 
+We also change the placeholder text.
 
 ```php
 TitleWithSlugInput::make(
@@ -96,9 +95,9 @@ The output looks like this:
 
 ### Example: Title above text field & custom slug label
 
-The package automatically inserts a placeholder for the title. If you want to show the regular label above the text field instead, you can configure it.
+The package automatically inserts a placeholder for the title. If you want to display the regular caption above the text box instead, you can configure it.
 
-Also you can set the label for the slug.
+You can also specify the caption for the slug.
 
 ```php
 TitleWithSlugInput::make(
@@ -114,23 +113,23 @@ The output looks like this:
 
 ### Example: Generate route for View link
 
-This package shows a "View" link for persisted slugs. By default, it simpy concatenates the strings of host + path + slug.
+This package displays a "view" link for persisted slugs. By default it simply concatenates the strings host + path + slug.
 
-If you want use a `route()` instead, you can configure it like shown below.
+If you want to use a "route()" instead, you can configure it as shown below.
 
 ```php
 TitleWithSlugInput::make(
-    previewRoute: fn(?Model $record) => $record?->slug
-        ? route('product', ['slug' => $record->slug, 'extra' => true])
+    visitLinkRoute: fn(?Model $record) => $record?->slug
+        ? route('post.show', ['slug' => $record->slug])
         : null,
 ),
 ```
 
 ### Example: Custom slugifier
 
-This packages uses Laravel's slugifier, `Str::slug()`, but it's possible, to replace it with your own one.
+This package uses Laravel's slugifier, `Str::slug()`, but it is possible to replace it with one of your own.
 
-The following generates a slug only with the characters a-z and validates them with a regex.
+The following generates a slug with only the characters a-z and validates them with a regex.
 
 ```php
 TitleWithSlugInput::make(
@@ -139,13 +138,13 @@ TitleWithSlugInput::make(
 ),
 ```
 
-Hint: You can customize the validation error, see "Custom error messages".
+Note: You can customize the validation error, see "Custom error messages".
 
 ### Example: Add additional validation rules
 
-By default, this package applies the rules `['required','string']` for both, title and slug.
+By default, this package applies the `['required','string']` validation rules to both title and slug.
 
-Additionally a unique validation rule is applied to the slug field. (See hint below)
+In addition, a unique validation rule is applied to the slug field automatically. (See note below)
 
 ```php
 TitleWithSlugInput::make(
@@ -161,13 +160,13 @@ TitleWithSlugInput::make(
 
 ## All available parameters
 
-You can call TitleWithSlugInput without any parameters, and it will work and use it's default values.
+You can call TitleWithSlugInput without parameters and it will work and use its default values.
 
 ```php
 TitleWithSlugInput::make();
 ```
 
-Below an example with some overwritten defaults.
+Below is an example with some defaults overridden.
 
 ```php
 TitleWithSlugInput::make(
@@ -176,10 +175,11 @@ TitleWithSlugInput::make(
     slugField: 'slug',
 
     // Url
-    basePath: '/',
-    baseHost: fn() => 'https://www.camya.com',
+    basePath: '/blog/',
+    baseHost: 'https://www.camya.com',
     showHost: true,
-    previewRoute: fn(?Model $record) => $record?->slug
+    visitLinkLabel: 'View',
+    visitLinkRoute: fn(?Model $record) => $record?->slug
         ? route('post.show', ['slug' => $record->slug])
         : null,
 
@@ -207,16 +207,16 @@ TitleWithSlugInput::make(
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    slugRuleRegex: '/^[a-z0-9\-\_]*$/',
     slugReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
     slugSlugifier: fn($string) => Str::slug($string),
+    slugRuleRegex: '/^[a-z0-9\-\_]*$/',
 
 )->columnSpan('full'),
 ```
 
 ## Custom error messages
 
-You can customize error messages in your Filament "EditModel" and "CreateModel" resources by adding the member variable $messages.
+You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
 
 ```php
 protected $messages = [
@@ -236,7 +236,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [camya - Andreas Scheibel](https://github.com/camya)
 
-This package was inspired by the filament-addons package by [awcodes](https://github.com/awcodes/filament-addons).
+This package was inspired by [awcodes'](https://github.com/awcodes/filament-addons) filament-addons package.
 
 ## License
 

@@ -21,8 +21,8 @@ class TitleWithSlugInput
         string|Closure $basePath = '/',
         string|Closure|null $baseHost = null,
         bool $showHost = true,
-        null|Closure $visitLinkRoute = null,
         null|Closure|string $visitLinkLabel = null,
+        null|Closure $visitLinkRoute = null,
 
         // Title
         string|Closure|null $titleLabel = null,
@@ -101,7 +101,7 @@ class TitleWithSlugInput
             // Custom SlugInput methods
             ->slugInputVisitLinkRoute($visitLinkRoute)
             ->slugInputVisitLinkLabel($visitLinkLabel)
-            ->slugInputMode(fn($context) => $context === 'create' ? 'create' : 'edit')
+            ->slugInputContext(fn($context) => $context === 'create' ? 'create' : 'edit')
             ->slugInputRecordSlug(fn(?Model $record) => $record?->$slugField)
             ->slugInputModelName(fn(?Model $record) => Str::of(class_basename($record))->title())
             ->slugInputLabelPrefix($slugLabel)
