@@ -70,7 +70,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [Custom slugifier](#custom-slugifier)
 - [Add additional validation rules](#add-additional-validation-rules)
 - [Custom error messages](#custom-error-messages)
-- [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title--and-slug-)
+- [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
   
 
 
