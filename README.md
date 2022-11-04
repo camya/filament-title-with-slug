@@ -17,11 +17,16 @@ TitleWithSlugInput::make(
 
 - The slug is automatically generated from the title if it has not already been manually updated.
 - Update empty slug to regenerate it from the title.
-- "View" link to visit the generated url.
+- "View" link to visit the generated URL.
 - Undo the edited slug.
 - Fully configurable, see "All available parameters".
 
-TallStack: FilamentPHP is based on Laravel, Livewire, AlpineJS, and TailwindCSS.
+Tall Stack: FilamentPHP is based on 
+[Laravel](https://laravel.com/),
+[Livewire](https://laravel-livewire.com/), 
+[AlpineJS](https://alpinejs.dev/), 
+and 
+[TailwindCSS](https://tailwindcss.com/).
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
@@ -146,7 +151,7 @@ You can also [customize the error messages](#custom-error-messages).
 
 ### Generate route for "Visit" link
 
-This package displays a "view" link for persisted slugs. By default it simply concatenates the strings host + path + slug.
+This package displays a "view" link for persisted slugs. By default, it simply concatenates the strings host + path + slug.
 
 If you want to use a "route()" instead, you can configure it as shown below.
 
@@ -203,7 +208,7 @@ protected $messages = [
 
 ### All available parameters
 
-You can call TitleWithSlugInput without parameters and it will work and use its default values.
+You can call TitleWithSlugInput without parameters, and it will work and use its default values.
 
 In order to set parameters, you use [PHP8's Named Arguments](https://laravel-news.com/modern-php-features-explained) syntax.
 
@@ -274,7 +279,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [camya - Andreas Scheibel](https://github.com/camya)
 
-This package was inspired by [awcodes'](https://github.com/awcodes/filament-addons) filament-addons package.
+This package was inspired and based on the filament-addons package by [awcodes](https://github.com/awcodes/filament-addons) .
 
 ## License
 
