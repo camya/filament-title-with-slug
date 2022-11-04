@@ -51,9 +51,23 @@ If needed, you can publish the translation files with:
 php artisan vendor:publish --tag="filament-title-with-slug-translations"
 ```
 
-## Usage
+## Usage & Examples
 
-### Example: Change model fields names
+* [**All available parameters**](#all-available-parameters)
+
+
+* [Change model fields names](#change-model-fields-names)
+* [Base path and title placeholder](#base-path-and-title-placeholder)
+* [Title above text field & custom slug label](#title-above-text-field--custom-slug-label)
+* [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
+* [Generate route for "Visit" link](#generate-route-for-visit-link)
+* [Custom slugifier](#custom-slugifier)
+* [Add additional validation rules](#add-additional-validation-rules)
+* [Custom error messages](#custom-error-messages)
+  
+
+
+### Change model fields names
 
 The package assumes, that you model fields are named `title` and `slug`.
 
@@ -72,7 +86,7 @@ The output looks like this:
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-02.png" width="600" />
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-03.png" width="600" />
 
-### Example: Base path and title placeholder
+### Base path and title placeholder
 
 Here we hide the hostname and add the base path `/blog/`.
 
@@ -95,7 +109,7 @@ The output looks like this:
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-03.png" width="600" />
 
 
-### Example: Title above text field & custom slug label
+### Title above text field & custom slug label
 
 The package automatically inserts a placeholder for the title. If you want to display the regular caption above the text box instead, you can configure it.
 
@@ -113,7 +127,7 @@ The output looks like this:
 
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case03-01.png" width="600" />
 
-### Example: Add extra validation rules for title or slug
+### Add extra validation rules for title or slug
 
 You can add additional validation rules by passing in the variables `titleRules` or `slugRules`. 
 
@@ -130,7 +144,7 @@ TitleWithSlugInput::make(
 
 You can also [customize the error messages](#custom-error-messages).
 
-### Example: Generate route for View link
+### Generate route for "Visit" link
 
 This package displays a "view" link for persisted slugs. By default it simply concatenates the strings host + path + slug.
 
@@ -144,7 +158,7 @@ TitleWithSlugInput::make(
 ),
 ```
 
-### Example: Custom slugifier
+### Custom slugifier
 
 This package uses Laravel's slugifier, `Str::slug()`, but it is possible to replace it with one of your own.
 
@@ -159,7 +173,7 @@ TitleWithSlugInput::make(
 
 Note: You can customize the validation error, see "Custom error messages".
 
-### Example: Add additional validation rules
+### Add additional validation rules
 
 By default, this package applies the `['required','string']` validation rules to both title and slug.
 
@@ -177,7 +191,7 @@ TitleWithSlugInput::make(
 > HINT: Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and the slug counterpart in order to set the "ignorable" correctly.
 
 
-## All available parameters
+### All available parameters
 
 You can call TitleWithSlugInput without parameters and it will work and use its default values.
 
@@ -233,7 +247,7 @@ TitleWithSlugInput::make(
 )->columnSpan('full'),
 ```
 
-## Custom error messages
+### Custom error messages
 
 You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
 
