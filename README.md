@@ -53,17 +53,17 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 
 ## Usage & Examples
 
-* [**All available parameters**](#all-available-parameters)
+- [**All available parameters**](#all-available-parameters)
 
 
-* [Change model fields names](#change-model-fields-names)
-* [Base path and title placeholder](#base-path-and-title-placeholder)
-* [Title above text field & custom slug label](#title-above-text-field--custom-slug-label)
-* [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
-* [Generate route for "Visit" link](#generate-route-for-visit-link)
-* [Custom slugifier](#custom-slugifier)
-* [Add additional validation rules](#add-additional-validation-rules)
-* [Custom error messages](#custom-error-messages)
+- [Change model fields names](#change-model-fields-names)
+- [Base path and title placeholder](#base-path-and-title-placeholder)
+- [Title above text field & custom slug label](#title-above-text-field--custom-slug-label)
+- [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
+- [Generate route for "Visit" link](#generate-route-for-visit-link)
+- [Custom slugifier](#custom-slugifier)
+- [Add additional validation rules](#add-additional-validation-rules)
+- [Custom error messages](#custom-error-messages)
   
 
 
@@ -190,6 +190,16 @@ TitleWithSlugInput::make(
 
 > HINT: Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and the slug counterpart in order to set the "ignorable" correctly.
 
+### Custom error messages
+
+You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
+
+```php
+protected $messages = [
+  'data.slug.regex' => 'Invalid Slug. Use chars (a-z), numbers (0-9), underscore (_), and the dash (-).',
+];
+```
+
 
 ### All available parameters
 
@@ -245,16 +255,6 @@ TitleWithSlugInput::make(
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
 
 )->columnSpan('full'),
-```
-
-### Custom error messages
-
-You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
-
-```php
-protected $messages = [
-  'data.slug.regex' => 'Invalid Slug. Use chars (a-z), numbers (0-9), underscore (_), and the dash (-).',
-];
 ```
 
 ## Changelog
