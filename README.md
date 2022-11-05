@@ -74,6 +74,8 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 
 This plugin in translated to: [english](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
 
+If you want to translate the package, you can visit our [GitHub discussions](https://github.com/camya/filament-title-with-slug/discussions) and post your translation there.
+
 ## Usage & examples
 
 ### Basic usage - Add TitleWithSlugInput to a Filament Form

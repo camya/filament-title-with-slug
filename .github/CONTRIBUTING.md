@@ -6,7 +6,7 @@ Please read and understand the contribution guide before creating an issue or pu
 
 ## Links
 
-* [GitHub - Issue tracker for todos, bugs, feature requests](https://github.com/camya/filament-title-with-slug/issues)
+* [GitHub - Issue tracker for todos, bugs, feature requests, translation](https://github.com/camya/filament-title-with-slug/issues)
 * [camya on Twitter](https://twitter.com/camyaCom)
 
 ## Etiquette
