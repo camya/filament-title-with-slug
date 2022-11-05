@@ -10,7 +10,7 @@ This plugin is inspired by the classic WordPress title & slug implementation.
 ```php
 TitleWithSlugInput::make(
     fieldTitle: 'title', // The name of the field in your model that stores the title.
-    fieldSlug: 'slug', // The name of the field in your model that will store the slug
+    fieldSlug: 'slug', // The name of the field in your model that will store the slug.
 ),
 ```
 
@@ -77,6 +77,9 @@ This package provides the custom InputField `TitleWithSlugInput` for the Filamen
 Read the [installation details for Filament](https://filamentphp.com/docs/2.x/admin/installation) here.
 
 Below an example, where to put the new field inside your Filament Resource.
+
+- `fieldTitle`: The name of the field in your model that stores the title.
+- `fieldSlug`: The name of the field in your model that will store the slug.
 
 ```php
 class PostResource extends Resource
