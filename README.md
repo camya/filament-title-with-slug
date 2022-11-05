@@ -1,4 +1,4 @@
-<img src="docs/camya-filament-title-with-slug_teaser-header.jpg" />
+<img src="docs/camya-filament-title-with-slug_teaser-readme.jpg" />
 
 # TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder - Laravel Livewire
 
@@ -342,3 +342,5 @@ by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://githu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+<img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
