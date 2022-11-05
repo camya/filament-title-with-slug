@@ -20,7 +20,7 @@ TitleWithSlugInput::make(
 - Undo the edited slug.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
-This package is developed by [camya.com](https://www.camya.com). You can [follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
+This package is developed by [camya.com](https://www.camya.com). You can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
