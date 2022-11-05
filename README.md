@@ -24,7 +24,7 @@ TitleWithSlugInput::make(
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
-[![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.png)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
+[![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.jpg)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
 
 FilamentPHP is based on
 [Laravel](https://laravel.com/),
