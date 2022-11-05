@@ -4,6 +4,11 @@ Contributions are **welcome** and will be fully **credited**.
 
 Please read and understand the contribution guide before creating an issue or pull request.
 
+## Links
+
+* [GitHub - Issue tracker for todos, bugs, feature requests](https://github.com/camya/filament-title-with-slug/issues)
+* [camya on Twitter](https://twitter.com/camyaCom)
+
 ## Etiquette
 
 This project is open source, and as such, the maintainers give their free time to build and maintain the source code
