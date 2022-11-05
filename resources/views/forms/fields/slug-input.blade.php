@@ -204,7 +204,7 @@
                             dark:text-primary-500 dark:hover:text-primary-400
                         "
                     >
-                        {{ trans('filament-title-with-slug::package.permalink_action_update') }}
+                        {{ trans('filament-title-with-slug::package.permalink_action_change') }}
                     </a>
 
                     <x-filament::link
