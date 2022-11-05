@@ -24,7 +24,7 @@ TitleWithSlugInput::make(
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5dSgq4aaiOY)**
 
-[![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.jpg)](https://www.youtube.com/watch?v=5dSgq4aaiOY)
+[![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=5dSgq4aaiOY)
 
 ## Support us
 
