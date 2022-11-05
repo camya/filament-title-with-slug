@@ -60,6 +60,8 @@ If needed, you can publish the translation files with:
 php artisan vendor:publish --tag="filament-title-with-slug-translations"
 ```
 
+This plugin in translated to: [english](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
+
 ## Usage & Examples
 
 * [**All available parameters**](#all-available-parameters)
@@ -283,6 +285,10 @@ TitleWithSlugInput::make(
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
