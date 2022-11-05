@@ -90,8 +90,8 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug-docs-case01-labels-01.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug-docs-case01-labels-02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
 
 ### Change labels, titles, placeholder, and basePath
 
@@ -111,8 +111,8 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug-docs-case02-labels-01.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug-docs-case02-labels-02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-labels_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-labels_02.png" width="600" />
 
 ### Style the "title" input field
 
@@ -127,7 +127,7 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug-docs-case03-labels-01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_styling_01.png" width="600" />
 
 ### Add extra validation rules for title or slug
 
@@ -239,6 +239,7 @@ Below is an example with some defaults overridden.
 ```php
 TitleWithSlugInput::make(
 
+    // Model fields
     fieldTitle: 'title',
     fieldSlug: 'slug',
 
