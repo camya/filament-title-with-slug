@@ -22,9 +22,6 @@ TitleWithSlugInput::make(
 - Undo the edited slug.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
-This package is developed by [camya.com](https://www.camya.com). You
-can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
-
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
 [![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.png)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
@@ -37,6 +34,9 @@ and
 [TailwindCSS](https://tailwindcss.com/). (aka Tall Stack)
 
 ## Support us
+
+This package is developed by [camya.com](https://www.camya.com). You
+can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
 You can support our work by [donations](https://www.camya.com).
 
