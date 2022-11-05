@@ -26,13 +26,6 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs
 
 [![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.jpg)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
 
-FilamentPHP is based on
-[Laravel](https://laravel.com/),
-[Livewire](https://laravel-livewire.com/),
-[AlpineJS](https://alpinejs.dev/),
-and
-[TailwindCSS](https://tailwindcss.com/). (aka Tall Stack)
-
 ## Support us
 
 This package is developed by [camya.com](https://www.camya.com). You
@@ -301,6 +294,13 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 This package was inspired by a package
 by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://github.com/spatie/).
+
+FilamentPHP is based on
+[Laravel](https://laravel.com/),
+[Livewire](https://laravel-livewire.com/),
+[AlpineJS](https://alpinejs.dev/),
+and
+[TailwindCSS](https://tailwindcss.com/). (aka Tall Stack)
 
 ## License
 
