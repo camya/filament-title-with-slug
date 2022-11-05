@@ -26,10 +26,16 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs
 
 [![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.jpg)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
 
+## Support us
+
+This package is developed by [camya.com](https://www.camya.com). You
+can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
+
+You can support our work by [donations](https://www.camya.com).
+
 ## Table of contents
 
 - [Installation](#installation)
-- [Support us](#support-us)
 - [Usage & examples](#usage--examples)
     - [**All available parameters**](#all-available-parameters)
     - [Basic usage - Add it to the Filament Form](#basic-usage---add-it-to-the-filament-form)
@@ -66,13 +72,6 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 ```
 
 This plugin in translated to: [english](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
-
-## Support us
-
-This package is developed by [camya.com](https://www.camya.com). You
-can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
-
-You can support our work by [donations](https://www.camya.com).
 
 ## Usage & examples
 
