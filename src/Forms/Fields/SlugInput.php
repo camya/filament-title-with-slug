@@ -37,6 +37,7 @@ class SlugInput extends TextInput
     public function slugInputModelName(Closure|null $slugInputModelName): static
     {
         $this->slugInputModelName = $slugInputModelName;
+
         return $this;
     }
 
@@ -69,7 +70,7 @@ class SlugInput extends TextInput
     {
         $label = $this->evaluate($this->visitLinkLabel);
 
-        if($label === '') {
+        if ($label === '') {
             return '';
         }
 
