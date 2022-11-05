@@ -72,7 +72,7 @@ If needed, you can publish the translation files with:
 php artisan vendor:publish --tag="filament-title-with-slug-translations"
 ```
 
-This plugin in translated to: [english (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php), [german (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
+This plugin in translated to: [english (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php), [german (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
 
 If you want to translate the package, you can visit our [GitHub discussions](https://github.com/camya/filament-title-with-slug/discussions) and post your translation there.
 
