@@ -16,10 +16,11 @@ TitleWithSlugInput::make(
 
 **Features**
 
-- Auto-generates the slug from the title, if it has not already been manually updated.
 - Slug edit form.
-- "Visit" link to view the URL.
-- Undo the edited slug.
+- "Visit" link to view the final URL.
+- Auto-generates the slug from the title, if it has not already been manually updated.
+- Undo an edited slug.
+- All texts customizable and translatable.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=uMdilJpxdf4)**
