@@ -37,7 +37,6 @@ You can support our work by [donations](https://www.camya.com).
 
 - [Installation](#installation)
 - [Usage & examples](#usage--examples)
-    - [**All available parameters**](#all-available-parameters)
     - [Basic usage - Add it to the Filament Form](#basic-usage---add-it-to-the-filament-form)
     - [Change model fields names](#change-model-fields-names)
     - [Change labels, titles, placeholder, and basePath](#change-labels-titles-placeholder-and-basepath)
@@ -47,6 +46,7 @@ You can support our work by [donations](https://www.camya.com).
     - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
     - [Generate route for "Visit" link](#generate-route-for-visit-link)
     - [Custom slugifier](#custom-slugifier)
+    - [**All available parameters**](#all-available-parameters)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -327,7 +327,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Andreas Scheibel (camya)](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com))
+- [Andreas Scheibel (camya)](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com) & [epicbundle.com](https://www.epicbundle.com))
 
 FilamentPHP is based on
 [Laravel](https://laravel.com/),
