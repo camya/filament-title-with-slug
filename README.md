@@ -35,7 +35,7 @@ and
 
 ## Support us
 
-You can support my work with [donations](https://www.camya.com).
+You can support our work by [donations](https://www.camya.com).
 
 ## Installation
 
