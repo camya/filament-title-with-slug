@@ -42,7 +42,7 @@ class TitleWithSlugInput
             'string',
         ],
         array $slugRuleUniqueParameters = [],
-        bool|Closure $slugReadonly = false,
+        bool|Closure $slugIsReadonly = false,
         null|Closure $slugSlugifier = null,
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
 
@@ -111,7 +111,7 @@ class TitleWithSlugInput
             ->slugInputShowUrl($showHost)
 
             // Default TextInput methods
-            ->readonly($slugReadonly)
+            ->readonly($slugIsReadonly)
             ->required()
             ->reactive()
             ->disableAutocomplete()

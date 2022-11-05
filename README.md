@@ -16,8 +16,9 @@ TitleWithSlugInput::make(
 
 **Features**
 
-- The slug is automatically generated from the title if it has not already been manually updated.
-- "View" link to visit the generated URL.
+- Auto-generates the slug from the title, if it has not already been manually updated.
+- Slug edit form.
+- "Visit" link to view the URL.
 - Undo the edited slug.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
@@ -271,7 +272,7 @@ TitleWithSlugInput::make(
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    slugReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
+    slugIsReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
     slugSlugifier: fn($string) => Str::slug($string),
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
 
