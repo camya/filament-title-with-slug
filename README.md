@@ -288,7 +288,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [camya - Andreas Scheibel](https://github.com/camya) (Developer)
+- [camya - Andreas Scheibel](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com))
 
 This package was inspired by a package
 by [awcodes](https://github.com/awcodes/).
