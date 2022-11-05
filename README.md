@@ -60,6 +60,7 @@ This plugin in translated to: [english](https://github.com/camya/filament-title-
 * [**All available parameters**](#all-available-parameters)
 
 - [Change model fields names](#change-model-fields-names)
+- [Basic usage - Add it to the Filament Form](#basic-usage---add-it-to-the-filament-form)
 - [Change labels, titles, placeholder, and basePath](#change-labels-titles-placeholder-and-basePath)
 - [Style the "title" input field](#style-the-title-input-field)
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
@@ -69,7 +70,7 @@ This plugin in translated to: [english](https://github.com/camya/filament-title-
 - [Custom slugifier](#custom-slugifier)
 
 
-### Basic usage
+### Basic usage - Add it to Filament Form
 
 This package provides the custom InputField `TitleWithSlugInput` for the Filament Form Builder. 
 
