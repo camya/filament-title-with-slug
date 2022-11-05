@@ -322,8 +322,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [camya - Andreas Scheibel](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com))
-- 
+- [Andreas Scheibel (camya)](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com))
+
 FilamentPHP is based on
 [Laravel](https://laravel.com/),
 [Livewire](https://laravel-livewire.com/),
