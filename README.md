@@ -9,8 +9,8 @@ This plugin is inspired by the classic WordPress title & slug implementation.
 
 ```php
 TitleWithSlugInput::make(
-    titleField: 'title', // The name of the field in your model that stores the title.
-    slugField: 'slug', // The name of the field in your model that will store the slug
+    fieldTitle: 'title', // The name of the field in your model that stores the title.
+    fieldSlug: 'slug', // The name of the field in your model that will store the slug
 ),
 ```
 
@@ -82,8 +82,8 @@ You can easily change them according to your needs.
 
 ```php
 TitleWithSlugInput::make(
-    titleField: 'title',
-    slugField: 'slug',
+    fieldTitle: 'title',
+    fieldSlug: 'slug',
 )
 ```
 
@@ -100,8 +100,8 @@ In this example, we also add the base path `/books/`.
 
 ```php
 TitleWithSlugInput::make(
-    basePath: '/book/',
-    visitLinkLabel: 'Visit Book',
+    urlPath: '/book/',
+    urlVisitLinkLabel: 'Visit Book',
     titleLabel: 'Title',
     titlePlaceholder: 'Insert the title...',
     slugLabel: 'Link:',
@@ -228,8 +228,8 @@ syntax.
 
 ```php
 TitleWithSlugInput::make(
-    titleField: 'title',
-    slugField: 'slug',
+    fieldTitle: 'title',
+    fieldSlug: 'slug',
 );
 ```
 
@@ -238,15 +238,15 @@ Below is an example with some defaults overridden.
 ```php
 TitleWithSlugInput::make(
 
-    titleField: 'title',
-    slugField: 'slug',
+    fieldTitle: 'title',
+    fieldSlug: 'slug',
 
     // Url
-    basePath: '/blog/',
-    baseHost: 'https://www.camya.com',
-    showHost: true,
-    visitLinkLabel: 'View',
-    visitLinkRoute: fn(?Model $record) => $record?->slug ? route('post.show', ['slug' => $record->slug]): null,
+    urlPath: '/blog/',
+    urlHost: 'https://www.camya.com',
+    urlHostVisible: true,
+    urlVisitLinkLabel: 'View',
+    urlVisitLinkRoute: fn(?Model $record) => $record?->slug ? route('post.show', ['slug' => $record->slug]): null,
 
     // Title
     titleLabel: 'The Title',

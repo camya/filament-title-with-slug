@@ -14,15 +14,15 @@ class TitleWithSlugInput
 {
     public static function make(
 
-        string|null $titleField = null,
-        string|null $slugField = null,
+        string|null $fieldTitle = null,
+        string|null $fieldSlug = null,
 
         // Url
-        string|Closure $basePath = '/',
-        string|Closure|null $baseHost = null,
-        bool $showHost = true,
-        null|Closure|string $visitLinkLabel = null,
-        null|Closure $visitLinkRoute = null,
+        string|Closure $urlPath = '/',
+        string|Closure|null $urlHost = null,
+        bool $urlHostVisible = true,
+        null|Closure|string $urlVisitLinkLabel = null,
+        null|Closure $urlVisitLinkRoute = null,
 
         // Title
         string|Closure|null $titleLabel = null,
@@ -48,12 +48,12 @@ class TitleWithSlugInput
 
     ): Group {
 
-        $titleField = $titleField ?? config('filament-title-with-slug.title_field');
-        $slugField = $slugField ?? config('filament-title-with-slug.slug_field');
+        $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.title_field');
+        $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.slug_field');
 
         /** Input: "Title" */
 
-        $textInput = TextInput::make($titleField)
+        $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
             ->autofocus()
             ->required()
@@ -64,7 +64,7 @@ class TitleWithSlugInput
             ->beforeStateDehydrated(fn(TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
 
-                function ($state, Closure $set, Closure $get, string $context) use ($slugSlugifier, $slugField) {
+                function ($state, Closure $set, Closure $get, string $context) use ($slugSlugifier, $fieldSlug) {
                     $slugAutoUpdateDisabled = $get('slug_auto_update_disabled');
 
                     if ($context === 'edit') {
@@ -72,14 +72,14 @@ class TitleWithSlugInput
                     }
 
                     if (! $slugAutoUpdateDisabled && filled($state)) {
-                        $set($slugField, self::slugify($slugSlugifier, $state));
+                        $set($fieldSlug, self::slugify($slugSlugifier, $state));
                     }
                 }
 
             );
 
         if ($titlePlaceholder !== '') {
-            $textInput->placeholder($titlePlaceholder ?: fn() => Str::of($titleField)->title());
+            $textInput->placeholder($titlePlaceholder ?: fn() => Str::of($fieldTitle)->title());
         }
 
         if (! $titleLabel) {
@@ -96,19 +96,19 @@ class TitleWithSlugInput
 
         /** Input: "Slug" (+ view) */
 
-        $slugInput = SlugInput::make($slugField)
+        $slugInput = SlugInput::make($fieldSlug)
 
             // Custom SlugInput methods
-            ->slugInputVisitLinkRoute($visitLinkRoute)
-            ->slugInputVisitLinkLabel($visitLinkLabel)
+            ->slugInputVisitLinkRoute($urlVisitLinkRoute)
+            ->slugInputVisitLinkLabel($urlVisitLinkLabel)
             ->slugInputContext(fn($context) => $context === 'create' ? 'create' : 'edit')
-            ->slugInputRecordSlug(fn(?Model $record) => $record?->$slugField)
+            ->slugInputRecordSlug(fn(?Model $record) => $record?->$fieldSlug)
             ->slugInputModelName(fn(?Model $record) => Str::of(class_basename($record))->title())
             ->slugInputLabelPrefix($slugLabel)
-            ->slugInputTitleField($titleField)
-            ->slugInputBasePath($basePath)
-            ->slugInputBaseUrl($baseHost)
-            ->slugInputShowUrl($showHost)
+            ->slugInputTitleField($fieldTitle)
+            ->slugInputBasePath($urlPath)
+            ->slugInputBaseUrl($urlHost)
+            ->slugInputShowUrl($urlHostVisible)
 
             // Default TextInput methods
             ->readonly($slugIsReadonly)
@@ -121,10 +121,10 @@ class TitleWithSlugInput
             ->unique(ignorable: fn(?Model $record) => $record)
             ->afterStateUpdated(
 
-                function ($state, Closure $set, Closure $get) use ($slugSlugifier, $titleField, $slugField) {
+                function ($state, Closure $set, Closure $get) use ($slugSlugifier, $fieldTitle, $fieldSlug) {
                     $text = trim($state) === ''
-                        ? $get($titleField)
-                        : $get($slugField);
+                        ? $get($fieldTitle)
+                        : $get($fieldSlug);
 
                     $set('slug', self::slugify($slugSlugifier, $text));
 
