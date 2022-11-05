@@ -65,7 +65,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 * [**All available parameters**](#all-available-parameters)
 
 - [Change model fields names](#change-model-fields-names)
-- [Change labels, titles, Placeholder, and basePath](#change-labels-titles-Placeholder-and-basePath)
+- [Change labels, titles, placeholder, and basePath](#change-labels-titles-placeholder-and-basePath)
 - [Style the "title" input field](#style-the-title-input-field)
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
 - [Custom error messages](#custom-error-messages)
@@ -91,7 +91,7 @@ The output looks like this:
 <img src="docs/examples/camya-filament-title-with-slug-docs-case01-labels-01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug-docs-case01-labels-02.png" width="600" />
 
-### Change labels, titles, Placeholder, and basePath
+### Change labels, titles, placeholder, and basePath
 
 It's possible to change all labels on the fly.
 
