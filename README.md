@@ -68,16 +68,44 @@ This plugin in translated to: [english](https://github.com/camya/filament-title-
 - [Generate route for "Visit" link](#generate-route-for-visit-link)
 - [Custom slugifier](#custom-slugifier)
 
+
+### Basic usage
+
+This package provides the custom InputField `TitleWithSlugInput` for the Filament Form Builder. 
+
+Read installation details for Filament [here](https://filamentphp.com/docs/2.x/admin/installation).
+
+Below an example, where to put the new field inside your Filament Resource.
+
+```php
+class PostResource extends Resource
+{
+    public static function form(Form $form): Form
+    {
+        return $form->schema([
+        
+            TitleWithSlugInput::make(
+                fieldTitle: 'title',
+                fieldSlug: 'slug',
+            )
+            
+        ]);
+    }
+}
+```
+
 ### Change model fields names
 
 The package assumes, that you model fields are named `title` and `slug`.
 
 You can easily change them according to your needs.
 
+In the example below, the package now uses the database fields `name` for the title and `identifier` for the slug.
+
 ```php
 TitleWithSlugInput::make(
-    fieldTitle: 'title',
-    fieldSlug: 'slug',
+    fieldTitle: 'name',
+    fieldSlug: 'identifier',
 )
 ```
 
@@ -291,16 +319,16 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [camya - Andreas Scheibel](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com))
-
-This package was inspired by a package
-by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://github.com/spatie/).
-
+- 
 FilamentPHP is based on
 [Laravel](https://laravel.com/),
 [Livewire](https://laravel-livewire.com/),
 [AlpineJS](https://alpinejs.dev/),
 and
 [TailwindCSS](https://tailwindcss.com/). (aka Tall Stack)
+
+This package was inspired by a package
+by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://github.com/spatie/).
 
 ## License
 
