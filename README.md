@@ -66,7 +66,6 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
 - [Generate route for "Visit" link](#generate-route-for-visit-link)
 - [Custom slugifier](#custom-slugifier)
-- [Add additional validation rules](#add-additional-validation-rules)
 - [Custom error messages](#custom-error-messages)
 - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
   
@@ -115,6 +114,8 @@ The output looks like this:
 
 You can add additional validation rules by passing in the variables `titleRules` or `slugRules`. 
 
+In addition, a unique validation rule is applied to the slug field automatically. In order to modify the unique rule, read [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug).
+
 ```php
 TitleWithSlugInput::make(
     titleRules: [
@@ -157,21 +158,6 @@ TitleWithSlugInput::make(
 
 Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
 
-### Add additional validation rules
-
-By default, this package applies the `['required','string']` validation rules to both title and slug.
-
-In addition, a unique validation rule is applied to the slug field automatically. (See note below)
-
-```php
-TitleWithSlugInput::make(
-    titleRules: [
-        'required',
-        'string',
-    ],
-)
-```
-
 ### Custom unique validation rules for title (and slug)
 
 Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and the `slugRuleUniqueParameters` counterpart.
@@ -211,20 +197,6 @@ protected $messages = [
   'data.slug.regex' => 'Invalid Slug. Use only chars (a-z), numbers (0-9), and the dash (-).',
 ];
 ```
-
-If you 
-
-```php
-TitleWithSlugInput::make(
-    titleRules: [
-        'required',
-        'string',
-        'min:3',
-        'max:12',
-    ],
-)
-```
-
 
 ### All available parameters
 
