@@ -1,4 +1,4 @@
-<img src="docs/camya_TitleAndSlugField_github-header.jpg" />
+<img src="docs/camya-filament-title-with-slug_teaser-header.jpg" />
 
 # TitleWithSlugInput - Easy Permalink Slugs for the Filament Form Builder
 
@@ -29,7 +29,7 @@ and
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
-[![Video](docs/camya_TitleAndSlugField_v1.0.0_video_placeholder.png)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
+[![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.png)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
 
 ## Support us
 
@@ -63,7 +63,6 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 
 - [Change model fields names](#change-model-fields-names)
 - [Base path and title placeholder](#base-path-and-title-placeholder)
-- [Title above text field & custom slug label](#title-above-text-field--custom-slug-label)
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
 - [Generate route for "Visit" link](#generate-route-for-visit-link)
 - [Custom slugifier](#custom-slugifier)
@@ -88,8 +87,8 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/camya-filament-title-with-slug-docs-case01-labels-01.png" width="600" />
-<img src="docs/camya-filament-title-with-slug-docs-case01-labels-02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug-docs-case01-labels-01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug-docs-case01-labels-02.png" width="600" />
 
 ### Base labels and basePath
 
@@ -109,26 +108,8 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/camya-filament-title-with-slug-docs-case02-labels-01.png" width="600" />
-<img src="docs/camya-filament-title-with-slug-docs-case02-labels-02.png" width="600" />
-
-### Title above text field & custom slug label
-
-The package automatically inserts a placeholder for the title. If you want to display the regular caption above the text box instead, you can configure it.
-
-You can also specify the caption for the slug.
-
-```php
-TitleWithSlugInput::make(
-    titleLabel: 'Product title',
-    titlePlaceholder: '',
-    slugLabel: 'Slug:'
-)
-```
-
-The output looks like this:
-
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case03-01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug-docs-case02-labels-01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug-docs-case02-labels-02.png" width="600" />
 
 ### Add extra validation rules for title or slug
 
