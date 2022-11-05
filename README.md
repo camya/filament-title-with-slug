@@ -83,7 +83,7 @@ You can easily change them according to your needs.
 TitleWithSlugInput::make(
     titleField: 'title',
     slugField: 'slug',
-),
+)
 ```
 
 The output looks like this:
@@ -105,7 +105,7 @@ TitleWithSlugInput::make(
     titleLabel: 'Title',
     titlePlaceholder: 'Insert the title...',
     slugLabel: 'Link:',
-),
+)
 ```
 
 The output looks like this:
@@ -124,7 +124,7 @@ TitleWithSlugInput::make(
     titleLabel: 'Product title',
     titlePlaceholder: '',
     slugLabel: 'Slug:'
-),
+)
 ```
 
 The output looks like this:
@@ -159,7 +159,7 @@ TitleWithSlugInput::make(
     visitLinkRoute: fn(?Model $record) => $record?->slug
         ? route('post.show', ['slug' => $record->slug])
         : null,
-),
+)
 ```
 
 ### Custom slugifier
@@ -172,7 +172,7 @@ The following generates a slug with only the characters a-z and validates them w
 TitleWithSlugInput::make(
     slugSlugifier: fn($string) => preg_replace( '/[^a-z]/', '', $string),
     slugRuleRegex: '/^[a-z]*$/',
-),
+)
 ```
 
 Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
@@ -189,7 +189,7 @@ TitleWithSlugInput::make(
         'required',
         'string',
     ],
-),
+)
 ```
 
 ### Custom unique validation rules for title (and slug)
@@ -204,7 +204,7 @@ TitleWithSlugInput::make(
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-),
+)
 ```
 
 This array is inserted into the input field's `->unique(...[$slugRuleUniqueParameters])` method.
