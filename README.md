@@ -62,8 +62,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 
 ## Usage & Examples
 
-- [**All available parameters**](#all-available-parameters)
-
+[**All available parameters**](#all-available-parameters)
 
 - [Change model fields names](#change-model-fields-names)
 - [Change labels, titles, Placeholder, and basePath](#change-labels-titles-Placeholder-and-basePath)
