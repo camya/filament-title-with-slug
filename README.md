@@ -126,7 +126,7 @@ The output looks like this:
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
 
-### Change labels, titles, placeholder, and basePath
+### Change labels, titles, placeholder, and path
 
 It's possible to change all labels on the fly.
 
@@ -345,5 +345,15 @@ by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://githu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Tooling - Tools we use
+
+- [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (+ [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
+- Translations with [DeepL](https://www.deepl.com/translator) and [LanguageTool](https://languagetool.org/)
+- [iTerm2](https://iterm2.com/) Terminal
+- [Regex101](https://regex101.com/)
+- [Markdown TOC Generator](https://luciopaiva.com/markdown-toc/)
+- SVG Icons by [Heroicons](https://heroicons.com/)
+- [Affinity](https://affinity.serif.com/) Photo & Designer
 
 <img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
