@@ -290,8 +290,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [camya - Andreas Scheibel](https://github.com/camya)
 
-This package was inspired and based on the filament-addons package
-by [awcodes](https://github.com/awcodes/filament-addons) .
+This package was inspired by a package
+by [awcodes](https://github.com/awcodes/).
 
 ## License
 
