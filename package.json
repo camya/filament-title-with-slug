@@ -1,12 +1,12 @@
 {
   "private": true,
-  "description": "TitleWithSlugInput for FilamentPHP Form Builder",
+  "description": "TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder - Laravel Livewire",
   "scripts": {
     "dev": "npx tailwindcss -i ./resources/css/filament-title-with-slug.css -o ./resources/dist/filament-title-with-slug.css --postcss --watch",
     "build": "npx tailwindcss -i ./resources/css/filament-title-with-slug.css -o ./resources/dist/filament-title-with-slug.css --postcss --minify && npm run purge",
     "purge": "filament-purge -i ./resources/dist/filament-title-with-slug.css -o ./resources/dist/filament-title-with-slug.css"
   },
-  "author": "Adam Weston",
+  "author": "Andreas Scheibel",
   "license": "MIT",
   "devDependencies": {
     "@awcodes/filament-plugin-purge": "^1.0.1",
