@@ -22,9 +22,9 @@ TitleWithSlugInput::make(
 - Undo the edited slug.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
-Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5dSgq4aaiOY)**
+Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=uMdilJpxdf4)**
 
-[![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=5dSgq4aaiOY)
+[![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=uMdilJpxdf4)
 
 ## Support us
 
