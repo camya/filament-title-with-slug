@@ -92,28 +92,26 @@ The output looks like this:
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-02.png" width="600" />
 <img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-03.png" width="600" />
 
-### Base path and title placeholder
+### Base labels and basePath
 
-Here we hide the hostname and add the base path `/blog/`.
+It's possible to change all labels on the fly. 
 
-We also change the placeholder text.
+In this example, we also add the base path `/books/`.
 
 ```php
 TitleWithSlugInput::make(
-    titleField: 'title',
-    slugField: 'slug',
-    basePath: '/blog/',
-    showHost: false,
-    titlePlaceholder: 'Blog Title',
+    basePath: '/book/',
+    visitLinkLabel: 'Visit Book',
+    titleLabel: 'Title',
+    titlePlaceholder: 'Insert the title...',
+    slugLabel: 'Link:',
 ),
 ```
 
 The output looks like this:
 
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-01.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-02.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case02-03.png" width="600" />
-
+<img src="docs/camya-filament-title-with-slug-docs-case02-labels-01.png" width="600" />
+<img src="docs/camya-filament-title-with-slug-docs-case02-labels-02.png" width="600" />
 
 ### Title above text field & custom slug label
 
@@ -177,7 +175,7 @@ TitleWithSlugInput::make(
 ),
 ```
 
-Note: You can customize the validation error, see "Custom error messages".
+Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
 
 ### Add additional validation rules
 
