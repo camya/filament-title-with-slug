@@ -16,10 +16,9 @@ TitleWithSlugInput::make(
 **Features**
 
 - The slug is automatically generated from the title if it has not already been manually updated.
-- Update empty slug to regenerate it from the title.
 - "View" link to visit the generated URL.
 - Undo the edited slug.
-- Fully configurable, see "All available parameters".
+- Fully configurable, see [all available parameters](#all-available-parameters).
 
 Tall Stack: FilamentPHP is based on 
 [Laravel](https://laravel.com/),
