@@ -27,13 +27,13 @@ class TitleWithSlugInput
         // Title
         string|Closure|null $titleLabel = null,
         string|null $titlePlaceholder = null,
-        string $titleClass = '',
+        array|Closure|null $titleExtraInputAttributes = null,
         array $titleRules = [
             'required',
             'string',
         ],
         array $titleRuleUniqueParameters = [],
-        bool|Closure $titleReadonly = false,
+        bool|Closure $titleIsReadonly = false,
 
         // Slug
         string|null $slugLabel = null,
@@ -54,13 +54,13 @@ class TitleWithSlugInput
         /** Input: "Title" */
 
         $textInput = TextInput::make($titleField)
-            ->disabled($titleReadonly)
+            ->disabled($titleIsReadonly)
             ->autofocus()
             ->required()
             ->reactive()
             ->disableAutocomplete()
             ->rules($titleRules)
-            ->extraInputAttributes(['class' => $titleClass ?: 'text-xl font-semibold'])
+            ->extraInputAttributes($titleExtraInputAttributes ?? ['class' => 'text-xl'])
             ->beforeStateDehydrated(fn(TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
 

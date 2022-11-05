@@ -2,7 +2,8 @@
 
 # TitleWithSlugInput - Easy Permalink Slugs for the Filament Form Builder
 
-This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add and edit titles with slugs.
+This [FilamentPHP](https://filamentphp.com/docs/admin/installation) Form Builder package adds a form field to easily add
+and edit titles with slugs.
 
 This plugin is inspired by the classic WordPress title & slug implementation.
 
@@ -20,7 +21,8 @@ TitleWithSlugInput::make(
 - Undo the edited slug.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
-This package is developed by [camya.com](https://www.camya.com). You can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
+This package is developed by [camya.com](https://www.camya.com). You
+can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
@@ -62,7 +64,6 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [**All available parameters**](#all-available-parameters)
 
 
-
 - [Change model fields names](#change-model-fields-names)
 - [Change labels, titles, Placeholder, and basePath](#change-labels-titles-Placeholder-and-basePath)
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
@@ -70,8 +71,6 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
 - [Generate route for "Visit" link](#generate-route-for-visit-link)
 - [Custom slugifier](#custom-slugifier)
-  
-
 
 ### Change model fields names
 
@@ -93,7 +92,7 @@ The output looks like this:
 
 ### Change labels, titles, Placeholder, and basePath
 
-It's possible to change all labels on the fly. 
+It's possible to change all labels on the fly.
 
 In this example, we also add the base path `/books/`.
 
@@ -112,11 +111,27 @@ The output looks like this:
 <img src="docs/examples/camya-filament-title-with-slug-docs-case02-labels-01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug-docs-case02-labels-02.png" width="600" />
 
+### Style the "title" input field
+
+In order to style the "title" input field, you can pass the attributes `class` via `titleExtraInputAttributes`
+parameter.
+
+```php
+TitleWithSlugInput::make(
+    titleExtraInputAttributes: ['class' => 'text-xl font-semibold bg-orange-50'],
+)
+```
+
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug-docs-case03-labels-01.png" width="600" />
+
 ### Add extra validation rules for title or slug
 
-You can add additional validation rules by passing in the variables `titleRules` or `slugRules`. 
+You can add additional validation rules by passing in the variables `titleRules` or `slugRules`.
 
-In addition, a unique validation rule is applied to the slug field automatically. In order to modify the unique rule, read [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug).
+In addition, a unique validation rule is applied to the slug field automatically. In order to modify the unique rule,
+read [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug).
 
 ```php
 TitleWithSlugInput::make(
@@ -133,7 +148,8 @@ You can also [customize the error messages](#custom-error-messages).
 
 ### Custom error messages
 
-You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
+You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member
+variable.
 
 ```php
 protected $messages = [
@@ -143,9 +159,10 @@ protected $messages = [
 
 ### Custom unique validation rules for title (and slug)
 
-Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and the `slugRuleUniqueParameters` counterpart.
+Unique validation rules can be modified only by using the parameters `titleRuleUniqueParameters` and
+the `slugRuleUniqueParameters` counterpart.
 
-This is needed in order to set  Filament's "ignorable" parameter correctly.
+This is needed in order to set Filament's "ignorable" parameter correctly.
 
 ```php
 TitleWithSlugInput::make(
@@ -172,7 +189,8 @@ Available array keys:
 
 ### Generate route for "Visit" link
 
-This package displays a "view" link for persisted slugs. By default, it simply concatenates the strings host + path + slug.
+This package displays a "view" link for persisted slugs. By default, it simply concatenates the strings host + path +
+slug.
 
 If you want to use a "route()" instead, you can configure it as shown below.
 
@@ -199,12 +217,12 @@ TitleWithSlugInput::make(
 
 Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
 
-
 ### All available parameters
 
 You can call TitleWithSlugInput without parameters, and it will work and use its default values.
 
-In order to set parameters, you use [PHP8's Named Arguments](https://laravel-news.com/modern-php-features-explained) syntax.
+In order to set parameters, you use [PHP8's Named Arguments](https://laravel-news.com/modern-php-features-explained)
+syntax.
 
 ```php
 TitleWithSlugInput::make(
@@ -226,14 +244,12 @@ TitleWithSlugInput::make(
     baseHost: 'https://www.camya.com',
     showHost: true,
     visitLinkLabel: 'View',
-    visitLinkRoute: fn(?Model $record) => $record?->slug
-        ? route('post.show', ['slug' => $record->slug])
-        : null,
+    visitLinkRoute: fn(?Model $record) => $record?->slug ? route('post.show', ['slug' => $record->slug]): null,
 
     // Title
     titleLabel: 'The Title',
     titlePlaceholder: 'Post Title',
-    titleClass: '',
+    titleExtraInputAttributes: ['class' => 'text-xl font-semibold bg-orange-50'],
     titleRules: [
         'required',
         'string',
@@ -242,7 +258,7 @@ TitleWithSlugInput::make(
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    titleReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
+    titleIsReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
 
     // Slug
     slugLabel: 'The Slug: ',
@@ -273,7 +289,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [camya - Andreas Scheibel](https://github.com/camya)
 
-This package was inspired and based on the filament-addons package by [awcodes](https://github.com/awcodes/filament-addons) .
+This package was inspired and based on the filament-addons package
+by [awcodes](https://github.com/awcodes/filament-addons) .
 
 ## License
 
