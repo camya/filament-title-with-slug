@@ -70,7 +70,7 @@ This plugin in translated to: [english](https://github.com/camya/filament-title-
 - [Custom slugifier](#custom-slugifier)
 
 
-### Basic usage - Add it to Filament Form
+### Basic usage - Add it to the Filament Form
 
 This package provides the custom InputField `TitleWithSlugInput` for the Filament Form Builder. 
 
