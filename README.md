@@ -73,7 +73,7 @@ This plugin in translated to: [english](https://github.com/camya/filament-title-
 
 This package provides the custom InputField `TitleWithSlugInput` for the Filament Form Builder. 
 
-Read installation details for Filament [here](https://filamentphp.com/docs/2.x/admin/installation).
+Read the [installation details for Filament](https://filamentphp.com/docs/2.x/admin/installation) here.
 
 Below an example, where to put the new field inside your Filament Resource.
 
