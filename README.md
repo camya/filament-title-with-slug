@@ -22,16 +22,16 @@ TitleWithSlugInput::make(
 
 This package is developed by [camya.com](https://www.camya.com). You can [follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
-FilamentPHP is based on 
-[Laravel](https://laravel.com/),
-[Livewire](https://laravel-livewire.com/), 
-[AlpineJS](https://alpinejs.dev/), 
-and 
-[TailwindCSS](https://tailwindcss.com/). (aka Tall Stack)
-
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs)**
 
 [![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.png)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
+
+FilamentPHP is based on
+[Laravel](https://laravel.com/),
+[Livewire](https://laravel-livewire.com/),
+[AlpineJS](https://alpinejs.dev/),
+and
+[TailwindCSS](https://tailwindcss.com/). (aka Tall Stack)
 
 ## Support us
 
