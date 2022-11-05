@@ -346,14 +346,16 @@ by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://githu
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-## Tooling - Tools we use
+## Tooling - Development tools we use
 
 - [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (+ [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
 - Translations with [DeepL](https://www.deepl.com/translator) and [LanguageTool](https://languagetool.org/)
 - [iTerm2](https://iterm2.com/) Terminal
-- [Regex101](https://regex101.com/)
+- [Regex101](https://regex101.com/) - Build, text, debug regex.
 - [Markdown TOC Generator](https://luciopaiva.com/markdown-toc/)
 - SVG Icons by [Heroicons](https://heroicons.com/)
 - [Affinity](https://affinity.serif.com/) Photo & Designer
+
+
 
 <img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
