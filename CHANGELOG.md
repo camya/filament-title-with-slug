@@ -1,7 +1,9 @@
 # Changelog
 
-All notable changes to `filament-seo` will be documented in this file.
+All notable changes to [camya/filament-title-with-slug](https://github.com/camya/filament-title-with-slug/) will be documented in this file.
 
-# 1.0.0 - 2022-11-03
+Contributing: Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
+
+# 1.0.0 - 2022-11-05
 
 initial release
