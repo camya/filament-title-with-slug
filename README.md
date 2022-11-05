@@ -346,6 +346,8 @@ by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://githu
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
+<img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
+
 ## Tooling - Development tools we use
 
 - [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (+ [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
@@ -356,7 +358,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 - [Markdown TOC Generator](https://luciopaiva.com/markdown-toc/)
 - SVG Icons by [Heroicons](https://heroicons.com/)
 - [Affinity](https://affinity.serif.com/) Photo & Designer
-
-
-
-<img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
