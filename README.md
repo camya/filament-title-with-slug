@@ -245,7 +245,9 @@ TitleWithSlugInput::make(
     urlHost: 'https://www.camya.com',
     urlHostVisible: true,
     urlVisitLinkLabel: 'View',
-    urlVisitLinkRoute: fn(?Model $record) => $record?->slug ? route('post.show', ['slug' => $record->slug]): null,
+    urlVisitLinkRoute: fn(?Model $record) => $record?->slug 
+        ? route('post.show', ['slug' => $record->slug])
+        : null,
 
     // Title
     titleLabel: 'The Title',
