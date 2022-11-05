@@ -66,6 +66,7 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 
 - [Change model fields names](#change-model-fields-names)
 - [Change labels, titles, Placeholder, and basePath](#change-labels-titles-Placeholder-and-basePath)
+- [Style the "title" input field](#style-the-title-input-field)
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
 - [Custom error messages](#custom-error-messages)
 - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
