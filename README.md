@@ -104,6 +104,8 @@ class PostResource extends Resource
 }
 ```
 
+> **Tip:** To occupy the full width, use `TitleWithSlugInput::make()->columnSpan('full')`.
+
 ### Change model fields names
 
 The package assumes, that you model fields are named `title` and `slug`.
