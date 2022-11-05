@@ -64,10 +64,10 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 - [Change model fields names](#change-model-fields-names)
 - [Base path and title placeholder](#base-path-and-title-placeholder)
 - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
-- [Generate route for "Visit" link](#generate-route-for-visit-link)
-- [Custom slugifier](#custom-slugifier)
 - [Custom error messages](#custom-error-messages)
 - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
+- [Generate route for "Visit" link](#generate-route-for-visit-link)
+- [Custom slugifier](#custom-slugifier)
   
 
 
@@ -129,34 +129,15 @@ TitleWithSlugInput::make(
 
 You can also [customize the error messages](#custom-error-messages).
 
-### Generate route for "Visit" link
+### Custom error messages
 
-This package displays a "view" link for persisted slugs. By default, it simply concatenates the strings host + path + slug.
-
-If you want to use a "route()" instead, you can configure it as shown below.
+You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
 
 ```php
-TitleWithSlugInput::make(
-    visitLinkRoute: fn(?Model $record) => $record?->slug
-        ? route('post.show', ['slug' => $record->slug])
-        : null,
-)
+protected $messages = [
+  'data.slug.regex' => 'Invalid Slug. Use only chars (a-z), numbers (0-9), and the dash (-).',
+];
 ```
-
-### Custom slugifier
-
-This package uses Laravel's slugifier, `Str::slug()`, but it is possible to replace it with one of your own.
-
-The following generates a slug with only the characters a-z and validates them with a regex.
-
-```php
-TitleWithSlugInput::make(
-    slugSlugifier: fn($string) => preg_replace( '/[^a-z]/', '', $string),
-    slugRuleRegex: '/^[a-z]*$/',
-)
-```
-
-Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
 
 ### Custom unique validation rules for title (and slug)
 
@@ -187,16 +168,35 @@ Available array keys:
 'column' (string | Closure | null) 
 ```
 
+### Generate route for "Visit" link
 
-### Custom error messages
+This package displays a "view" link for persisted slugs. By default, it simply concatenates the strings host + path + slug.
 
-You can customize the error messages in your EditModel and CreateModel filament resources by adding the $messages member variable.
+If you want to use a "route()" instead, you can configure it as shown below.
 
 ```php
-protected $messages = [
-  'data.slug.regex' => 'Invalid Slug. Use only chars (a-z), numbers (0-9), and the dash (-).',
-];
+TitleWithSlugInput::make(
+    visitLinkRoute: fn(?Model $record) => $record?->slug
+        ? route('post.show', ['slug' => $record->slug])
+        : null,
+)
 ```
+
+### Custom slugifier
+
+This package uses Laravel's slugifier, `Str::slug()`, but it is possible to replace it with one of your own.
+
+The following generates a slug with only the characters a-z and validates them with a regex.
+
+```php
+TitleWithSlugInput::make(
+    slugSlugifier: fn($string) => preg_replace( '/[^a-z]/', '', $string),
+    slugRuleRegex: '/^[a-z]*$/',
+)
+```
+
+Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
+
 
 ### All available parameters
 
