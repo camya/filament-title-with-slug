@@ -88,9 +88,8 @@ TitleWithSlugInput::make(
 
 The output looks like this:
 
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-01.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-02.png" width="600" />
-<img src="docs/camya_TitleAndSlugField_v1.0.0_usage_case01-03.png" width="600" />
+<img src="docs/camya-filament-title-with-slug-docs-case01-labels-01.png" width="600" />
+<img src="docs/camya-filament-title-with-slug-docs-case01-labels-02.png" width="600" />
 
 ### Base labels and basePath
 
