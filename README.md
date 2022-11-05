@@ -26,6 +26,24 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=v-AxZv6M1xs
 
 [![Video](docs/examples/camya-filament-title-with-slug_video-placeholder.jpg)](https://www.youtube.com/watch?v=v-AxZv6M1xs)
 
+## Table of contents
+
+- [Installation](#installation)
+- [Usage & Examples](#usage--examples)
+    - [**All available parameters**](#all-available-parameters)
+    - [Basic usage - Add it to the Filament Form](#basic-usage---add-it-to-the-filament-form)
+    - [Change model fields names](#change-model-fields-names)
+    - [Change labels, titles, placeholder, and basePath](#change-labels-titles-placeholder-and-basepath)
+    - [Style the "title" input field](#style-the-title-input-field)
+    - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
+    - [Custom error messages](#custom-error-messages)
+    - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
+    - [Generate route for "Visit" link](#generate-route-for-visit-link)
+    - [Custom slugifier](#custom-slugifier)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
+- [Credits](#credits)
+
 ## Support us
 
 This package is developed by [camya.com](https://www.camya.com). You
@@ -56,19 +74,6 @@ php artisan vendor:publish --tag="filament-title-with-slug-translations"
 This plugin in translated to: [english](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
 
 ## Usage & Examples
-
-* [**All available parameters**](#all-available-parameters)
-
-- [Basic usage - Add it to the Filament Form](#basic-usage---add-it-to-the-filament-form)
-- [Change model fields names](#change-model-fields-names)
-- [Change labels, titles, placeholder, and basePath](#change-labels-titles-placeholder-and-basePath)
-- [Style the "title" input field](#style-the-title-input-field)
-- [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
-- [Custom error messages](#custom-error-messages)
-- [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
-- [Generate route for "Visit" link](#generate-route-for-visit-link)
-- [Custom slugifier](#custom-slugifier)
-
 
 ### Basic usage - Add it to the Filament Form
 
