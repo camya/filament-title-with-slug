@@ -358,3 +358,5 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 - [Markdown TOC Generator](https://luciopaiva.com/markdown-toc/)
 - SVG Icons by [Heroicons](https://heroicons.com/)
 - [Affinity](https://affinity.serif.com/) Photo & Designer
+
+[Follow us on Twitter](https://twitter.com/camyaCom)
