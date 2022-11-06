@@ -1,15 +1,15 @@
 {
     "name": "camya/filament-title-with-slug",
-    "description": "TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder - Laravel Livewire",
+    "description": "TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)",
     "keywords": [
         "framework",
         "laravel",
         "filament",
         "slug",
+        "permalink",
         "livewire",
         "alpinejs",
-        "tailwindcss",
-        "permalink"
+        "tailwindcss"
     ],
     "homepage": "https://github.com/camya/filament-title-with-slug",
     "license": "MIT",
@@ -17,7 +17,8 @@
         {
             "name": "Andreas Scheibel",
             "email": "contact@camya.com",
-            "role": "Developer"
+            "role": "Developer",
+            "homepage": "https://www.camya.com"
         }
     ],
     "require": {

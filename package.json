@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder - Laravel Livewire",
+  "description": "TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)",
   "scripts": {
     "dev": "npx tailwindcss -i ./resources/css/filament-title-with-slug.css -o ./resources/dist/filament-title-with-slug.css --postcss --watch",
     "build": "npx tailwindcss -i ./resources/css/filament-title-with-slug.css -o ./resources/dist/filament-title-with-slug.css --postcss --minify && npm run purge",
