@@ -33,7 +33,7 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI
 ## Support us
 
 This package is developed by [camya.com](https://www.camya.com). You
-can [follow us on Twitter](https://twitter.com/camyaCom) for DEV updates.
+can [follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
 You can support our work with your [donation](https://www.paypal.com/paypalme/epicbundle) via PayPal.
 
@@ -443,4 +443,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 - SVG Icons by [Heroicons](https://heroicons.com/)
 - [Affinity](https://affinity.serif.com/) Photo & Designer
 
-[Follow us on Twitter](https://twitter.com/camyaCom)
+[Follow me on Twitter](https://twitter.com/camyaCom)
