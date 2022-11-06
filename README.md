@@ -30,7 +30,7 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI
 
 ## Support us
 
-You can support my work with a [donation](https://www.paypal.com/paypalme/epicbundle) via PayPal.
+You can support my work with a [donation](https://www.paypal.com/paypalme/epicbundle).
 
 [Follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
