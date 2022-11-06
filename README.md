@@ -209,7 +209,7 @@ parameter.
 
 ```php
 TitleWithSlugInput::make(
-    titleExtraInputAttributes: ['class' => 'text-xl font-semibold bg-orange-50'],
+    titleExtraInputAttributes: ['class' => 'italic'],
 )
 ```
 
