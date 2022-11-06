@@ -136,7 +136,7 @@
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
                         "
-                        :class="modified && context !== 'create' ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
+                        :class="context !== 'create' && modified ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
                         <span class="mr-1">&shy;{{ $getState() }}</span>
 
@@ -208,7 +208,7 @@
                     </a>
 
                     <x-filament::link
-                        x-show="context === 'edit' && state !== statePersisted"
+                        x-show="context === 'edit' && modified"
                         x-on:click="resetModification()"
                         class="cursor-pointer ml-4"
                         icon="heroicon-o-refresh"
