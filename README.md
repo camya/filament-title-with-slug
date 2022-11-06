@@ -370,7 +370,7 @@ Below is an example with some defaults overridden.
     // Title
     titleLabel: 'The Title',
     titlePlaceholder: 'Post Title',
-    titleExtraInputAttributes: ['class' => 'text-xl font-semibold bg-orange-50'],
+    titleExtraInputAttributes: ['class' => 'italic'],
     titleRules: [
         'required',
         'string',
