@@ -41,8 +41,8 @@ You can support our work by [donations](https://www.camya.com).
     - [Basic usage - Add TitleWithSlugInput to a Filament Form](#basic-usage---add-titlewithsluginput-to-a-filament-form)
     - [Change model fields names](#change-model-fields-names)
     - [Change labels, titles, placeholder](#change-labels-titles-placeholder-and-basepath)
-    - [Permalink preview: Change host and path](#permalink-preview-change-host-and-path)
     - [Permalink preview with different "Visit" link](#permalink-preview-with-different-visit-link)
+    - [Permalink preview: Change host and path](#permalink-preview-change-host-and-path)
     - [Style the "title" input field](#style-the-title-input-field)
     - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
     - [Custom error messages](#custom-error-messages)
@@ -151,19 +151,7 @@ The output looks like this:
 <img src="docs/examples/camya-filament-title-with-slug_example_change-labels_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_change-labels_02.png" width="600" />
 
-
-### Permalink preview: Change host and path 
-
-You can set the path and the host for the preview.
-
-```php
-TitleWithSlugInput::make(
-    urlPath: '/blog/',
-    urlHost: 'https://www.camya.com',
-)
-```
-
-### Permalink preview: Hide host 
+### Permalink preview: Hide host
 
 You an hide the host part of the permalink preview.
 
@@ -177,6 +165,17 @@ TitleWithSlugInput::make(
 The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_host-hidden_01.png" width="600" />
+
+### Permalink preview: Change host and path 
+
+You can set the path and the host for the preview.
+
+```php
+TitleWithSlugInput::make(
+    urlPath: '/blog/',
+    urlHost: 'https://www.camya.com',
+)
+```
 
 ### Permalink preview with different "Visit" link
 
