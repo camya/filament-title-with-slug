@@ -1,6 +1,6 @@
 <img src="docs/camya-filament-title-with-slug_teaser-github.jpg" />
 
-# TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder - (PHP / Laravel / Livewire)
+# TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)
 
 This [FilamentPHP](https://filamentphp.com/) Form Builder package adds a form field to easily add
 and edit titles with slugs.
