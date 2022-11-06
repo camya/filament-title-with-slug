@@ -14,6 +14,8 @@ TitleWithSlugInput::make(
 ),
 ```
 
+<img src="docs/examples/camya-filament-title-with-slug_example_introduction-teaser.png" width="600" />
+
 **Features**
 
 - Slug edit form.
