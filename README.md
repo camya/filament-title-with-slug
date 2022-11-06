@@ -35,7 +35,7 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI
 This package is developed by [camya.com](https://www.camya.com). You
 can [follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
-You can support our work with your [donation](https://www.paypal.com/paypalme/epicbundle) via PayPal.
+You can support my work with a [donation](https://www.paypal.com/paypalme/epicbundle) via PayPal.
 
 ## Table of contents
 
