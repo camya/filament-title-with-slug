@@ -74,7 +74,6 @@ class SlugInput extends TextInput
 
     public function slugInputVisitLinkLabel(string|Closure|null $visitLinkLabel): static
     {
-//        $this->visitLinkLabel = $visitLinkLabel ?? trans('filament-title-with-slug::package.permalink_label_link_visit');
         $this->visitLinkLabel = $visitLinkLabel;
 
         return $this;
