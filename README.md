@@ -379,7 +379,7 @@ Below is an example with some defaults overridden.
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    titleIsReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
+    titleIsReadonly: fn($context, Closure $get) => => $context !== 'create',
 
     // Slug
     slugLabel: 'The Slug: ',
@@ -391,7 +391,7 @@ Below is an example with some defaults overridden.
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    slugIsReadonly: fn($context, Closure $get) => $context === 'edit' && $get('is_published'),
+    slugIsReadonly: fn($context, Closure $get) => => $context !== 'create',
     slugSlugifier: fn($string) => Str::slug($string),
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
 
