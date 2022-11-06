@@ -158,12 +158,11 @@
                           />
                         </svg>
 
-
                         <span class="sr-only">{{ trans('filament-title-with-slug::package.permalink_action_edit') }}</span>
 
                     </a>
 
-                    <span x-show="context !== 'create' && modified"> [{{ trans('filament-title-with-slug::package.permalink_status_changed') }}]</span>
+                    <span x-show="!editing && context !== 'create' && modified"> [{{ trans('filament-title-with-slug::package.permalink_status_changed') }}]</span>
 
                 </span>
 
