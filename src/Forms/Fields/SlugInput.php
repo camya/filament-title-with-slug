@@ -89,8 +89,6 @@ class SlugInput extends TextInput
         }
 
         return $label ?: trans('filament-title-with-slug::package.permalink_label_link_visit').' '.$this->getSlugInputModelName();
-
-//        return $this->evaluate($this->visitLinkLabel) . ' ' . $this->getSlugInputModelName();
     }
 
     public function slugInputLabelPrefix(string|null $labelPrefix): static
@@ -129,7 +127,7 @@ class SlugInput extends TextInput
         return $this->evaluate($this->context);
     }
 
-    public function slugInputRecordSlug(Closure $recordSlug)
+    public function slugInputRecordSlug(Closure $recordSlug): static
     {
         $this->recordSlug = $recordSlug;
 
@@ -180,7 +178,7 @@ class SlugInput extends TextInput
         return $this;
     }
 
-    public function getBaseUrl()
+    public function getBaseUrl(): string
     {
         return Str::of($this->evaluate($this->baseUrl))->rtrim('/');
     }
@@ -204,7 +202,7 @@ class SlugInput extends TextInput
             : $this->getBasePath();
     }
 
-    public function getBasePath()
+    public function getBasePath(): string
     {
         return $this->evaluate($this->basePath);
     }

@@ -102,7 +102,10 @@ class TitleWithSlugInput
             ->slugInputUrlVisitLinkVisible($urlVisitLinkVisible)
             ->slugInputContext(fn ($context) => $context === 'create' ? 'create' : 'edit')
             ->slugInputRecordSlug(fn (?Model $record) => $record?->$fieldSlug)
-            ->slugInputModelName(fn (?Model $record) => Str::of(class_basename($record))->title())
+            ->slugInputModelName(fn (?Model $record) => $record
+                ? Str::of(class_basename($record))->title()
+                : ''
+            )
             ->slugInputLabelPrefix($slugLabel)
             ->slugInputTitleField($fieldTitle)
             ->slugInputBasePath($urlPath)
@@ -151,7 +154,7 @@ class TitleWithSlugInput
     }
 
     /** Fallback slugifier, over-writable with slugSlugifier parameter. */
-    protected static function slugify(Closure|null $slugifier, string|null $text): string
+    protected static function slugify(Closure|null $slugifier, string $text): string
     {
         if (! trim($text)) {
             return '';
