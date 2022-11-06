@@ -5,7 +5,7 @@
 This [FilamentPHP](https://filamentphp.com/) Form Builder package adds a form field to easily add
 and edit titles with slugs.
 
-This plugin is inspired by the classic WordPress title & slug implementation.
+It is inspired by the classic **WordPress title & slug** implementation.
 
 ```php
 TitleWithSlugInput::make(
@@ -87,7 +87,7 @@ If you want to translate the package, you can visit our [GitHub discussions](htt
 
 ### Basic usage - Add TitleWithSlugInput to a Filament Form
 
-This package provides the custom InputField `TitleWithSlugInput` for the Filament Form Builder. 
+This package provides the custom InputField `TitleWithSlugInput` for the **Filament Form Builder**. 
 
 Read the [installation details for Filament](https://filamentphp.com/docs/2.x/admin/installation) here.
 
