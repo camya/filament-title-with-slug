@@ -110,6 +110,12 @@ class PostResource extends Resource
 
 > **Tip:** To occupy the full width, use `TitleWithSlugInput::make()->columnSpan('full')`.
 
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_03.png" width="600" />
+
 ### Change model fields names
 
 The package assumes, that you model fields are named `title` and `slug`.
@@ -124,12 +130,6 @@ TitleWithSlugInput::make(
     fieldSlug: 'identifier',
 )
 ```
-
-The output looks like this:
-
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_03.png" width="600" />
 
 ### Change labels, titles, placeholder
 
