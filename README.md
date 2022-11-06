@@ -101,7 +101,7 @@ class PostResource extends Resource
     {
         return $form->schema([
         
-            TitleWithSlugInput::make(
+            \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
                 fieldTitle: 'title',
                 fieldSlug: 'slug',
             )
@@ -111,7 +111,7 @@ class PostResource extends Resource
 }
 ```
 
-> **Tip:** To occupy the full width, use `TitleWithSlugInput::make()->columnSpan('full')`.
+> **Tip:** To occupy the full width, use `\Camya\Filament\Forms\Components\TitleWithSlugInput::make()->columnSpan('full')`.
 
 The output looks like this:
 
@@ -128,7 +128,7 @@ You can easily change them according to your needs.
 In the example below, the package now uses the database fields `name` for the title and `identifier` for the slug.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     fieldTitle: 'name',
     fieldSlug: 'identifier',
 )
@@ -141,7 +141,7 @@ It's possible to change all labels on the fly.
 In this example, we also add the base path `/books/`.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     urlPath: '/book/',
     urlVisitLinkLabel: 'Visit Book',
     titleLabel: 'Title',
@@ -160,7 +160,7 @@ The output looks like this:
 You an hide the host part of the permalink preview.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     urlHostVisible: false,
 )
 ```
@@ -174,7 +174,7 @@ The output looks like this:
 You can set the path and the host for the preview.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     urlPath: '/category/',
     urlHost: 'https://project.local',
 )
@@ -193,7 +193,7 @@ If you want set a host like `urlHost: 'camya.com'` to shorten the permalink prev
 To fix that, you can set the `urlVisitLinkRoute` parameter, which generates the "Visit" link using a defined route().
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     urlPath: '/product/',
     urlHost: 'camya.com',
     urlVisitLinkRoute: fn(?Model $record) => $record?->slug 
@@ -211,7 +211,7 @@ The output looks like this:
 You can remove the "Visit" link completely.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     urlVisitLinkVisible: false,
 )
 ```
@@ -222,7 +222,7 @@ In order to style the "title" input field, you can pass the attributes `class` v
 parameter.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     titleExtraInputAttributes: ['class' => 'italic'],
 )
 ```
@@ -239,7 +239,7 @@ In addition, a unique validation rule is applied to the slug field automatically
 read [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug).
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     titleRules: [
         'required',
         'string',
@@ -270,7 +270,7 @@ the `slugRuleUniqueParameters` counterpart.
 This is needed in order to set Filament's "ignorable" parameter correctly.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     titleRuleUniqueParameters: [
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
@@ -300,7 +300,7 @@ slug.
 If you want to use a "route()" instead, you can configure it as shown below.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     visitLinkRoute: fn(?Model $record) => $record?->slug
         ? route('post.show', ['slug' => $record->slug])
         : null,
@@ -314,7 +314,7 @@ This package uses Laravel's slugifier, `Str::slug()`, but it is possible to repl
 The following generates a slug with only the characters a-z and validates them with a regex.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     slugSlugifier: fn($string) => preg_replace( '/[^a-z]/', '', $string),
     slugRuleRegex: '/^[a-z]*$/',
 )
@@ -330,7 +330,7 @@ In order to set parameters, you use [PHP8's Named Arguments](https://laravel-new
 syntax.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
     fieldTitle: 'title',
     fieldSlug: 'slug',
 );
@@ -339,7 +339,7 @@ TitleWithSlugInput::make(
 Below is an example with some defaults overridden.
 
 ```php
-TitleWithSlugInput::make(
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
 
     // Model fields
     fieldTitle: 'title',

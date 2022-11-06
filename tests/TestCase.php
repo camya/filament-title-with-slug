@@ -1,8 +1,8 @@
 <?php
 
-namespace Camya\FilamentTitleWithSlug\Tests;
+namespace Camya\Filament\Tests;
 
-use Camya\FilamentTitleWithSlug\FilamentTitleWithSlugServiceProvider;
+use Camya\Filament\FilamentTitleWithSlugServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Camya\\FilamentTitleWithSlug\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Camya\\Filament\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

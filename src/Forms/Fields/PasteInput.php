@@ -1,6 +1,6 @@
 <?php
 
-namespace Camya\FilamentTitleWithSlug\Forms\Fields;
+namespace Camya\Filament\Forms\Fields;
 
 use Closure;
 use Filament\Forms\Components\TextInput;

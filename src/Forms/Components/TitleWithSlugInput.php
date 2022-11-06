@@ -1,8 +1,8 @@
 <?php
 
-namespace Camya\FilamentTitleWithSlug\Forms\Components;
+namespace Camya\Filament\Forms\Components;
 
-use Camya\FilamentTitleWithSlug\Forms\Fields\SlugInput;
+use Camya\Filament\Forms\Fields\SlugInput;
 use Closure;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;

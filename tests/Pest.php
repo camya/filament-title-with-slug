@@ -1,5 +1,5 @@
 <?php
 
-use Camya\FilamentTitleWithSlug\Tests\TestCase;
+use Camya\Filament\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Camya\FilamentTitleWithSlug;
+namespace Camya\Filament;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;

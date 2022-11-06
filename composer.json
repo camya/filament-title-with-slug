@@ -41,13 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Camya\\FilamentTitleWithSlug\\": "src",
-            "Camya\\FilamentTitleWithSlug\\Database\\Factories\\": "database/factories"
+            "Camya\\Filament\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Camya\\FilamentTitleWithSlug\\Tests\\": "tests"
+            "Camya\\Filament\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -69,7 +68,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Camya\\FilamentTitleWithSlug\\FilamentTitleWithSlugServiceProvider"
+                "Camya\\Filament\\FilamentTitleWithSlugServiceProvider"
             ]
         }
     },
