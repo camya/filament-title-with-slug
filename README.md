@@ -23,9 +23,9 @@ TitleWithSlugInput::make(
 - All texts customizable and translatable.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
-Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=uMdilJpxdf4)**
+Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**
 
-[![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=uMdilJpxdf4)
+[![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=5u1Nepm2NiI)
 
 ## Support us
 
