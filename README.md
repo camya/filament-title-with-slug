@@ -44,7 +44,7 @@ You can support our work by [donations](https://www.camya.com).
     - [Change model fields names](#change-model-fields-names)
     - [Change labels, titles, placeholder](#change-labels-titles-placeholder-and-basepath)
     - [Permalink preview: Change host and path](#permalink-preview-change-host-and-path)
-    - [Permalink preview with different "Visit" link](#permalink-preview-with-different-visit-link)
+    - ["Visit" link - Use router to generate URL with route()](#visit-link---use-router-to-generate-url-with-route)
     - [Hide "Visit" link](#hide-visit-link)
     - [Style the "title" input field](#style-the-title-input-field)
     - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
@@ -187,7 +187,7 @@ The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_host-change_01.png" width="600" />
 
-### Permalink preview with different "Visit" link
+### "Visit" link - Use router to generate URL with route()
 
 By default, this package simply concatenates the strings host + path + slug to generate the "Visit" link.
 
