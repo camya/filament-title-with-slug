@@ -129,6 +129,7 @@ The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_03.png" width="600" />
 
 ### Change labels, titles, placeholder
 
