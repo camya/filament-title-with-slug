@@ -2,10 +2,10 @@
 
 # TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)
 
-This [FilamentPHP](https://filamentphp.com/) Form Builder package adds a form field to easily add
+This [FilamentPHP](https://filamentphp.com/) Form Builder package adds a form component to easily add
 and edit titles with slugs.
 
-It is inspired by the classic **WordPress title & slug** implementation.
+It is inspired by the **classic WordPress title & slug** implementation.
 
 ```php
 TitleWithSlugInput::make(
@@ -19,7 +19,7 @@ TitleWithSlugInput::make(
 **Features**
 
 - Slug edit form.
-- "Visit" link to view the final URL.
+- "Visit" link to view the generated URL.
 - Auto-generates the slug from the title, if it has not already been manually updated.
 - Undo an edited slug.
 - All texts customizable and translatable.
