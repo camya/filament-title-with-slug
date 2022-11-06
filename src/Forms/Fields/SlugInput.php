@@ -32,7 +32,21 @@ class SlugInput extends TextInput
 
     protected string|Closure|null $visitLinkLabel = null;
 
+    protected bool|Closure $slugInputUrlVisitLinkVisible = true;
+
     protected Closure|null $slugInputModelName = null;
+
+    public function slugInputUrlVisitLinkVisible(bool|Closure $slugInputUrlVisitLinkVisible): static
+    {
+        $this->slugInputUrlVisitLinkVisible = $slugInputUrlVisitLinkVisible;
+
+        return $this;
+    }
+
+    public function getSlugInputUrlVisitLinkVisible(): string|null
+    {
+        return $this->evaluate($this->slugInputUrlVisitLinkVisible);
+    }
 
     public function slugInputModelName(Closure|null $slugInputModelName): static
     {

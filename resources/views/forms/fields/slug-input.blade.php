@@ -82,35 +82,38 @@
                     <span class="text-gray-400 font-semibold">{{ $getState() }}</span>
                 </span>
 
-                <a
-                    href="{{ $getRecordUrl() }}"
-                    target="_blank"
-                    class="
-                        filament-link cursor-pointer text-sm text-primary-600 underline
-                        inline-flex items-center justify-center space-x-1
-                        hover:text-primary-500
-                        dark:text-primary-500 dark:hover:text-primary-400
-                    "
-                >
+                @if($getSlugInputUrlVisitLinkVisible())
 
-                    <span>{{ $getVisitLinkLabel() }}</span>
-
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
+                    <a
+                        href="{{ $getRecordUrl() }}"
+                        target="_blank"
+                        class="
+                            filament-link cursor-pointer text-sm text-primary-600 underline
+                            inline-flex items-center justify-center space-x-1
+                            hover:text-primary-500
+                            dark:text-primary-500 dark:hover:text-primary-400
+                        "
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                    </svg>
 
-                </a>
+                        <span>{{ $getVisitLinkLabel() }}</span>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                        </svg>
+
+                    </a>
+                @endif
 
             @else
 
@@ -237,35 +240,39 @@
                     class="flex items-center space-x-2"
                 >
 
-                <template x-if="!editing">
+                    @if($getSlugInputUrlVisitLinkVisible())
 
-                    <a
+                        <template x-if="!editing">
 
-                        href="{{ $getRecordUrl() }}"
-                        target="_blank"
-                        class="filament-link inline-flex items-center justify-center space-x-1 hover:underline focus:outline-none focus:underline text-sm text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 cursor-pointer"
-                    >
+                            <a
 
-                        <span>{{ $getVisitLinkLabel() }}</span>
+                                href="{{ $getRecordUrl() }}"
+                                target="_blank"
+                                class="filament-link inline-flex items-center justify-center space-x-1 hover:underline focus:outline-none focus:underline text-sm text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 cursor-pointer"
+                            >
 
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
+                                <span>{{ $getVisitLinkLabel() }}</span>
 
-                    </a>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                  <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                  />
+                                </svg>
 
-                </template>
+                            </a>
+
+                        </template>
+
+                    @endif
 
             </span>
 

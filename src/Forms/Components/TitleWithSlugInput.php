@@ -23,6 +23,7 @@ class TitleWithSlugInput
         bool $urlHostVisible = true,
         null|Closure|string $urlVisitLinkLabel = null,
         null|Closure $urlVisitLinkRoute = null,
+        bool|Closure $urlVisitLinkVisible = true,
 
         // Title
         string|Closure|null $titleLabel = null,
@@ -98,6 +99,7 @@ class TitleWithSlugInput
             // Custom SlugInput methods
             ->slugInputVisitLinkRoute($urlVisitLinkRoute)
             ->slugInputVisitLinkLabel($urlVisitLinkLabel)
+            ->slugInputUrlVisitLinkVisible($urlVisitLinkVisible)
             ->slugInputContext(fn ($context) => $context === 'create' ? 'create' : 'edit')
             ->slugInputRecordSlug(fn (?Model $record) => $record?->$fieldSlug)
             ->slugInputModelName(fn (?Model $record) => Str::of(class_basename($record))->title())

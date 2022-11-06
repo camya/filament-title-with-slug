@@ -41,8 +41,9 @@ You can support our work by [donations](https://www.camya.com).
     - [Basic usage - Add TitleWithSlugInput to a Filament Form](#basic-usage---add-titlewithsluginput-to-a-filament-form)
     - [Change model fields names](#change-model-fields-names)
     - [Change labels, titles, placeholder](#change-labels-titles-placeholder-and-basepath)
-    - [Permalink preview with different "Visit" link](#permalink-preview-with-different-visit-link)
     - [Permalink preview: Change host and path](#permalink-preview-change-host-and-path)
+    - [Permalink preview with different "Visit" link](#permalink-preview-with-different-visit-link)
+    - [Hide "Visit" link](#hide-visit-link)
     - [Style the "title" input field](#style-the-title-input-field)
     - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
     - [Custom error messages](#custom-error-messages)
@@ -202,6 +203,16 @@ TitleWithSlugInput::make(
 The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_host-partial_01.png.png" width="600" />
+
+### Hide "Visit" link
+
+You can remove the "Visit" link completely.
+
+```php
+TitleWithSlugInput::make(
+    urlVisitLinkVisible: false,
+)
+```
 
 ### Style the "title" input field
 
