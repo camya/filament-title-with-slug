@@ -12,6 +12,7 @@ TitleWithSlugInput::make(
     fieldSlug: 'slug', // The name of the field in your model that will store the slug.
 ),
 ```
+Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**
 
 <img src="docs/examples/camya-filament-title-with-slug_example_introduction-teaser.png" width="600" />
 
@@ -24,8 +25,6 @@ TitleWithSlugInput::make(
 - All texts customizable and translatable.
 - Dark Mode supported.
 - Fully configurable, see [all available parameters](#all-available-parameters).
-
-Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**
 
 [![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=5u1Nepm2NiI)
 
