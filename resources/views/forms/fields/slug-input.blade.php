@@ -125,7 +125,7 @@
 
                     <a
                         href="#"
-                        type="button"
+                        role="button"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_edit') }}"
                         x-on:click.prevent="initModification()"
                         x-show="!editing"
@@ -157,6 +157,10 @@
                               d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                           />
                         </svg>
+
+
+                        <span class="sr-only">{{ trans('filament-title-with-slug::package.permalink_action_edit') }}</span>
+
                     </a>
 
                     <span x-show="context !== 'create' && modified"> [{{ trans('filament-title-with-slug::package.permalink_status_changed') }}]</span>
@@ -195,16 +199,13 @@
 
                     <a
                         href="#"
+                        role="button"
                         x-on:click.prevent="submitModification()"
                         class="
-                            filament-link
-                            p-2 cursor-pointer text-sm text-primary-600
-                            hover:underline hover:text-primary-500
-                            focus:outline-none focus:underline
-                            dark:text-primary-500 dark:hover:text-primary-400
+                            filament-button filament-button-size-md inline-flex items-center justify-center py-2.5 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-inset dark:focus:ring-offset-0 min-h-[2.25rem] px-4 text-sm text-gray-800 bg-white border-gray-300 hover:bg-gray-50 focus:ring-primary-600 focus:text-primary-600 focus:bg-primary-50 focus:border-primary-600 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-600 dark:hover:border-gray-500 dark:text-gray-200 dark:focus:text-primary-400 dark:focus:border-primary-400 dark:focus:bg-gray-800 filament-page-button-action
                         "
                     >
-                        {{ trans('filament-title-with-slug::package.permalink_action_change') }}
+                        {{ trans('filament-title-with-slug::package.permalink_action_ok') }}
                     </a>
 
                     <x-filament::link
@@ -247,15 +248,6 @@
                     >
 
                         <span>{{ $getVisitLinkLabel() }}</span>
-
-
-{{--                        <span--}}
-                        {{--                            x-text="--}}
-                        {{--                            modified--}}
-                        {{--                                ? '{{ $getVisitLinkLabel() }}@if($getVisitLinkLabel()) - @endif{{ trans('filament-title-with-slug::package.permalink_label_link_visit_current') }}'--}}
-                        {{--                                : '{{ $getVisitLinkLabel() }}'--}}
-                        {{--                            "--}}
-                        {{--                        ></span>--}}
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
