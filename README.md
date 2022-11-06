@@ -95,13 +95,16 @@ Below an example, where to put the new field inside your Filament Resource.
 - `fieldSlug`: The name of the field in your model that will store the slug.
 
 ```php
+
+use Camya\Filament\Forms\Components\TitleWithSlugInput;
+
 class PostResource extends Resource
 {
     public static function form(Form $form): Form
     {
         return $form->schema([
         
-            \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
+            TitleWithSlugInput::make(
                 fieldTitle: 'title',
                 fieldSlug: 'slug',
             )
@@ -111,7 +114,7 @@ class PostResource extends Resource
 }
 ```
 
-> **Tip:** To occupy the full width, use `\Camya\Filament\Forms\Components\TitleWithSlugInput::make()->columnSpan('full')`.
+> **Tip:** To occupy the full width, use `TitleWithSlugInput::make()->columnSpan('full')`.
 
 The output looks like this:
 
