@@ -21,9 +21,9 @@ class TitleWithSlugInput
         string|Closure $urlPath = '/',
         string|Closure|null $urlHost = null,
         bool $urlHostVisible = true,
+        bool|Closure $urlVisitLinkVisible = true,
         null|Closure|string $urlVisitLinkLabel = null,
         null|Closure $urlVisitLinkRoute = null,
-        bool|Closure $urlVisitLinkVisible = true,
 
         // Title
         string|Closure|null $titleLabel = null,

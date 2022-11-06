@@ -366,6 +366,7 @@ Below is an example with some defaults overridden.
     urlVisitLinkRoute: fn(?Model $record) => $record?->slug 
         ? route('post.show', ['slug' => $record->slug])
         : null,
+    urlVisitLinkVisible: true,
 
     // Title
     titleLabel: 'The Title',
