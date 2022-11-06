@@ -154,8 +154,7 @@ The output looks like this:
 
 ### Permalink preview: Change host and path 
 
-You can set the path and the host for the preview. If you want hide the host part completely, you can 
-set the parameter `urlHostVisible: false`.
+You can set the path and the host for the preview.
 
 ```php
 TitleWithSlugInput::make(
@@ -163,6 +162,21 @@ TitleWithSlugInput::make(
     urlHost: 'https://www.camya.com',
 )
 ```
+
+### Permalink preview: Hide host 
+
+You an hide the host part of the permalink preview.
+
+```php
+TitleWithSlugInput::make(
+    urlPath: '/blog/',
+    urlHostVisible: false,
+)
+```
+
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_host-hidden_01.png" width="600" />
 
 ### Permalink preview with different "Visit" link
 
@@ -181,6 +195,10 @@ TitleWithSlugInput::make(
         : null,
 )
 ```
+
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_host-partial_01.png.png" width="600" />
 
 ### Style the "title" input field
 
