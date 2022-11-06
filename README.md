@@ -40,7 +40,9 @@ You can support our work by [donations](https://www.camya.com).
 - [Usage & examples](#usage--examples)
     - [Basic usage - Add TitleWithSlugInput to a Filament Form](#basic-usage---add-titlewithsluginput-to-a-filament-form)
     - [Change model fields names](#change-model-fields-names)
-    - [Change labels, titles, placeholder, and basePath](#change-labels-titles-placeholder-and-basepath)
+    - [Change labels, titles, placeholder](#change-labels-titles-placeholder-and-basepath)
+    - [Permalink preview: Change host and path](#permalink-preview-change-host-and-path)
+    - [Permalink preview with different "Visit" link](#permalink-preview-with-different-visit-link)
     - [Style the "title" input field](#style-the-title-input-field)
     - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
     - [Custom error messages](#custom-error-messages)
@@ -128,7 +130,7 @@ The output looks like this:
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
 
-### Change labels, titles, placeholder, and path
+### Change labels, titles, placeholder
 
 It's possible to change all labels on the fly.
 
@@ -148,6 +150,37 @@ The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_change-labels_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_change-labels_02.png" width="600" />
+
+
+### Permalink preview: Change host and path 
+
+You can set the path and the host for the preview. If you want hide the host part completely, you can 
+set the parameter `urlHostVisible: false`.
+
+```php
+TitleWithSlugInput::make(
+    urlPath: '/blog/',
+    urlHost: 'https://www.camya.com',
+)
+```
+
+### Permalink preview with different "Visit" link
+
+By default, this package simply concatenates the strings host + path + slug to generate the "Visit" link.
+
+If you want set a host like `urlHost: 'camya.com'` to shorten the permalink preview, this becomes a problem.
+
+To fix that, you can set the `urlVisitLinkRoute` parameter, which generates the "Visit" link using a defined route().
+
+```php
+TitleWithSlugInput::make(
+    urlPath: '/product/',
+    urlHost: 'camya.com',
+    urlVisitLinkRoute: fn(?Model $record) => $record?->slug 
+        ? route('product.show', ['slug' => $record->slug])
+        : null,
+)
+```
 
 ### Style the "title" input field
 
