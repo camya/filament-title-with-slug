@@ -23,6 +23,7 @@ TitleWithSlugInput::make(
 - Auto-generates the slug from the title, if it has not already been manually updated.
 - Undo an edited slug.
 - All texts customizable and translatable.
+- Dark Mode supported.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
 Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**
@@ -52,6 +53,7 @@ You can support our work with your [donation](https://www.paypal.com/paypalme/ep
     - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
     - [Generate route for "Visit" link](#generate-route-for-visit-link)
     - [Custom slugifier](#custom-slugifier)
+    - [Dark Mode](#dark-mode)
     - [**All available parameters**](#all-available-parameters)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
@@ -324,6 +326,14 @@ The following generates a slug with only the characters a-z and validates them w
 ```
 
 Note: You can customize the validation error, see [Custom error messages](#custom-error-messages).
+
+### Dark Mode
+
+The package supports Filament's dark mode. Dark mode output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_03.png" width="600" />
 
 ### All available parameters
 
