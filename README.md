@@ -157,7 +157,6 @@ You an hide the host part of the permalink preview.
 
 ```php
 TitleWithSlugInput::make(
-    urlPath: '/blog/',
     urlHostVisible: false,
 )
 ```
