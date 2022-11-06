@@ -171,10 +171,14 @@ You can set the path and the host for the preview.
 
 ```php
 TitleWithSlugInput::make(
-    urlPath: '/blog/',
-    urlHost: 'https://www.camya.com',
+    urlPath: '/category/',
+    urlHost: 'https://project.local',
 )
 ```
+
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_host-change_01.png" width="600" />
 
 ### Permalink preview with different "Visit" link
 
