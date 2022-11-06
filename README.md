@@ -1,4 +1,4 @@
-<img src="docs/camya-filament-title-with-slug_teaser-readme.jpg" />
+<img src="docs/camya-filament-title-with-slug_teaser-github.jpg" />
 
 # TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder - Laravel Livewire
 
