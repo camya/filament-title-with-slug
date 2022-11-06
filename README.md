@@ -1,6 +1,6 @@
 <img src="docs/camya-filament-title-with-slug_teaser-github.jpg" />
 
-# TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)
+# "Title With Slug" Input - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)
 
 This package for [FilamentPHP](https://filamentphp.com/) adds the form component `TitleWithSlugInput` which allows to edit titles and slugs easily.
 
