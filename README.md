@@ -59,7 +59,6 @@ Support the package: Please give it a &#11088; Star on GitHub and on the officia
     - [Add extra validation rules for title or slug](#add-extra-validation-rules-for-title-or-slug)
     - [Custom error messages](#custom-error-messages)
     - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
-    - [Generate route for "Visit" link](#generate-route-for-visit-link)
     - [Custom slugifier](#custom-slugifier)
     - [Dark Mode](#dark-mode)
     - [**All available parameters**](#all-available-parameters)
@@ -312,21 +311,6 @@ Available array keys:
 'ignoreRecord' (bool)
 'table' (string | Closure | null)  
 'column' (string | Closure | null) 
-```
-
-### Generate route for "Visit" link
-
-This package displays a "view" link for persisted slugs. By default, it simply concatenates the strings host + path +
-slug.
-
-If you want to use a "route()" instead, you can configure it as shown below.
-
-```php
-\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
-    visitLinkRoute: fn(?Model $record) => $record?->slug
-        ? route('post.show', ['slug' => $record->slug])
-        : null,
-)
 ```
 
 ### Custom slugifier
