@@ -1,10 +1,11 @@
 <img src="docs/camya-filament-title-with-slug_teaser-github.jpg" />
 
-# TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)
+# "Title With Slug" Input - Easy Permalink Slugs for Filament Forms (PHP / Laravel / Livewire)
 
-This package for [FilamentPHP](https://filamentphp.com/) adds the form component `TitleWithSlugInput` which allows to edit titles and slugs easily.
+This package for [FilamentPHP](https://filamentphp.com/) adds the form component `TitleWithSlugInput` which allows to
+edit titles and slugs easily. 
 
-It is inspired by the **classic WordPress title & slug** implementation.
+It is inspired by the classic **WordPress title & slug** implementation.
 
 ```php
 TitleWithSlugInput::make(
@@ -12,11 +13,14 @@ TitleWithSlugInput::make(
     fieldSlug: 'slug', // The name of the field in your model that will store the slug.
 ),
 ```
-Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**
 
-<img src="docs/examples/camya-filament-title-with-slug_example_introduction-teaser.png" width="600" />
+The output looks like this: (Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**)
 
-**Features**
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
+
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
+
+## Features
 
 - Slug edit form.
 - "Visit" link to view the generated URL.
@@ -26,6 +30,10 @@ Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI
 - Dark Mode supported.
 - Fully configurable, see [all available parameters](#all-available-parameters).
 
+## Video
+
+You can watch a short demo video of the packages below.
+
 [![Video](docs/camya-filament-title-with-slug_teaser_video.jpg)](https://www.youtube.com/watch?v=5u1Nepm2NiI)
 
 ## Support us
@@ -34,13 +42,16 @@ You can support my work with a [donation](https://www.paypal.com/paypalme/epicbu
 
 [Follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
+Support the package: Please give it a &#11088; Star on GitHub and on the official Filament [plugin page](https://filamentphp.com/plugins/title-with-slug-permalink), if it's helpful for you.
+
 ## Table of contents
 
 - [Installation](#installation)
 - [Usage & examples](#usage--examples)
     - [Basic usage - Add TitleWithSlugInput to a Filament Form](#basic-usage---add-titlewithsluginput-to-a-filament-form)
     - [Change model fields names](#change-model-fields-names)
-    - [Change labels, titles, placeholder](#change-labels-titles-placeholder-and-basepath)
+    - [Change labels, titles, placeholder](#change-labels-titles-placeholder)
+    - [Permalink preview: Hide host](#permalink-preview-hide-host)
     - [Permalink preview: Change host and path](#permalink-preview-change-host-and-path)
     - ["Visit" link - Use router to generate URL with route()](#visit-link---use-router-to-generate-url-with-route)
     - [Hide "Visit" link](#hide-visit-link)
@@ -70,21 +81,27 @@ If needed, you can publish the config file with:
 php artisan vendor:publish --tag="filament-title-with-slug-config"
 ```
 
+## Translation
+
 If needed, you can publish the translation files with:
 
 ```bash
 php artisan vendor:publish --tag="filament-title-with-slug-translations"
 ```
 
-This package is translated to: [english (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php), [german (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
+This package is translated
+to: 
+- [english (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
+- [german (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
 
-If you want to translate the package, you can visit our [GitHub discussions](https://github.com/camya/filament-title-with-slug/discussions) and post your translation there.
+You translated it too? Share your translation on
+our [GitHub discussions](https://github.com/camya/filament-title-with-slug/discussions) page. 
 
 ## Usage & examples
 
 ### Basic usage - Add TitleWithSlugInput to a Filament Form
 
-This package provides the custom InputField `TitleWithSlugInput` for the **Filament Form Builder**. 
+This package provides the custom InputField `TitleWithSlugInput` for the **Filament Form Builder**.
 
 Read the [installation details for Filament](https://filamentphp.com/docs/2.x/admin/installation) here.
 
@@ -119,7 +136,6 @@ The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_03.png" width="600" />
 
 ### Change model fields names
 
@@ -152,6 +168,8 @@ In this example, we also add the base path `/books/`.
 )
 ```
 
+> Tip: You can [translate the package](#contributing) completely. 
+
 The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_change-labels_01.png" width="600" />
@@ -171,7 +189,7 @@ The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_host-hidden_01.png" width="600" />
 
-### Permalink preview: Change host and path 
+### Permalink preview: Change host and path
 
 You can set the path and the host for the preview.
 
@@ -188,11 +206,7 @@ The output looks like this:
 
 ### "Visit" link - Use router to generate URL with route()
 
-By default, this package simply concatenates the strings host + path + slug to generate the "Visit" link.
-
-If you want set a host like `urlHost: 'camya.com'` to shorten the permalink preview, this becomes a problem.
-
-To fix that, you can set the `urlVisitLinkRoute` parameter, which generates the "Visit" link using a defined route().
+You can use a named route, e.g. `route('product.show', ['slug' => $record->slug])`, to generated the "Visit" link.
 
 ```php
 \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
@@ -204,9 +218,15 @@ To fix that, you can set the `urlVisitLinkRoute` parameter, which generates the 
 )
 ```
 
+Laravel documentation: [Generating URLs To Named Routes](https://laravel.com/docs/9.x/routing#generating-urls-to-named-routes)
+
+By default, the package concatenates the strings `host + path + slug` to generate the "Visit" link.
+
+Because the "Visit" link now is generated by an route, you can use partial hosts like `urlHost: 'camya.com'` to shorten the permalink preview.
+
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_host-partial_01.png.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_host-partial_01.png" width="600" />
 
 ### Hide "Visit" link
 
@@ -330,7 +350,6 @@ The package supports Filament's dark mode. Dark mode output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_02.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_03.png" width="600" />
 
 ### All available parameters
 
@@ -402,7 +421,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Want to implement a feature, fix a bug, or translate this package? Please see [contributing](.github/CONTRIBUTING.md) for details.
+Want to implement a feature, fix a bug, or translate this package? Please see [contributing](.github/CONTRIBUTING.md)
+for details.
 
 ## Security Vulnerabilities
 
@@ -410,9 +430,10 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Andreas Scheibel (camya)](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com) & [epicbundle.com](https://www.epicbundle.com))
+- [Andreas Scheibel (camya)](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com)
+  / [epicbundle.com](https://www.epicbundle.com))
 
-[FilamentPHP](https://filamentphp.com/) 
+[FilamentPHP](https://filamentphp.com/)
 is based on
 [Laravel](https://laravel.com/),
 [Livewire](https://laravel-livewire.com/),
@@ -429,15 +450,18 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 <img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
 
-## Tooling - Development tools we use
+## Tooling - Development tools I use
 
-- [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (+ [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
-- Laravel with [Valet](https://laravel.com/docs/9.x/valet) and [Lambo](https://github.com/https://github.com/tighten/lambo/lambo)
+- [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE ( + [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
+- Laravel with [Valet](https://laravel.com/docs/9.x/valet)
+  and [Lambo](https://github.com/https://github.com/tighten/lambo/lambo)
+- [GitHub Desktop](https://desktop.github.com/)
 - Translations with [DeepL](https://www.deepl.com/translator) and [LanguageTool](https://languagetool.org/)
-- [iTerm2](https://iterm2.com/) Terminal
-- [Regex101](https://regex101.com/) - Build, text, debug regex.
 - [Markdown TOC Generator](https://luciopaiva.com/markdown-toc/)
 - SVG Icons by [Heroicons](https://heroicons.com/)
+- [iTerm2](https://iterm2.com/) Terminal
+- [Regex101](https://regex101.com/) - Build, text, debug regex.
 - [Affinity](https://affinity.serif.com/) Photo & Designer
+- [VSCode](https://code.visualstudio.com/)
 
 [Follow me on Twitter](https://twitter.com/camyaCom)
