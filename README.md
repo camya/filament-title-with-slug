@@ -176,7 +176,7 @@ The output looks like this:
 
 ### Permalink preview: Hide host
 
-You an hide the host part of the permalink preview.
+You can hide the host part of the permalink preview.
 
 ```php
 \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
@@ -380,7 +380,7 @@ Below is an example with some defaults overridden.
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    titleIsReadonly: fn($context, Closure $get) => => $context !== 'create',
+    titleIsReadonly: fn($context) => => $context !== 'create',
 
     // Slug
     slugLabel: 'The Slug: ',
@@ -392,7 +392,7 @@ Below is an example with some defaults overridden.
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    slugIsReadonly: fn($context, Closure $get) => => $context !== 'create',
+    slugIsReadonly: fn($context) => => $context !== 'create',
     slugSlugifier: fn($string) => Str::slug($string),
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
 

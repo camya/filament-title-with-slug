@@ -14,6 +14,7 @@ class TitleWithSlugInput
 {
     public static function make(
 
+        // Model fields
         string|null $fieldTitle = null,
         string|null $fieldSlug = null,
 
@@ -52,6 +53,7 @@ class TitleWithSlugInput
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
 
         /** Input: "Title" */
+
         $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
             ->autofocus()
@@ -94,6 +96,7 @@ class TitleWithSlugInput
         }
 
         /** Input: "Slug" (+ view) */
+
         $slugInput = SlugInput::make($fieldSlug)
 
             // Custom SlugInput methods
@@ -140,6 +143,7 @@ class TitleWithSlugInput
             : $slugInput->unique(ignorable: fn (?Model $record) => $record);
 
         /** Input: "Slug Auto Update Disabled" (Hidden) */
+
         $hiddenInputSlugAutoUpdateDisabled = Hidden::make('slug_auto_update_disabled')
             ->dehydrated(false);
 
