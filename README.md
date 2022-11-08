@@ -7,6 +7,8 @@ edit titles and slugs easily.
 
 It is inspired by the classic **WordPress title & slug** implementation.
 
+The plugin is fully configurable. You can change all labels, use your own slugifier, use a route() to generate the "View" link, hide the host name, and many more. Read the [full documentation](#installation)
+
 ```php
 TitleWithSlugInput::make(
     fieldTitle: 'title', // The name of the field in your model that stores the title.
