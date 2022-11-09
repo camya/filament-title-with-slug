@@ -22,8 +22,6 @@ class SlugInput extends TextInput
 
     protected Closure $recordSlug;
 
-    protected string $titleField;
-
     protected bool|Closure $readonly = false;
 
     protected string $labelPrefix;
@@ -136,18 +134,6 @@ class SlugInput extends TextInput
     public function getRecordSlug(): ?string
     {
         return $this->evaluate($this->recordSlug);
-    }
-
-    public function slugInputTitleField(string $titleField): static
-    {
-        $this->titleField = $titleField;
-
-        return $this;
-    }
-
-    public function getTitleField(): string
-    {
-        return $this->titleField;
     }
 
     public function getRecordUrl(): ?string

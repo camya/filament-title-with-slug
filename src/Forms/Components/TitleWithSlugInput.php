@@ -49,8 +49,10 @@ class TitleWithSlugInput
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
 
     ): Group {
+
         $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.field_title');
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
+        $urlHost = $urlHost ?? config('filament-title-with-slug.url_host');
 
         /** Input: "Title" */
 
@@ -65,16 +67,21 @@ class TitleWithSlugInput
             ->beforeStateDehydrated(fn (TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
 
-                function ($state, Closure $set, Closure $get, string $context) use ($slugSlugifier, $fieldSlug) {
+                function ($state, Closure $set, Closure $get, string $context, ?Model $record) use (
+                    $slugSlugifier,
+                    $fieldSlug
+                ) {
+
                     $slugAutoUpdateDisabled = $get('slug_auto_update_disabled');
 
-                    if ($context === 'edit') {
+                    if ($context === 'edit' && $record?->slug) {
                         $slugAutoUpdateDisabled = true;
                     }
 
                     if (! $slugAutoUpdateDisabled && filled($state)) {
                         $set($fieldSlug, self::slugify($slugSlugifier, $state));
                     }
+
                 }
 
             );
@@ -110,7 +117,6 @@ class TitleWithSlugInput
                 : ''
             )
             ->slugInputLabelPrefix($slugLabel)
-            ->slugInputTitleField($fieldTitle)
             ->slugInputBasePath($urlPath)
             ->slugInputBaseUrl($urlHost)
             ->slugInputShowUrl($urlHostVisible)
@@ -127,6 +133,7 @@ class TitleWithSlugInput
             ->afterStateUpdated(
 
                 function ($state, Closure $set, Closure $get) use ($slugSlugifier, $fieldTitle, $fieldSlug) {
+
                     $text = trim($state) === ''
                         ? $get($fieldTitle)
                         : $get($fieldSlug);
@@ -134,6 +141,7 @@ class TitleWithSlugInput
                     $set('slug', self::slugify($slugSlugifier, $text));
 
                     $set('slug_auto_update_disabled', true);
+
                 }
 
             );
