@@ -7,6 +7,7 @@ use Closure;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
+use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -36,6 +37,7 @@ class TitleWithSlugInput
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
+        null|Closure $titleAfterStateUpdated = null,
 
         // Slug
         string|null $slugLabel = null,
@@ -45,17 +47,16 @@ class TitleWithSlugInput
         ],
         array $slugRuleUniqueParameters = [],
         bool|Closure $slugIsReadonly = false,
+        null|Closure $slugAfterStateUpdated = null,
         null|Closure $slugSlugifier = null,
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
 
     ): Group {
-
         $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.field_title');
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
         $urlHost = $urlHost ?? config('filament-title-with-slug.url_host');
 
         /** Input: "Title" */
-
         $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
             ->autofocus()
@@ -67,14 +68,21 @@ class TitleWithSlugInput
             ->beforeStateDehydrated(fn (TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
 
-                function ($state, Closure $set, Closure $get, string $context, ?Model $record) use (
+                function (
+                    $state,
+                    Closure $set,
+                    Closure $get,
+                    string $context,
+                    ?Model $record,
+                    Component $component
+                ) use (
                     $slugSlugifier,
-                    $fieldSlug
+                    $fieldSlug,
+                    $titleAfterStateUpdated,
                 ) {
-
                     $slugAutoUpdateDisabled = $get('slug_auto_update_disabled');
 
-                    if ($context === 'edit' && $record?->slug) {
+                    if ($context === 'edit' && filled($record)) {
                         $slugAutoUpdateDisabled = true;
                     }
 
@@ -82,12 +90,15 @@ class TitleWithSlugInput
                         $set($fieldSlug, self::slugify($slugSlugifier, $state));
                     }
 
+                    if ($titleAfterStateUpdated) {
+                        $component->evaluate($titleAfterStateUpdated);
+                    }
                 }
 
             );
 
         if ($titlePlaceholder !== '') {
-            $textInput->placeholder($titlePlaceholder ?: fn () => Str::of($fieldTitle)->title());
+            $textInput->placeholder($titlePlaceholder ?: fn () => Str::of($fieldTitle)->headline());
         }
 
         if (! $titleLabel) {
@@ -103,7 +114,6 @@ class TitleWithSlugInput
         }
 
         /** Input: "Slug" (+ view) */
-
         $slugInput = SlugInput::make($fieldSlug)
 
             // Custom SlugInput methods
@@ -113,7 +123,7 @@ class TitleWithSlugInput
             ->slugInputContext(fn ($context) => $context === 'create' ? 'create' : 'edit')
             ->slugInputRecordSlug(fn (?Model $record) => $record?->$fieldSlug)
             ->slugInputModelName(fn (?Model $record) => $record
-                ? Str::of(class_basename($record))->title()
+                ? Str::of(class_basename($record))->headline()
                 : ''
             )
             ->slugInputLabelPrefix($slugLabel)
@@ -129,11 +139,19 @@ class TitleWithSlugInput
             ->disableLabel()
             ->regex($slugRuleRegex)
             ->rules($slugRules)
-            ->unique(ignorable: fn (?Model $record) => $record)
             ->afterStateUpdated(
 
-                function ($state, Closure $set, Closure $get) use ($slugSlugifier, $fieldTitle, $fieldSlug) {
-
+                function (
+                    $state,
+                    Closure $set,
+                    Closure $get,
+                    Component $component
+                ) use (
+                    $slugSlugifier,
+                    $fieldTitle,
+                    $fieldSlug,
+                    $slugAfterStateUpdated,
+                ) {
                     $text = trim($state) === ''
                         ? $get($fieldTitle)
                         : $get($fieldSlug);
@@ -142,6 +160,9 @@ class TitleWithSlugInput
 
                     $set('slug_auto_update_disabled', true);
 
+                    if ($slugAfterStateUpdated) {
+                        $component->evaluate($slugAfterStateUpdated);
+                    }
                 }
 
             );
@@ -151,7 +172,6 @@ class TitleWithSlugInput
             : $slugInput->unique(ignorable: fn (?Model $record) => $record);
 
         /** Input: "Slug Auto Update Disabled" (Hidden) */
-
         $hiddenInputSlugAutoUpdateDisabled = Hidden::make('slug_auto_update_disabled')
             ->dehydrated(false);
 
@@ -166,9 +186,9 @@ class TitleWithSlugInput
     }
 
     /** Fallback slugifier, over-writable with slugSlugifier parameter. */
-    protected static function slugify(Closure|null $slugifier, string $text): string
+    protected static function slugify(Closure|null $slugifier, string|null $text): string
     {
-        if (! trim($text)) {
+        if (is_null($text) || ! trim($text)) {
             return '';
         }
 

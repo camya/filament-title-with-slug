@@ -10,8 +10,8 @@
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
     processIsolation="false"
-    stopOnFailure="false"
-    executionOrder="random"
+    stopOnFailure="true"
+    executionOrder=""
     failOnWarning="true"
     failOnRisky="true"
     failOnEmptyTestSuite="true"
@@ -27,13 +27,10 @@
         <include>
             <directory suffix=".php">./src</directory>
         </include>
-        <report>
-            <html outputDirectory="build/coverage"/>
-            <text outputFile="build/coverage.txt"/>
-            <clover outputFile="build/logs/clover.xml"/>
-        </report>
     </coverage>
-    <logging>
-        <junit outputFile="build/report.junit.xml"/>
-    </logging>
+    <php>
+        <env name="APP_KEY" value="ZzkfSECXIvnK5r28GVIWUAxmbBSjTsZZ"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+    </php>
 </phpunit>

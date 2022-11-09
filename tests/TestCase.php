@@ -2,8 +2,12 @@
 
 namespace Camya\Filament\Tests;
 
+use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
+use BladeUI\Icons\BladeIconsServiceProvider;
 use Camya\Filament\FilamentTitleWithSlugServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Filament\Forms\FormsServiceProvider;
+use Filament\Support\SupportServiceProvider;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -11,16 +15,17 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Camya\\Filament\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
     }
 
     protected function getPackageProviders($app)
     {
         return [
             FilamentTitleWithSlugServiceProvider::class,
+            LivewireServiceProvider::class,
+            FormsServiceProvider::class,
+            SupportServiceProvider::class,
+            BladeIconsServiceProvider::class,
+            BladeHeroiconsServiceProvider::class,
         ];
     }
 

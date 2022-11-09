@@ -446,8 +446,9 @@ Below is an example with some defaults overridden.
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    titleIsReadonly: fn($context) => => $context !== 'create',
-
+    titleIsReadonly: fn($context) => $context !== 'create',
+    titleAfterStateUpdated: fn ($state) => $state,
+    
     // Slug
     slugLabel: 'The Slug: ',
     slugRules: [
@@ -458,9 +459,10 @@ Below is an example with some defaults overridden.
         'callback' => fn(Unique $rule) => $rule->where('is_published', 1),
         'ignorable' => fn(?Model $record) => $record,
     ],
-    slugIsReadonly: fn($context) => => $context !== 'create',
+    slugIsReadonly: fn($context) => $context !== 'create',
     slugSlugifier: fn($string) => Str::slug($string),
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
+    slugAfterStateUpdated: fn ($state) => $state,
 
 )->columnSpan('full'),
 ```
@@ -493,6 +495,7 @@ and
 
 This package was inspired by a package
 by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://github.com/spatie/).
+Thanks also to [ralphjsmit](https://github.com/ralphjsmit/) for his blueprint that I used to implement the Filament Component [Pest Tests](https://pestphp.com/).
 
 ## License
 
