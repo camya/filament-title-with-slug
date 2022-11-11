@@ -53,7 +53,8 @@
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest; vendor/bin/phpstan analyse; vendor/bin/pint --test",
+        "test": "vendor/bin/pest",
+        "test-all": "vendor/bin/pest; vendor/bin/phpstan analyse; vendor/bin/pint --test",
         "format": "vendor/bin/pint"
     },
     "config": {
