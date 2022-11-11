@@ -129,7 +129,6 @@ class TitleWithSlugInput
             ->disableLabel()
             ->regex($slugRuleRegex)
             ->rules($slugRules)
-            ->unique(ignorable: fn (?Model $record) => $record)
             ->afterStateUpdated(
 
                 function ($state, Closure $set, Closure $get) use ($slugSlugifier, $fieldTitle, $fieldSlug) {
