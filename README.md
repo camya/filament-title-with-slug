@@ -94,7 +94,6 @@ If needed, you can publish the translation files with:
 php artisan vendor:publish --tag="filament-title-with-slug-translations"
 ```
 
-
 You'll find the published translations here: `trans/vendor/filament-title-with-slug`
 
 This package is translated
@@ -342,7 +341,8 @@ Note: You can customize the validation error, see [Custom error messages](#custo
 
 ### Dark Mode
 
-The package supports [Filaments dark mode](https://filamentphp.com/docs/2.x/admin/appearance#dark-mode). Dark mode output looks like this:
+The package supports [Filaments dark mode](https://filamentphp.com/docs/2.x/admin/appearance#dark-mode). Dark mode
+output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_02.png" width="600" />
@@ -447,7 +447,7 @@ Below is an example with some defaults overridden.
         'ignorable' => fn(?Model $record) => $record,
     ],
     titleIsReadonly: fn($context) => $context !== 'create',
-    titleAfterStateUpdated: fn ($state) => $state,
+    titleAfterStateUpdated: function ($state) {},
     
     // Slug
     slugLabel: 'The Slug: ',
@@ -462,7 +462,7 @@ Below is an example with some defaults overridden.
     slugIsReadonly: fn($context) => $context !== 'create',
     slugSlugifier: fn($string) => Str::slug($string),
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
-    slugAfterStateUpdated: fn ($state) => $state,
+    slugAfterStateUpdated: function ($state) {},
 
 )->columnSpan('full'),
 ```
@@ -495,7 +495,8 @@ and
 
 This package was inspired by a package
 by [awcodes](https://github.com/awcodes/) and the work of [spatie](https://github.com/spatie/).
-Thanks also to [ralphjsmit](https://github.com/ralphjsmit/) for his blueprint that I used to implement the Filament Component [Pest Tests](https://pestphp.com/).
+Thanks also to [ralphjsmit](https://github.com/ralphjsmit/) for his blueprint that I used to implement the Filament
+Component [Pest Tests](https://pestphp.com/).
 
 ## License
 
@@ -506,7 +507,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Tooling - Development tools I use
 
 - [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (
-  + [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
+    + [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
 - Laravel with [Valet](https://laravel.com/docs/9.x/valet)
   and [Lambo](https://github.com/https://github.com/tighten/lambo/lambo)
 - [GitHub Desktop](https://desktop.github.com/)
