@@ -5,6 +5,7 @@ namespace Camya\Filament\Tests;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Camya\Filament\FilamentTitleWithSlugServiceProvider;
+use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Livewire\LivewireServiceProvider;
@@ -21,6 +22,7 @@ class TestCase extends Orchestra
     {
         return [
             FilamentTitleWithSlugServiceProvider::class,
+            FilamentServiceProvider::class,
             LivewireServiceProvider::class,
             FormsServiceProvider::class,
             SupportServiceProvider::class,
