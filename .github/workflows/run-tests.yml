@@ -1,40 +1,51 @@
-# "GitHub Action for Pest Tests"
-# https://raw.githubusercontent.com/pestphp/pest-plugin-laravel/2.x/.github/workflows/tests.yml
+# "GitHub Action for Pest"
 
-name: PHP Tests
+name: run-tests
 
-on: ['push', 'pull_request']
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  ci:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: true
       matrix:
-        os: [ubuntu-latest]
-        php: ['8.1', '8.2']
-        dependency-version: [prefer-lowest, prefer-stable]
-        parallel: ['', '--parallel']
+        os: [ ubuntu-latest, windows-latest ]
+        php: [ 8.0 ]
+        laravel: [ 8.*, 9.* ]
+        stability: [ prefer-lowest, prefer-stable ]
+        include:
+          - laravel: 9.*
+            testbench: ^7.0
+          - laravel: 8.*
+            testbench: ^6.23
 
-    name: PHP ${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }} - ${{ matrix.parallel }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          tools: composer:v2
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
           coverage: none
 
-      - name: Setup Problem Matches
+      - name: Setup problem matchers
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-      - name: Install PHP dependencies
-        run: composer update --${{ matrix.dependency-version }} --no-interaction --no-progress --ansi
+      - name: Install dependencies
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
-      - name: Pest tests
-        run: composer test
+      - name: Execute tests
+        run: vendor/bin/pest
