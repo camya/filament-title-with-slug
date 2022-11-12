@@ -9,6 +9,7 @@ use Filament\Forms\FormsServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use RalphJSmit\Filament\Components\FilamentComponentsServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -21,6 +22,7 @@ class TestCase extends Orchestra
     {
         return [
             FilamentTitleWithSlugServiceProvider::class,
+            FilamentComponentsServiceProvider::class,
             LivewireServiceProvider::class,
             FormsServiceProvider::class,
             SupportServiceProvider::class,
