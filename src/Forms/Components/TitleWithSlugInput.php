@@ -72,7 +72,7 @@ class TitleWithSlugInput
                     Closure $get,
                     string $context,
                     ?Model $record,
-                    Component $component
+                    TextInput $component
                 ) use (
                     $slugSlugifier,
                     $fieldSlug,
@@ -142,7 +142,7 @@ class TitleWithSlugInput
                     $state,
                     Closure $set,
                     Closure $get,
-                    Component $component
+                    TextInput $component
                 ) use (
                     $slugSlugifier,
                     $fieldTitle,
