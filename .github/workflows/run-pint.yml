@@ -1,0 +1,18 @@
+# "GitHub Action for Laravel Pint" https://github.com/marketplace/actions/laravel-pint
+
+name: PHP Linting
+
+on: ['push', 'pull_request']
+
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: "laravel-pint"
+        uses: aglipanci/laravel-pint-action@1.0.0
+        with:
+          preset: laravel
+          verboseMode: true
+          testMode: true
+          configPath: "pint.json"
