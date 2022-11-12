@@ -50,7 +50,6 @@ class TitleWithSlugInput
         null|Closure $slugAfterStateUpdated = null,
         null|Closure $slugSlugifier = null,
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
-
     ): Group {
         $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.field_title');
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
@@ -67,7 +66,6 @@ class TitleWithSlugInput
             ->extraInputAttributes($titleExtraInputAttributes ?? ['class' => 'text-xl font-semibold'])
             ->beforeStateDehydrated(fn (TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
-
                 function (
                     $state,
                     Closure $set,
@@ -94,7 +92,6 @@ class TitleWithSlugInput
                         $component->evaluate($titleAfterStateUpdated);
                     }
                 }
-
             );
 
         if ($titlePlaceholder !== '') {
@@ -122,7 +119,8 @@ class TitleWithSlugInput
             ->slugInputUrlVisitLinkVisible($urlVisitLinkVisible)
             ->slugInputContext(fn ($context) => $context === 'create' ? 'create' : 'edit')
             ->slugInputRecordSlug(fn (?Model $record) => $record?->$fieldSlug)
-            ->slugInputModelName(fn (?Model $record) => $record
+            ->slugInputModelName(
+                fn (?Model $record) => $record
                 ? Str::of(class_basename($record))->headline()
                 : ''
             )
@@ -140,7 +138,6 @@ class TitleWithSlugInput
             ->regex($slugRuleRegex)
             ->rules($slugRules)
             ->afterStateUpdated(
-
                 function (
                     $state,
                     Closure $set,
@@ -164,7 +161,6 @@ class TitleWithSlugInput
                         $component->evaluate($slugAfterStateUpdated);
                     }
                 }
-
             );
 
         $slugRuleUniqueParameters
