@@ -469,7 +469,7 @@ Below is an example with some defaults overridden.
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see the [release changelog](https://github.com/camya/filament-title-with-slug/releases) for more information on what has changed recently.
 
 ## Contributing
 
