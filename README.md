@@ -391,7 +391,7 @@ It is important to add a `urlVisitLinkRoute` closure to create a correct visit l
 
 ```php
 \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
-    slugField: 'subdomain',
+    fieldSlug: 'subdomain',
     urlPath: '',
     urlHostVisible: false,
     urlVisitLinkRoute: fn (?Model $record) => $record?->slug
