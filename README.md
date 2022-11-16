@@ -66,6 +66,7 @@ Filament [plugin page](https://filamentphp.com/plugins/title-with-slug-permalink
     - [Custom slugifier](#custom-slugifier)
     - [Dark Mode](#dark-mode)
     - [Use within a relationship repeater](#use-within-a-relationship-repeater)
+    - [Use the slug as subdomain](#use-the-slug-as-subdomain)
     - [Package config file - Set default values](#package-config-file---set-default-values)
     - [**All available parameters**](#all-available-parameters)
 - [Changelog](#changelog)
@@ -227,8 +228,8 @@ You can use a named route, e.g. `route('product.show', ['slug' => $record->slug]
 )
 ```
 
-Laravel
-documentation: [Generating URLs To Named Routes](https://laravel.com/docs/9.x/routing#generating-urls-to-named-routes)
+Laravel documentation: 
+[Generating URLs To Named Routes](https://laravel.com/docs/9.x/routing#generating-urls-to-named-routes)
 
 By default, the package concatenates the strings `host + path + slug` to generate the "Visit" link.
 
@@ -378,6 +379,27 @@ and the [Filament Repeater](https://filamentphp.com/docs/2.x/forms/fields#repeat
 The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_repeater_01.png" width="600" />
+
+### Use the slug as subdomain
+
+You can use the package to create the subdomain part of a URL with the following setup.
+
+It is important to add a `urlVisitLinkRoute` closure to create a correct visit link.
+
+```php
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
+    urlPath: '',
+    urlHostVisible: false,
+    urlVisitLinkRoute: fn (?Model $record) => $record?->slug
+        ? 'https://'.$record->slug.'.camya.com'
+        : null,
+    slugLabelPostfix: '.camya.com',
+),
+```
+
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_subdomain_01.png" width="600" />
 
 ### Package config file - Set default values
 

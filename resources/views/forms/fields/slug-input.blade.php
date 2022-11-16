@@ -145,6 +145,13 @@
 
                     </a>
 
+                    @if($getSlugLabelPostfix())
+                        <span
+                            x-show="!editing"
+                            class="ml-0.5"
+                        >{{ $getSlugLabelPostfix() }}</span>
+                    @endif
+
                     <span x-show="!editing && context !== 'create' && modified"> [{{ trans('filament-title-with-slug::package.permalink_status_changed') }}]</span>
 
                 </span>

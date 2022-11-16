@@ -19,7 +19,7 @@ class TitleWithSlugInput
         string|null $fieldSlug = null,
 
         // Url
-        string|Closure $urlPath = '/',
+        string|Closure|null $urlPath = '/',
         string|Closure|null $urlHost = null,
         bool $urlHostVisible = true,
         bool|Closure $urlVisitLinkVisible = true,
@@ -49,6 +49,7 @@ class TitleWithSlugInput
         null|Closure $slugAfterStateUpdated = null,
         null|Closure $slugSlugifier = null,
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
+        string|Closure|null $slugLabelPostfix = null,
     ): Group {
         $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.field_title');
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
@@ -127,6 +128,7 @@ class TitleWithSlugInput
             ->slugInputBasePath($urlPath)
             ->slugInputBaseUrl($urlHost)
             ->slugInputShowUrl($urlHostVisible)
+            ->slugInputSlugLabelPostfix($slugLabelPostfix)
 
             // Default TextInput methods
             ->readonly($slugIsReadonly)

@@ -34,6 +34,8 @@ class SlugInput extends TextInput
 
     protected Closure|null $slugInputModelName = null;
 
+    protected string|Closure|null $slugLabelPostfix = null;
+
     public function slugInputUrlVisitLinkVisible(bool|Closure $slugInputUrlVisitLinkVisible): static
     {
         $this->slugInputUrlVisitLinkVisible = $slugInputUrlVisitLinkVisible;
@@ -124,6 +126,18 @@ class SlugInput extends TextInput
         return $this->evaluate($this->context);
     }
 
+    public function slugInputSlugLabelPostfix(string|Closure|null $slugLabelPostfix): static
+    {
+        $this->slugLabelPostfix = $slugLabelPostfix;
+
+        return $this;
+    }
+
+    public function getSlugLabelPostfix(): string|null
+    {
+        return $this->evaluate($this->slugLabelPostfix);
+    }
+
     public function slugInputRecordSlug(Closure $recordSlug): static
     {
         $this->recordSlug = $recordSlug;
@@ -149,9 +163,9 @@ class SlugInput extends TextInput
             : $this->getBaseUrl().$this->getBasePath().$this->evaluate($this->recordSlug);
     }
 
-    public function slugInputBasePath(string|Closure $path): static
+    public function slugInputBasePath(string|Closure|null $path): static
     {
-        $this->basePath = $path ?: $this->basePath;
+        $this->basePath = ! is_null($path) ? $path : $this->basePath;
 
         return $this;
     }

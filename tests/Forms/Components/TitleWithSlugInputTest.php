@@ -1,7 +1,9 @@
 <?php
 
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
+use Camya\Filament\Tests\Support\Record;
 use Camya\Filament\Tests\Support\TestableForm;
+use Illuminate\Database\Eloquent\Model;
 use Livewire\Livewire;
 
 it('returns OK if component is used', function () {
@@ -77,7 +79,7 @@ it('does not show the visit link if it is set invisible', function () {
     $component->assertDontSee('*Visit Link Label*');
 });
 
-it('generates a correct visit link from host + path + slug', function () {
+it('generates the default visit link from host + path + slug', function () {
     config()->set('filament-title-with-slug.url_host', 'https://www.camya.com');
 
     TestableForm::$formSchema = [
@@ -87,11 +89,35 @@ it('generates a correct visit link from host + path + slug', function () {
     ];
 
     $component = Livewire::test(TestableForm::class, [
-        'record' => new \Camya\Filament\Tests\Support\Record([
+        'record' => new Record([
             'title' => 'Persisted Title',
             'slug' => 'persisted-slug',
         ]),
     ]);
 
     $component->assertSeeHtml('https://www.camya.com/blog/persisted-slug');
+});
+
+it('generates a custom visit link for subdomain', function () {
+    TestableForm::$formSchema = [
+        TitleWithSlugInput::make(
+            urlPath: '',
+            urlHostVisible: false,
+            urlVisitLinkRoute: fn (?Model $record) => $record?->slug
+                ? 'https://'.$record->slug.'.camya.com'
+                : null,
+            slugLabelPostfix: '.camya.com',
+        ),
+    ];
+
+    $component = Livewire::test(TestableForm::class, [
+        'record' => new Record([
+            'title' => 'My Subdomain',
+            'slug' => 'my-subdomain',
+        ]),
+    ]);
+
+    $component
+        ->assertSeeHtml('https://my-subdomain.camya.com')
+        ->assertSeeHtml('>.camya.com<');
 });
