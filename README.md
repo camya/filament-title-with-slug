@@ -101,6 +101,7 @@ to:
 
 - [english (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
 - [german (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
+- [indonesian (id)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/id/package.php)
 
 You translated it too? Share your translation on
 our [GitHub discussions](https://github.com/camya/filament-title-with-slug/discussions) page.
