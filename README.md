@@ -384,10 +384,14 @@ The output looks like this:
 
 You can use the package to create the subdomain part of a URL with the following setup.
 
-It is important to add a `urlVisitLinkRoute` closure to create a correct visit link.
+Example: "*https://* **my-subdomain** *.camya.com*"
+
+It is important to add a `urlVisitLinkRoute` closure to create a correct visit link. Also, you need to set the name of the Eloquent model field for the subdomain using `slugField`.
+
 
 ```php
 \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
+    slugField: 'subdomain',
     urlPath: '',
     urlHostVisible: false,
     urlVisitLinkRoute: fn (?Model $record) => $record?->slug
