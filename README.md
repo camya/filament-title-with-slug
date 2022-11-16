@@ -394,9 +394,11 @@ It is important to add a `urlVisitLinkRoute` closure to create a correct visit l
     fieldSlug: 'subdomain',
     urlPath: '',
     urlHostVisible: false,
+    urlVisitLinkLabel: 'Visit Domain',
     urlVisitLinkRoute: fn (?Model $record) => $record?->slug
         ? 'https://'.$record->slug.'.camya.com'
         : null,
+    slugLabel: 'Domain:',
     slugLabelPostfix: '.camya.com',
 ),
 ```
