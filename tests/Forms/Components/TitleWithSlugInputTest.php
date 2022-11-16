@@ -6,9 +6,7 @@ use Livewire\Livewire;
 
 it('returns OK if component is used', function () {
     TestableForm::$formSchema = [
-
         TitleWithSlugInput::make(),
-
     ];
 
     $component = Livewire::test(TestableForm::class);
@@ -18,9 +16,7 @@ it('returns OK if component is used', function () {
 
 it('fills view correctly with default component parameters', function () {
     TestableForm::$formSchema = [
-
         TitleWithSlugInput::make(),
-
     ];
 
     $component = Livewire::test(TestableForm::class)
@@ -39,7 +35,6 @@ it('fills view correctly with default component parameters', function () {
 
 it('fills view correctly with overwritten component parameters', function () {
     TestableForm::$formSchema = [
-
         TitleWithSlugInput::make(
             fieldTitle: 'TitleFieldName',
             fieldSlug: 'SlugFieldName',
@@ -48,7 +43,6 @@ it('fills view correctly with overwritten component parameters', function () {
             titlePlaceholder: '*Title Placeholder*',
             slugLabel: '*Slug Label*',
         ),
-
     ];
 
     $component = Livewire::test(TestableForm::class)
@@ -68,12 +62,10 @@ it('fills view correctly with overwritten component parameters', function () {
 
 it('does not show the visit link if it is set invisible', function () {
     TestableForm::$formSchema = [
-
         TitleWithSlugInput::make(
             urlVisitLinkVisible: false,
             urlVisitLinkLabel: '*Visit Link Label*',
         ),
-
     ];
 
     $component = Livewire::test(TestableForm::class)
@@ -83,4 +75,23 @@ it('does not show the visit link if it is set invisible', function () {
         ]);
 
     $component->assertDontSee('*Visit Link Label*');
+});
+
+it('generates a correct visit link from host + path + slug', function () {
+    config()->set('filament-title-with-slug.url_host', 'https://www.camya.com');
+
+    TestableForm::$formSchema = [
+        TitleWithSlugInput::make(
+            urlPath: '/blog/'
+        ),
+    ];
+
+    $component = Livewire::test(TestableForm::class, [
+        'record' => new \Camya\Filament\Tests\Support\Record([
+            'title' => 'Persisted Title',
+            'slug' => 'persisted-slug',
+        ]),
+    ]);
+
+    $component->assertSeeHtml('https://www.camya.com/blog/persisted-slug');
 });
