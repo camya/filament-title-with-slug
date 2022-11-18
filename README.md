@@ -492,6 +492,7 @@ Below is an example with some defaults overridden.
     slugSlugifier: fn($string) => Str::slug($string),
     slugRuleRegex: '/^[a-z0-9\-\_]*$/',
     slugAfterStateUpdated: function ($state) {},
+    slugLabelPostfix: null,
 
 )->columnSpan('full'),
 ```
