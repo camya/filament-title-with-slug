@@ -65,6 +65,7 @@ Filament [plugin page](https://filamentphp.com/plugins/title-with-slug-permalink
     - [Custom unique validation rules for title (and slug)](#custom-unique-validation-rules-for-title-and-slug)
     - [Custom slugifier](#custom-slugifier)
     - [Dark Mode](#dark-mode)
+    - [How to set a empty homepage slug](#how-to-set-a-empty-homepage-slug)
     - [Use within a relationship repeater](#use-within-a-relationship-repeater)
     - [Use the slug as subdomain](#use-the-slug-as-subdomain)
     - [Package config file - Set default values](#package-config-file---set-default-values)
@@ -348,6 +349,25 @@ output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_01.png" width="600" />
 <img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_02.png" width="600" />
+
+### How to set a empty homepage slug
+
+To set an empty slug, you must first remove the slug's `required` rule. You can do this by overwriting the `slugRules` array.
+
+```php
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
+    slugRules: [],
+),
+```
+
+In the input field of the component's slug form, use the `/` character to set the home page.
+
+> The `/` character is necessary to bypass the **auto slug-regenerate** that would be triggered if the slug field is an empty string.
+
+The input looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_homepage_01.png" width="600" />
+
 
 ### Use within a relationship repeater
 
