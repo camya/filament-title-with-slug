@@ -28,7 +28,6 @@
         "spatie/laravel-package-tools": "^1.13.0"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0.1",
@@ -38,7 +37,9 @@
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest",
+        "spatie/laravel-ray": "^1.31"
     },
     "autoload": {
         "psr-4": {
