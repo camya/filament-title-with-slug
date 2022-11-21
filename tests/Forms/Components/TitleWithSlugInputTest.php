@@ -121,3 +121,24 @@ it('generates a custom visit link for subdomain', function () {
         ->assertSeeHtml('https://my-subdomain.camya.com')
         ->assertSeeHtml('>.camya.com<');
 });
+
+
+it('allows generating a URL with an empty slug, if slug has no required rule.', function () {
+    config()->set('filament-title-with-slug.url_host', 'https://www.camya.com');
+
+    TestableForm::$formSchema = [
+        TitleWithSlugInput::make(
+            slugRules: [],
+        ),
+    ];
+
+    $component = Livewire::test(TestableForm::class, [
+        'record' => new Record([
+            'title' => 'My Homepage',
+            'slug' => '/',
+        ]),
+    ]);
+
+    $component
+        ->assertSeeHtml("!editing ? 'https://www.camya.com/' : '/'");
+});

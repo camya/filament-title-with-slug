@@ -32,7 +32,6 @@ class TitleWithSlugInput
         array|Closure|null $titleExtraInputAttributes = null,
         array $titleRules = [
             'required',
-            'string',
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
@@ -42,7 +41,6 @@ class TitleWithSlugInput
         string|null $slugLabel = null,
         array $slugRules = [
             'required',
-            'string',
         ],
         array $slugRuleUniqueParameters = [],
         bool|Closure $slugIsReadonly = false,
@@ -59,7 +57,6 @@ class TitleWithSlugInput
         $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
             ->autofocus()
-            ->required()
             ->reactive()
             ->disableAutocomplete()
             ->rules($titleRules)
@@ -94,6 +91,10 @@ class TitleWithSlugInput
                 }
             );
 
+        if (in_array('required', $titleRules, true)) {
+            $textInput->required();
+        }
+
         if ($titlePlaceholder !== '') {
             $textInput->placeholder($titlePlaceholder ?: fn () => Str::of($fieldTitle)->headline());
         }
@@ -121,8 +122,8 @@ class TitleWithSlugInput
             ->slugInputRecordSlug(fn (?Model $record) => $record?->$fieldSlug)
             ->slugInputModelName(
                 fn (?Model $record) => $record
-                ? Str::of(class_basename($record))->headline()
-                : ''
+                    ? Str::of(class_basename($record))->headline()
+                    : ''
             )
             ->slugInputLabelPrefix($slugLabel)
             ->slugInputBasePath($urlPath)
@@ -132,7 +133,6 @@ class TitleWithSlugInput
 
             // Default TextInput methods
             ->readonly($slugIsReadonly)
-            ->required()
             ->reactive()
             ->disableAutocomplete()
             ->disableLabel()
@@ -163,6 +163,10 @@ class TitleWithSlugInput
                     }
                 }
             );
+
+        if (in_array('required', $slugRules, true)) {
+            $slugInput->required();
+        }
 
         $slugRuleUniqueParameters
             ? $slugInput->unique(...$slugRuleUniqueParameters)
