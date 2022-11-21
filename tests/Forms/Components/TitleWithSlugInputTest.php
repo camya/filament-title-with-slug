@@ -122,7 +122,6 @@ it('generates a custom visit link for subdomain', function () {
         ->assertSeeHtml('>.camya.com<');
 });
 
-
 it('allows generating a URL with an empty slug, if slug has no required rule.', function () {
     config()->set('filament-title-with-slug.url_host', 'https://www.camya.com');
 
