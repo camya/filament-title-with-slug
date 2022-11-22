@@ -101,9 +101,10 @@ You'll find the published translations here: `trans/vendor/filament-title-with-s
 This package is translated
 to:
 
-- [english (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
-- [german (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
-- [indonesian (id)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/id/package.php)
+- [English (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
+- [German (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
+- [Indonesian (id)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/id/package.php)
+- [Arabic (ar)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/ar/package.php)
 
 You translated it too? Share your translation on
 our [GitHub discussions](https://github.com/camya/filament-title-with-slug/discussions) page.
