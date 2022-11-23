@@ -148,7 +148,7 @@
                     @if($getSlugLabelPostfix())
                         <span
                             x-show="!editing"
-                            class="ml-0.5"
+                            class="ml-0.5 text-gray-400"
                         >{{ $getSlugLabelPostfix() }}</span>
                     @endif
 
