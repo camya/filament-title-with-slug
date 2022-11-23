@@ -67,6 +67,7 @@ Filament [plugin page](https://filamentphp.com/plugins/title-with-slug-permalink
     - [Dark Mode](#dark-mode)
     - [How to set a empty homepage slug](#how-to-set-a-empty-homepage-slug)
     - [Use within a relationship repeater](#use-within-a-relationship-repeater)
+    - [Make a URL slug sandwich. (path/slug/path)](#make-a-url-slug-sandwich-pathslugpath)
     - [Use the slug as subdomain](#use-the-slug-as-subdomain)
     - [Package config file - Set default values](#package-config-file---set-default-values)
     - [**All available parameters**](#all-available-parameters)
@@ -401,6 +402,29 @@ The output looks like this:
 
 <img src="docs/examples/camya-filament-title-with-slug_example_repeater_01.png" width="600" />
 
+### Make a URL slug sandwich. (path/slug/path)
+
+It is possible to create a URL with the slug in the middle of the path. 
+
+Example: "**/books/** *slug* **/detail/**"
+
+It is important to add a `urlVisitLinkRoute` closure to create a correct visit link. Please also read the ["urlVisitLinkRoute with named route"](#visit-link---use-router-to-generate-url-with-route) documentation.
+
+```php
+\Camya\Filament\Forms\Components\TitleWithSlugInput::make(
+    urlPath: '/books/',
+    urlVisitLinkRoute: fn (?Model $record) => $record?->slug
+        ? '/books/'.$record->slug.'/detail'
+        : null,
+    slugLabelPostfix: '/detail/',
+    urlVisitLinkLabel: 'Visit Book Details'
+),
+```
+
+The output looks like this:
+
+<img src="docs/examples/camya-filament-title-with-slug_example_slug-sandwich_01.png" width="600" />
+
 ### Use the slug as subdomain
 
 You can use the package to create the subdomain part of a URL with the following setup.
@@ -409,6 +433,7 @@ Example: "*https://* **my-subdomain** *.camya.com*"
 
 It is important to add a `urlVisitLinkRoute` closure to create a correct visit link. Also, you need to set the name of the Eloquent model field for the subdomain using `slugField`.
 
+Please also read the ["urlVisitLinkRoute with named route"](#visit-link---use-router-to-generate-url-with-route) documentation.
 
 ```php
 \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
