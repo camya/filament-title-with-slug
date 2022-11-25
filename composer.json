@@ -55,7 +55,7 @@
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "test-all": "vendor/bin/pest; vendor/bin/phpstan analyse; vendor/bin/pint --test",
+        "test-all": "vendor/bin/pest; vendor/bin/phpstan analyse; vendor/bin/pint --test; vendor/bin/x-ray . --ignore './build' --compact --verbose",
         "format": "vendor/bin/pint"
     },
     "config": {
