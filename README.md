@@ -104,6 +104,7 @@ to:
 
 - [English (en)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/en/package.php)
 - [German (de)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/de/package.php)
+- [Dutch (nl)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/nl/package.php)
 - [Indonesian (id)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/id/package.php)
 - [Arabic (ar)](https://github.com/camya/filament-title-with-slug/blob/main/resources/lang/ar/package.php)
 
