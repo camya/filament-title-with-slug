@@ -32,7 +32,7 @@ it('fills view correctly with default component parameters', function () {
         ->assertSeeHtml('wire:model="data.slug"')
         ->assertSet('data.title', 'Persisted Title')
         ->assertSet('data.slug', 'persisted-slug')
-        ->assertSeeHtml('<span class="mr-1">&shy;persisted-slug</span>');
+        ->assertSeeHtml('<span class="mr-1">persisted-slug</span>');
 });
 
 it('fills view correctly with overwritten component parameters', function () {
