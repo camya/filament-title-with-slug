@@ -107,9 +107,13 @@
 
             @else
 
-                <span>
+                <span
+                     class="
+                        @if(!$getState()) flex items-center gap-1 @endif
+                    "
+                >
 
-                    <span class="mr-1">{{ $getLabelPrefix() }}</span>
+                    <span>{{ $getLabelPrefix() }}</span>
 
                     <span
                         x-text="!editing ? '{{ $getFullBaseUrl() }}' : '{{ $getBasePath() }}'"
@@ -131,7 +135,7 @@
                         "
                         :class="context !== 'create' && modified ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
-                        <span class="mr-1">&shy;{{ $getState() }}</span>
+                        <span class="mr-1">{{ $getState() }}</span>
 
                         <x-heroicon-o-pencil-alt
                             stroke-width="2"
