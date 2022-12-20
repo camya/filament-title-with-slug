@@ -1,4 +1,4 @@
-<img src="docs/camya-filament-title-with-slug_teaser-github.jpg" />
+<img src="docs/camya-filament-title-with-slug_teaser-github.jpeg" />
 
 # "Title With Slug" Input - Easy Permalink Slugs for Filament Forms (PHP / Laravel / Livewire)
 
@@ -19,9 +19,9 @@ TitleWithSlugInput::make(
 
 The output looks like this: (Watch **[&raquo; Demo Video &laquo;](https://www.youtube.com/watch?v=5u1Nepm2NiI)**)
 
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.jpeg" width="600" />
 
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.jpeg" width="600" />
 
 ## Features
 
@@ -148,8 +148,8 @@ class PostResource extends Resource
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_01.jpeg" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-fields_02.jpeg" width="600" />
 
 ### Change model fields names
 
@@ -186,8 +186,8 @@ In this example, we also add the base path `/books/`.
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_change-labels_01.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_change-labels_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-labels_01.jpeg" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_change-labels_02.jpeg" width="600" />
 
 ### Permalink preview: Hide host
 
@@ -201,7 +201,7 @@ You can hide the host part of the permalink preview.
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_host-hidden_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_host-hidden_01.jpeg" width="600" />
 
 ### Permalink preview: Change host and path
 
@@ -216,7 +216,7 @@ You can set the path and the host for the preview.
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_host-change_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_host-change_01.jpeg" width="600" />
 
 ### "Visit" link - Use router to generate URL with route()
 
@@ -242,7 +242,7 @@ the permalink preview.
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_host-partial_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_host-partial_01.jpeg" width="600" />
 
 ### Hide "Visit" link
 
@@ -267,7 +267,7 @@ parameter.
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_styling_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_styling_01.jpeg" width="600" />
 
 ### Add extra validation rules for title or slug
 
@@ -350,8 +350,8 @@ Note: You can customize the validation error, see [Custom error messages](#custo
 The package supports [Filaments dark mode](https://filamentphp.com/docs/2.x/admin/appearance#dark-mode). Dark mode
 output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_01.png" width="600" />
-<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_02.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_01.jpeg" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_dark-mode_02.jpeg" width="600" />
 
 ### How to set a empty homepage slug
 
@@ -369,7 +369,7 @@ In the input field of the component's slug form, use the `/` character to set th
 
 The input looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_homepage_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_homepage_01.jpeg" width="600" />
 
 
 ### Use within a relationship repeater
@@ -401,7 +401,7 @@ and the [Filament Repeater](https://filamentphp.com/docs/2.x/forms/fields#repeat
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_repeater_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_repeater_01.jpeg" width="600" />
 
 ### Make a URL slug sandwich. (path/slug/path)
 
@@ -424,7 +424,7 @@ It is important to add a `urlVisitLinkRoute` closure to create a correct visit l
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_slug-sandwich_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_slug-sandwich_01.jpeg" width="600" />
 
 ### Use the slug as subdomain
 
@@ -452,7 +452,7 @@ Please also read the ["urlVisitLinkRoute with named route"](#visit-link---use-ro
 
 The output looks like this:
 
-<img src="docs/examples/camya-filament-title-with-slug_example_subdomain_01.png" width="600" />
+<img src="docs/examples/camya-filament-title-with-slug_example_subdomain_01.jpeg" width="600" />
 
 ### Package config file - Set default values
 
