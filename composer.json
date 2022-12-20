@@ -58,7 +58,7 @@
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "test-all": "vendor/bin/pest; vendor/bin/phpstan analyse; vendor/bin/pint --test; vendor/bin/x-ray . --ignore './build' --compact --verbose",
+        "preflight": "vendor/bin/pint; npm run build; vendor/bin/phpstan analyse; vendor/bin/x-ray . --ignore './build'; vendor/bin/pest",
         "format": "vendor/bin/pint"
     },
     "config": {
