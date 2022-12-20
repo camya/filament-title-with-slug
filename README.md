@@ -579,8 +579,6 @@ Component [Pest Tests](https://pestphp.com/).
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-<img src="docs/camya-filament-title-with-slug_teaser_social.jpg" />
-
 ## Tooling - Development tools I use
 
 - [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (
