@@ -523,6 +523,7 @@ Below is an example with some defaults overridden.
         'ignorable' => fn(?Model $record) => $record,
     ],
     titleIsReadonly: fn($context) => $context !== 'create',
+    titleAutofocus: true,
     titleAfterStateUpdated: function ($state) {},
     
     // Slug
