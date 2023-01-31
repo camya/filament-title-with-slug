@@ -35,6 +35,7 @@ class TitleWithSlugInput
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
+        bool|Closure $titleAutofocus = true,
         null|Closure $titleAfterStateUpdated = null,
 
         // Slug
@@ -56,7 +57,7 @@ class TitleWithSlugInput
         /** Input: "Title" */
         $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
-            ->autofocus()
+            ->autofocus($titleAutofocus)
             ->reactive()
             ->disableAutocomplete()
             ->rules($titleRules)
