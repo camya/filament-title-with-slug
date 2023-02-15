@@ -2,7 +2,7 @@
 
 # "Title With Slug" Input - Easy Permalink Slugs for Filament Forms (PHP / Laravel / Livewire)
 
-This package for [FilamentPHP](https://filamentphp.com/) adds the form component `TitleWithSlugInput` which allows to
+This package for [FilamentPHP](https://filamentphp.com/plugins/title-with-slug-permalink) adds the form component `TitleWithSlugInput` which allows to
 edit titles and slugs easily.
 
 It is inspired by the classic **WordPress title & slug** implementation.
@@ -46,7 +46,8 @@ You can support my work with a [donation](https://www.paypal.com/paypalme/epicbu
 [Follow me on Twitter](https://twitter.com/camyaCom) for DEV updates.
 
 Support the package: Please give it a &#11088; Star on GitHub and on the official
-Filament [plugin page](https://filamentphp.com/plugins/title-with-slug-permalink), if it's helpful for you.
+Filament [plugin page](
+plugins/title-with-slug-permalink), if it's helpful for you.
 
 Visit the plugin's [Composer Packagist page](https://packagist.org/packages/camya/filament-title-with-slug) (The PHP Package Repository) for the current install count and more.
 
@@ -566,7 +567,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 - [Andreas Scheibel (camya)](https://github.com/camya) (Developer at  [camya.com](https://www.camya.com)
   / [epicbundle.com](https://www.epicbundle.com))
 
-[FilamentPHP](https://filamentphp.com/)
+[FilamentPHP](https://filamentphp.com/plugins/title-with-slug-permalink)
 is based on
 [Laravel](https://laravel.com/),
 [Livewire](https://laravel-livewire.com/),
