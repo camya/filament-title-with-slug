@@ -586,8 +586,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Tooling - Development tools I use
 
-- [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (
-    + [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
+- [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE (+ [Laravel Idea](https://plugins.jetbrains.com/plugin/13441-laravel-idea) Plugin)
 - Laravel with [Valet](https://laravel.com/docs/9.x/valet)
   and [Lambo](https://github.com/https://github.com/tighten/lambo/lambo)
 - [GitHub Desktop](https://desktop.github.com/)
