@@ -155,7 +155,7 @@ class TitleWithSlugInput
                         ? $get($fieldTitle)
                         : $get($fieldSlug);
 
-                    $set('slug', self::slugify($slugSlugifier, $text));
+                    $set($fieldSlug, self::slugify($slugSlugifier, $text));
 
                     $set('slug_auto_update_disabled', true);
 
