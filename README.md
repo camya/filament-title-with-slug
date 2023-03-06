@@ -74,8 +74,8 @@ Visit the plugin's [Composer Packagist page](https://packagist.org/packages/camy
     - [Package config file - Set default values](#package-config-file---set-default-values)
     - [**All available parameters**](#all-available-parameters)
 - [Usage & examples - Third party Packages](#usage--examples---third-party-packages)
-    - [Spatie Laravel Translatable](#spatie-laravel-translatable)
-        - [Use the plugin inside a tab for each language](#use-the-plugin-inside-a-tab-for-each-language)
+    - [Spatie Laravel Translatable - Installation](#spatie-laravel-translatable---installation)
+    - [Spatie Laravel Translatable - Tabs for each Language](#spatie-laravel-translatable---tabs-for-each-language)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -554,7 +554,7 @@ Below is an example with some defaults overridden.
 
 ## Usage & examples - Third party Packages
 
-### Spatie Laravel Translatable
+### Spatie Laravel Translatable - Installation
 
 This section explains the integration with Spatie's Laravel Translatable package. 
 
@@ -574,7 +574,7 @@ class Post extends Model
 }
 ```
 
-#### Tabs for each Language (Spatie Laravel Translatable)
+### Spatie Laravel Translatable - Tabs for each Language
 
 This example creates several tabs, each titled with the language name. Each tab contains a TitleWithSlugInput component that can be translated into the language for that tab.
 
