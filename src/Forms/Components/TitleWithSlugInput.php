@@ -83,7 +83,7 @@ class TitleWithSlugInput
                     }
 
                     if (! $slugAutoUpdateDisabled && filled($state)) {
-                        $set($fieldSlug, self::slugify($slugSlugifier, $state));
+                        $set($fieldSlug, self::slugify($slugSlugifier, $get, $state));
                     }
 
                     if ($titleAfterStateUpdated) {
@@ -155,7 +155,7 @@ class TitleWithSlugInput
                         ? $get($fieldTitle)
                         : $get($fieldSlug);
 
-                    $set($fieldSlug, self::slugify($slugSlugifier, $text));
+                    $set($fieldSlug, self::slugify($slugSlugifier, $get, $text));
 
                     $set('slug_auto_update_disabled', true);
 
@@ -188,14 +188,14 @@ class TitleWithSlugInput
     }
 
     /** Fallback slugifier, over-writable with slugSlugifier parameter. */
-    protected static function slugify(Closure|null $slugifier, string|null $text): string
+    protected static function slugify(Closure|null $slugifier, callable $get, string|null $text): string
     {
         if (is_null($text) || ! trim($text)) {
             return '';
         }
 
         return is_callable($slugifier)
-            ? $slugifier($text)
+            ? $slugifier($get, $text)
             : Str::slug($text);
     }
 }
