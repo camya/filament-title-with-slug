@@ -7,6 +7,8 @@ use Closure;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -66,8 +68,8 @@ class TitleWithSlugInput
             ->afterStateUpdated(
                 function (
                     $state,
-                    Closure $set,
-                    Closure $get,
+                    Set $set,
+                    Get $get,
                     string $context,
                     ?Model $record,
                     TextInput $component
@@ -142,8 +144,8 @@ class TitleWithSlugInput
             ->afterStateUpdated(
                 function (
                     $state,
-                    Closure $set,
-                    Closure $get,
+                    Set $set,
+                    Get $get,
                     TextInput $component
                 ) use (
                     $slugSlugifier,
