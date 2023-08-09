@@ -15,40 +15,40 @@ class TitleWithSlugInput
     public static function make(
 
         // Model fields
-        string|null $fieldTitle = null,
-        string|null $fieldSlug = null,
+        string $fieldTitle = null,
+        string $fieldSlug = null,
 
         // Url
         string|Closure|null $urlPath = '/',
-        string|Closure|null $urlHost = null,
+        string|Closure $urlHost = null,
         bool $urlHostVisible = true,
         bool|Closure $urlVisitLinkVisible = true,
-        null|Closure|string $urlVisitLinkLabel = null,
-        null|Closure $urlVisitLinkRoute = null,
+        Closure|string $urlVisitLinkLabel = null,
+        Closure $urlVisitLinkRoute = null,
 
         // Title
-        string|Closure|null $titleLabel = null,
-        string|null $titlePlaceholder = null,
-        array|Closure|null $titleExtraInputAttributes = null,
+        string|Closure $titleLabel = null,
+        string $titlePlaceholder = null,
+        array|Closure $titleExtraInputAttributes = null,
         array $titleRules = [
             'required',
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
         bool|Closure $titleAutofocus = true,
-        null|Closure $titleAfterStateUpdated = null,
+        Closure $titleAfterStateUpdated = null,
 
         // Slug
-        string|null $slugLabel = null,
+        string $slugLabel = null,
         array $slugRules = [
             'required',
         ],
         array $slugRuleUniqueParameters = [],
         bool|Closure $slugIsReadonly = false,
-        null|Closure $slugAfterStateUpdated = null,
-        null|Closure $slugSlugifier = null,
+        Closure $slugAfterStateUpdated = null,
+        Closure $slugSlugifier = null,
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
-        string|Closure|null $slugLabelPostfix = null,
+        string|Closure $slugLabelPostfix = null,
     ): Group {
         $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.field_title');
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
@@ -188,7 +188,7 @@ class TitleWithSlugInput
     }
 
     /** Fallback slugifier, over-writable with slugSlugifier parameter. */
-    protected static function slugify(Closure|null $slugifier, string|null $text): string
+    protected static function slugify(?Closure $slugifier, ?string $text): string
     {
         if (is_null($text) || ! trim($text)) {
             return '';
