@@ -133,7 +133,7 @@ class TitleWithSlugInput
             ->slugInputSlugLabelPostfix($slugLabelPostfix)
 
             // Default TextInput methods
-            ->readonly($slugIsReadonly)
+            ->readOnly($slugIsReadonly)
             ->reactive()
             ->disableAutocomplete()
             ->disableLabel()

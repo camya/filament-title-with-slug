@@ -22,7 +22,7 @@ class SlugInput extends TextInput
 
     protected Closure $recordSlug;
 
-    protected bool|Closure $readonly = false;
+    protected bool|Closure $readOnly = false;
 
     protected string $labelPrefix;
 
@@ -102,16 +102,16 @@ class SlugInput extends TextInput
         return $this->evaluate($this->labelPrefix);
     }
 
-    public function readonly(bool|Closure $readonly): static
+    public function readOnly(bool|Closure $condition = true): static
     {
-        $this->readonly = $readonly;
+        $this->readOnly = $condition;
 
         return $this;
     }
 
-    public function getReadonly(): string
+    public function getReadOnly(): string
     {
-        return $this->evaluate($this->readonly);
+        return $this->evaluate($this->readOnly);
     }
 
     public function slugInputContext(string|Closure|null $context): static
