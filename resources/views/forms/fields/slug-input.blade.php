@@ -1,4 +1,4 @@
-<x-forms::field-wrapper
+<x-filament-forms::field-wrapper.index
     :id="$getId()"
     :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
@@ -74,7 +74,7 @@
             {{ $attributes->merge($getExtraAttributes())->class(['flex mx-1 items-center justify-between group text-sm filament-forms-text-input-component']) }}
         >
 
-            @if($getReadonly())
+            @if($getReadOnly())
 
                 <span class="flex">
                     <span class="mr-1">{{ $getLabelPrefix() }}</span>
@@ -97,7 +97,7 @@
 
                         <span>{{ $getVisitLinkLabel() }}</span>
 
-                        <x-heroicon-o-external-link
+                        <x-heroicon-o-link
                             stroke-width="2"
                             class="h-4 w-4"
                         />
@@ -137,7 +137,7 @@
                     >
                         <span class="mr-1">{{ $getState() }}</span>
 
-                        <x-heroicon-o-pencil-alt
+                        <x-heroicon-o-pencil-square
                             stroke-width="2"
                             class="
                                 h-4 w-4
@@ -165,20 +165,24 @@
                     x-show="editing"
                     style="display: none;"
                 >
-
-                    <input
-                        type="text"
-                        x-ref="slugInput"
-                        x-model="stateInitial"
-                        x-bind:disabled="!editing"
-                        x-on:keydown.enter="submitModification()"
-                        x-on:keydown.escape="cancelModification()"
-                        {!! ($autocomplete = $getAutocomplete()) ? "autocomplete=\"{$autocomplete}\"" : null !!}
-                        id="{{ $getId() }}"
-                        {!! ($placeholder = $getPlaceholder()) ? "placeholder=\"{$placeholder}\"" : null !!}
-                        {!! $isRequired() ? 'required' : null !!}
-                        {{ $getExtraInputAttributeBag()->class(['block w-full transition duration-75 rounded-lg shadow-sm focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600 disabled:opacity-70', 'dark:bg-gray-700 dark:text-white' => config('forms.dark_mode'), 'border-gray-300' => !$errors->has($getStatePath()), 'dark:border-gray-600' => !$errors->has($getStatePath()) && config('forms.dark_mode'), 'border-danger-600 ring-danger-600' => $errors->has($getStatePath())]) }}
-                    />
+                    <div class="flex overflow-hidden transition duration-75 bg-white rounded-lg shadow-sm fi-input-wrapper ring-1 focus-within:ring-2 dark:bg-white/5 ring-gray-950/10 focus-within:ring-primary-600 dark:ring-white/20 dark:focus-within:ring-primary-500 fi-fo-text-input">
+                        <input
+                            type="text"
+                            x-ref="slugInput"
+                            x-model="stateInitial"
+                            x-bind:disabled="!editing"
+                            x-on:keydown.enter="submitModification()"
+                            x-on:keydown.escape="cancelModification()"
+                            {!! ($autocomplete = $getAutocomplete()) ? "autocomplete=\"{$autocomplete}\"" : null !!}
+                            id="{{ $getId() }}"
+                            {!! ($placeholder = $getPlaceholder()) ? "placeholder=\"{$placeholder}\"" : null !!}
+                            {!! $isRequired() ? 'required' : null !!}
+                            {{ $getExtraInputAttributeBag()->class([
+                                'fi-input block w-full border-none bg-transparent py-1.5 text-base text-gray-950 outline-none transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.400)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] dark:disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.500)] sm:text-xs sm:leading-6 ps-3 pe-3',
+                                'border-danger-600 ring-danger-600' => $errors->has($getStatePath())])
+                            }}
+                        />
+                    </div>
 
                     <input type="hidden" {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}" />
 
@@ -194,8 +198,9 @@
                         href="#"
                         role="button"
                         x-on:click.prevent="submitModification()"
+                        style="--c-400:var(--primary-400);--c-500:var(--primary-500);--c-600:var(--primary-600);"
                         class="
-                            filament-button filament-button-size-md inline-flex items-center justify-center py-2.5 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-inset dark:focus:ring-offset-0 min-h-[2.25rem] px-4 text-sm text-gray-800 bg-white border-gray-300 hover:bg-gray-50 focus:ring-primary-600 focus:text-primary-600 focus:bg-primary-50 focus:border-primary-600 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-600 dark:hover:border-gray-500 dark:text-gray-200 dark:focus:text-primary-400 dark:focus:border-primary-400 dark:focus:bg-gray-800 filament-page-button-action
+                            fi-btn fi-btn-size-md relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg fi-btn-color-primary gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50 fi-ac-btn-action
                         "
                     >
                         {{ trans('filament-title-with-slug::package.permalink_action_ok') }}
@@ -205,7 +210,7 @@
                         x-show="context === 'edit' && modified"
                         x-on:click="resetModification()"
                         class="cursor-pointer ml-4"
-                        icon="heroicon-o-refresh"
+                        icon="heroicon-o-arrow-path"
                         color="gray"
                         size="sm"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_reset') }}"
@@ -216,7 +221,7 @@
                     <x-filament::link
                         x-on:click="cancelModification()"
                         class="cursor-pointer"
-                        icon="heroicon-o-x"
+                        icon="heroicon-o-x-mark"
                         color="gray"
                         size="sm"
                         title="{{ trans('filament-title-with-slug::package.permalink_action_cancel') }}"
@@ -244,7 +249,7 @@
 
                                 <span>{{ $getVisitLinkLabel() }}</span>
 
-                                <x-heroicon-o-external-link
+                                <x-heroicon-o-link
                                     stroke-width="2"
                                     class="h-4 w-4"
                                 />
@@ -263,4 +268,4 @@
 
     </div>
 
-</x-forms::field-wrapper>
+</x-filament-forms::field-wrapper.index>
