@@ -40,6 +40,8 @@
                     this.state = this.stateInitial;
                 }
 
+                $wire.set('{{ $getStatePath() }}', this.state)
+
                 this.detectModification();
 
                 this.editing = false;
@@ -71,7 +73,7 @@
     >
 
         <div
-            {{ $attributes->merge($getExtraAttributes())->class(['flex mx-1 items-center justify-between group text-sm filament-forms-text-input-component']) }}
+            {{ $attributes->merge($getExtraAttributes())->class(['flex gap-4 items-center justify-between group text-sm filament-forms-text-input-component']) }}
         >
 
             @if($getReadOnly())
@@ -237,27 +239,17 @@
                 >
 
                     @if($getSlugInputUrlVisitLinkVisible())
-
                         <template x-if="!editing">
-
-                            <a
-
-                                href="{{ $getRecordUrl() }}"
+                            <x-filament::link
+                                :href="$getRecordUrl()"
                                 target="_blank"
-                                class="filament-link inline-flex items-center justify-center space-x-1 hover:underline focus:outline-none focus:underline text-sm text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 cursor-pointer"
+                                size="sm"
+                                icon="heroicon-m-arrow-top-right-on-square"
+                                icon-position="after"
                             >
-
-                                <span>{{ $getVisitLinkLabel() }}</span>
-
-                                <x-heroicon-o-link
-                                    stroke-width="2"
-                                    class="h-4 w-4"
-                                />
-
-                            </a>
-
+                                {{ $getVisitLinkLabel() }}
+                            </x-filament::link>
                         </template>
-
                     @endif
 
             </span>
