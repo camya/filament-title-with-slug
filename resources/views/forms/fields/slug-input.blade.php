@@ -186,8 +186,6 @@
                         />
                     </div>
 
-                    <input type="hidden" {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}" />
-
                 </div>
 
                 <div
