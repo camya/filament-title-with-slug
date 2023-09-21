@@ -85,26 +85,15 @@
                 </span>
 
                 @if($getSlugInputUrlVisitLinkVisible())
-
-                    <a
-                        href="{{ $getRecordUrl() }}"
+                    <x-filament::link
+                        :href="$getRecordUrl()"
                         target="_blank"
-                        class="
-                            filament-link cursor-pointer text-sm text-primary-600 underline
-                            inline-flex items-center justify-center space-x-1
-                            hover:text-primary-500
-                            dark:text-primary-500 dark:hover:text-primary-400
-                        "
+                        size="sm"
+                        icon="heroicon-m-arrow-top-right-on-square"
+                        icon-position="after"
                     >
-
-                        <span>{{ $getVisitLinkLabel() }}</span>
-
-                        <x-heroicon-o-link
-                            stroke-width="2"
-                            class="h-4 w-4"
-                        />
-
-                    </a>
+                        {{ $getVisitLinkLabel() }}
+                    </x-filament::link>
                 @endif
 
             @else
@@ -134,16 +123,17 @@
                             inline-flex items-center justify-center
                             hover:underline hover:text-primary-500
                             dark:hover:text-primary-400
+                            gap-1
                         "
                         :class="context !== 'create' && modified ? 'text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-700 px-1 rounded-md' : ''"
                     >
                         <span class="mr-1">{{ $getState() }}</span>
 
-                        <x-heroicon-o-pencil-square
+                        <x-heroicon-m-pencil-square
                             stroke-width="2"
                             class="
                                 h-4 w-4
-                                text-primary-600 dark:text-primary-500
+                                text-primary-600 dark:text-primary-400
                             "
                         />
 
@@ -190,7 +180,7 @@
 
                 <div
                     x-show="editing"
-                    class="flex space-x-2"
+                    class="flex space-x-2 gap-2"
                     style="display: none;"
                 >
 
@@ -208,7 +198,7 @@
 
                     <x-filament::link
                         x-show="context === 'edit' && modified"
-                        x-on:click="resetModification()"
+                        x-on:click.prevent="resetModification()"
                         class="cursor-pointer ml-4"
                         icon="heroicon-o-arrow-path"
                         color="gray"
@@ -219,7 +209,7 @@
                     </x-filament::link>
 
                     <x-filament::link
-                        x-on:click="cancelModification()"
+                        x-on:click.prevent="cancelModification()"
                         class="cursor-pointer"
                         icon="heroicon-o-x-mark"
                         color="gray"

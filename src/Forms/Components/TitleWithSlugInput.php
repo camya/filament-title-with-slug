@@ -61,7 +61,7 @@ class TitleWithSlugInput
             ->disabled($titleIsReadonly)
             ->autofocus($titleAutofocus)
             ->live(true)
-            ->disableAutocomplete()
+            ->autocomplete(false)
             ->rules($titleRules)
             ->extraInputAttributes($titleExtraInputAttributes ?? ['class' => 'text-xl font-semibold'])
             ->beforeStateDehydrated(fn (TextInput $component, $state) => $component->state(trim($state)))
@@ -103,7 +103,7 @@ class TitleWithSlugInput
         }
 
         if (! $titleLabel) {
-            $textInput->disableLabel();
+            $textInput->hiddenLabel();
         }
 
         if ($titleLabel) {
@@ -122,7 +122,7 @@ class TitleWithSlugInput
             ->slugInputVisitLinkLabel($urlVisitLinkLabel)
             ->slugInputUrlVisitLinkVisible($urlVisitLinkVisible)
             ->slugInputContext(fn ($context) => $context === 'create' ? 'create' : 'edit')
-            ->slugInputRecordSlug(fn (?Model $record) => $record?->getAttributeValue($fieldSlug))
+            ->slugInputRecordSlug(fn (?Model $record) => data_get($record?->attributesToArray(), $fieldSlug))
             ->slugInputModelName(
                 fn (?Model $record) => $record
                     ? Str::of(class_basename($record))->headline()
@@ -137,7 +137,7 @@ class TitleWithSlugInput
             // Default TextInput methods
             ->readOnly($slugIsReadonly)
             ->live(true)
-            ->disableAutocomplete()
+            ->autocomplete(false)
             ->disableLabel()
             ->regex($slugRuleRegex)
             ->rules($slugRules)
