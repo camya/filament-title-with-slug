@@ -2,10 +2,12 @@
 
 namespace Camya\Filament;
 
-use Filament\PluginServiceProvider;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentTitleWithSlugServiceProvider extends PluginServiceProvider
+class FilamentTitleWithSlugServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +18,10 @@ class FilamentTitleWithSlugServiceProvider extends PluginServiceProvider
             ->hasTranslations();
     }
 
-    protected function getStyles(): array
+    public function packageBooted(): void
     {
-        return [
-            'filament-title-with-slug-styles' => __DIR__.'/../resources/dist/filament-title-with-slug.css',
-        ];
+        FilamentAsset::register([
+            Css::make('filament-title-with-slug', __DIR__.'/../resources/dist/filament-title-with-slug.css')->loadedOnRequest(),
+        ], 'filament-title-with-slug');
     }
 }

@@ -22,17 +22,17 @@ class SlugInput extends TextInput
 
     protected Closure $recordSlug;
 
-    protected bool|Closure $readonly = false;
+    protected bool|Closure $readOnly = false;
 
     protected string $labelPrefix;
 
-    protected Closure|null $visitLinkRoute = null;
+    protected ?Closure $visitLinkRoute = null;
 
     protected string|Closure|null $visitLinkLabel = null;
 
     protected bool|Closure $slugInputUrlVisitLinkVisible = true;
 
-    protected Closure|null $slugInputModelName = null;
+    protected ?Closure $slugInputModelName = null;
 
     protected string|Closure|null $slugLabelPostfix = null;
 
@@ -43,31 +43,31 @@ class SlugInput extends TextInput
         return $this;
     }
 
-    public function getSlugInputUrlVisitLinkVisible(): string|null
+    public function getSlugInputUrlVisitLinkVisible(): ?string
     {
         return $this->evaluate($this->slugInputUrlVisitLinkVisible);
     }
 
-    public function slugInputModelName(Closure|null $slugInputModelName): static
+    public function slugInputModelName(?Closure $slugInputModelName): static
     {
         $this->slugInputModelName = $slugInputModelName;
 
         return $this;
     }
 
-    public function getSlugInputModelName(): string|null
+    public function getSlugInputModelName(): ?string
     {
         return $this->evaluate($this->slugInputModelName);
     }
 
-    public function slugInputVisitLinkRoute(Closure|null $visitLinkRoute): static
+    public function slugInputVisitLinkRoute(?Closure $visitLinkRoute): static
     {
         $this->visitLinkRoute = $visitLinkRoute;
 
         return $this;
     }
 
-    public function getVisitLinkRoute(): string|null
+    public function getVisitLinkRoute(): ?string
     {
         return $this->evaluate($this->visitLinkRoute);
     }
@@ -90,7 +90,7 @@ class SlugInput extends TextInput
         return $label ?: trans('filament-title-with-slug::package.permalink_label_link_visit').' '.$this->getSlugInputModelName();
     }
 
-    public function slugInputLabelPrefix(string|null $labelPrefix): static
+    public function slugInputLabelPrefix(?string $labelPrefix): static
     {
         $this->labelPrefix = $labelPrefix ?? trans('filament-title-with-slug::package.permalink_label');
 
@@ -102,16 +102,16 @@ class SlugInput extends TextInput
         return $this->evaluate($this->labelPrefix);
     }
 
-    public function readonly(bool|Closure $readonly): static
+    public function readOnly(bool|Closure $condition = true): static
     {
-        $this->readonly = $readonly;
+        $this->readOnly = $condition;
 
         return $this;
     }
 
-    public function getReadonly(): string
+    public function getReadOnly(): string
     {
-        return $this->evaluate($this->readonly);
+        return $this->evaluate($this->readOnly);
     }
 
     public function slugInputContext(string|Closure|null $context): static
@@ -133,7 +133,7 @@ class SlugInput extends TextInput
         return $this;
     }
 
-    public function getSlugLabelPostfix(): string|null
+    public function getSlugLabelPostfix(): ?string
     {
         return $this->evaluate($this->slugLabelPostfix);
     }

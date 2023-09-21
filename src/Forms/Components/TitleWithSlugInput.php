@@ -7,6 +7,8 @@ use Closure;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -15,40 +17,40 @@ class TitleWithSlugInput
     public static function make(
 
         // Model fields
-        string|null $fieldTitle = null,
-        string|null $fieldSlug = null,
+        string $fieldTitle = null,
+        string $fieldSlug = null,
 
         // Url
         string|Closure|null $urlPath = '/',
-        string|Closure|null $urlHost = null,
+        string|Closure $urlHost = null,
         bool $urlHostVisible = true,
         bool|Closure $urlVisitLinkVisible = true,
-        null|Closure|string $urlVisitLinkLabel = null,
-        null|Closure $urlVisitLinkRoute = null,
+        Closure|string $urlVisitLinkLabel = null,
+        Closure $urlVisitLinkRoute = null,
 
         // Title
-        string|Closure|null $titleLabel = null,
-        string|null $titlePlaceholder = null,
-        array|Closure|null $titleExtraInputAttributes = null,
+        string|Closure $titleLabel = null,
+        string $titlePlaceholder = null,
+        array|Closure $titleExtraInputAttributes = null,
         array $titleRules = [
             'required',
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
         bool|Closure $titleAutofocus = true,
-        null|Closure $titleAfterStateUpdated = null,
+        Closure $titleAfterStateUpdated = null,
 
         // Slug
-        string|null $slugLabel = null,
+        string $slugLabel = null,
         array $slugRules = [
             'required',
         ],
         array $slugRuleUniqueParameters = [],
         bool|Closure $slugIsReadonly = false,
-        null|Closure $slugAfterStateUpdated = null,
-        null|Closure $slugSlugifier = null,
+        Closure $slugAfterStateUpdated = null,
+        Closure $slugSlugifier = null,
         string|Closure|null $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
-        string|Closure|null $slugLabelPostfix = null,
+        string|Closure $slugLabelPostfix = null,
     ): Group {
         $fieldTitle = $fieldTitle ?? config('filament-title-with-slug.field_title');
         $fieldSlug = $fieldSlug ?? config('filament-title-with-slug.field_slug');
@@ -58,16 +60,16 @@ class TitleWithSlugInput
         $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
             ->autofocus($titleAutofocus)
-            ->reactive()
-            ->disableAutocomplete()
+            ->live(true)
+            ->autocomplete(false)
             ->rules($titleRules)
             ->extraInputAttributes($titleExtraInputAttributes ?? ['class' => 'text-xl font-semibold'])
             ->beforeStateDehydrated(fn (TextInput $component, $state) => $component->state(trim($state)))
             ->afterStateUpdated(
                 function (
                     $state,
-                    Closure $set,
-                    Closure $get,
+                    Set $set,
+                    Get $get,
                     string $context,
                     ?Model $record,
                     TextInput $component
@@ -101,7 +103,7 @@ class TitleWithSlugInput
         }
 
         if (! $titleLabel) {
-            $textInput->disableLabel();
+            $textInput->hiddenLabel();
         }
 
         if ($titleLabel) {
@@ -120,7 +122,7 @@ class TitleWithSlugInput
             ->slugInputVisitLinkLabel($urlVisitLinkLabel)
             ->slugInputUrlVisitLinkVisible($urlVisitLinkVisible)
             ->slugInputContext(fn ($context) => $context === 'create' ? 'create' : 'edit')
-            ->slugInputRecordSlug(fn (?Model $record) => $record?->getAttributeValue($fieldSlug))
+            ->slugInputRecordSlug(fn (?Model $record) => data_get($record?->attributesToArray(), $fieldSlug))
             ->slugInputModelName(
                 fn (?Model $record) => $record
                     ? Str::of(class_basename($record))->headline()
@@ -133,17 +135,17 @@ class TitleWithSlugInput
             ->slugInputSlugLabelPostfix($slugLabelPostfix)
 
             // Default TextInput methods
-            ->readonly($slugIsReadonly)
-            ->reactive()
-            ->disableAutocomplete()
+            ->readOnly($slugIsReadonly)
+            ->live(true)
+            ->autocomplete(false)
             ->disableLabel()
             ->regex($slugRuleRegex)
             ->rules($slugRules)
             ->afterStateUpdated(
                 function (
                     $state,
-                    Closure $set,
-                    Closure $get,
+                    Set $set,
+                    Get $get,
                     TextInput $component
                 ) use (
                     $slugSlugifier,
@@ -188,7 +190,7 @@ class TitleWithSlugInput
     }
 
     /** Fallback slugifier, over-writable with slugSlugifier parameter. */
-    protected static function slugify(Closure|null $slugifier, string|null $text): string
+    protected static function slugify(?Closure $slugifier, ?string $text): string
     {
         if (is_null($text) || ! trim($text)) {
             return '';
