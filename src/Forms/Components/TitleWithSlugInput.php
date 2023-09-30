@@ -133,6 +133,7 @@ class TitleWithSlugInput
             ->slugInputSlugLabelPostfix($slugLabelPostfix)
 
             // Default TextInput methods
+            ->formatStateUsing(fn($state, Get $get) => filled($state) ? trim($state) : self::slugify($slugSlugifier, $get($fieldTitle))) // handle if there was no slug maybe in edit or something.
             ->readonly($slugIsReadonly)
             ->reactive()
             ->disableAutocomplete()
